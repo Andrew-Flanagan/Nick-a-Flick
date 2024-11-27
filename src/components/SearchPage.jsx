@@ -220,7 +220,7 @@ const SearchPage = () => {
           <Box>
             {searchResults.map((result) => (
               <Box key={result.id} sx={{ display: 'flex', alignItems: 'center', gap: 1, marginTop: "15px"}}>
-                <img src={`https://image.tmdb.org/t/p/w200${result.poster_path}`} alt={`${result.title} Poster`} onClick={() => handleOpen(result)} style={{ cursor: 'pointer' }} />
+                <img className="movie-poster" src={`https://image.tmdb.org/t/p/w200${result.poster_path}`} alt={`${result.title} Poster`} onClick={() => handleOpen(result)} style={{ cursor: 'pointer' }} />
                 <Box>
                   <Typography variant="h5" gutterBottom fontWeight="bold" fontStyle="italic">
                     <span className="movie-link" onClick={() => handleOpen(result)}>

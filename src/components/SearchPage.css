@@ -2,10 +2,23 @@
     color: blue;
     text-decoration: underline;
     cursor: pointer;
+    &:hover {
+        color: rgb(36, 0, 197);
+    };
 }
 
 .movie-text {
-    color: black;
+    color: rgb(41, 1, 161);
     font-size: 1.25rem;
     font-weight: bold;
+
+}
+
+.movie-poster{
+    &:hover {
+        border: #e2e2e2 solid 4px;
+        border-radius: 5px;
+        border-color:#f0f0f0;
+        transform: scale(1.05);
+    }
 }
