@@ -1,8 +1,6 @@
-import { Box, Button, ButtonGroup, Container, TextField, Typography, InputLabel, MenuItem, FormControl, Select, Menu, Modal } from "@mui/material";
+import { Box, Button, ButtonGroup, Container, TextField, Typography, InputLabel, MenuItem, FormControl, Select } from "@mui/material";
 import TableRowsRoundedIcon from '@mui/icons-material/TableRowsRounded';
 import ArtTrackRoundedIcon from '@mui/icons-material/ArtTrackRounded';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { useState, useEffect } from "react";
 import PaginationControls from "./PaginationControls.jsx"; // Adjust path as needed
 import MovieModal from "./MovieModal.jsx"; // 
@@ -10,7 +8,6 @@ import movieList from '../movie_data.json';
 import genres from '../genres.json';
 import Fuse from "fuse.js";
 import "./SearchPage.css";
-import { Movie } from "@mui/icons-material";
 
 
 

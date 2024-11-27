@@ -7,7 +7,7 @@ const TMDB_API_KEY = process.env.TMDB_API_KEY;
 
 
 const fetchMovies = async () => {
-  const movieList = fs.readFileSync("../../list_of_movies.txt").toString().split("\n");
+  const movieList = fs.readFileSync("../../../list_of_movies.txt").toString().split("\n");
   // console.log(movieList);
   for (const movie of movieList) {
     const response = await axios.get(
