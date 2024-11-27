@@ -15,12 +15,7 @@ import { Movie } from "@mui/icons-material";
 
 
 //to do:
-// search by actor
-// pages
-// filter by genre
-// sort by year or title
 // include run time
-// movie page when you click on a title name in list/image view
 
 const SearchPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -130,7 +125,7 @@ const SearchPage = () => {
   }
 
   return (
-    <Box sx={{ backgroundColor: "#FEE440", color: "#1A1A1D", py: 8, overflowY: "scroll"}}>
+    <Box sx={{ backgroundColor: "#FEE440", color: "#1A1A1D", py: 8, overflowY: "scroll", minHeight: "100vh"}}>
       <Container maxWidth="lg">
         <Typography variant="h2" align="center" gutterBottom fontWeight="bold" fontFamily="Press Start 2P">
           Search for movies
@@ -233,10 +228,10 @@ const SearchPage = () => {
                     </span>
                   </Typography>
                   <Typography variant="body1" gutterBottom>
-                    Release Date: {result.release_date.substring(0, 4)}
+                    <strong>Release Date: </strong>{result.release_date.substring(0, 4)}
                   </Typography>
                   <Typography variant="body1" gutterBottom>
-                    Genre: {result.genre_ids.map((genreId) => genres.find(g => g.id === genreId).name).join(", ")}
+                    <strong>Genre: </strong>{result.genre_ids.map((genreId) => genres.find(g => g.id === genreId).name).join(", ")}
                   </Typography>
                   <Typography variant="body1" gutterBottom>
                     {result.overview}
@@ -244,7 +239,7 @@ const SearchPage = () => {
                 </Box>
               </Box>
             ))}
-             <PaginationControls
+            {searchResults.length === 0 ? (<Typography variant="h6" align="center" gutterBottom>No results found</Typography>) : <PaginationControls
               page={page}
               totalResults={totalResults}
               numResults={numResults}
@@ -252,7 +247,8 @@ const SearchPage = () => {
               nextPage={nextPage}
               genre={genre}
               genres={genres}
-            />
+            />}
+             
           </Box>
         )}
         <MovieModal movie={selectedMovie} open={open} onClose={handleClose} />

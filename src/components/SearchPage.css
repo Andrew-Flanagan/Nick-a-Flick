@@ -3,3 +3,9 @@
     text-decoration: underline;
     cursor: pointer;
 }
+
+.movie-text {
+    color: black;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
