@@ -239,7 +239,7 @@ const SearchPage = () => {
                 </Box>
               </Box>
             ))}
-            {searchResults.length === 0 ? (<Typography variant="h6" align="center" gutterBottom>No results found</Typography>) : <PaginationControls
+            {searchResults.length === 0 ? (<Typography variant="h6" align="center" gutterBottom>No results found.</Typography>) : <PaginationControls
               page={page}
               totalResults={totalResults}
               numResults={numResults}

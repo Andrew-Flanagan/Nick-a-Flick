@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { AppBar, Toolbar, Button, Box } from "@mui/material";
 import HomePage from './components/HomePage.jsx';
 import SearchPage from './components/SearchPage.jsx';
+import ContactPage from './components/ContactPage.jsx';
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<HomePage />} />
             <Route path="/search" element={<SearchPage />} />
-            <Route path="/contact" element={<div>Contact Page</div>} />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </Box>
       </Box>
