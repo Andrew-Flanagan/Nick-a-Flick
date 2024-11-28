@@ -2,10 +2,10 @@ import { Box, Button, ButtonGroup, Container, TextField, Typography, InputLabel,
 import TableRowsRoundedIcon from '@mui/icons-material/TableRowsRounded';
 import ArtTrackRoundedIcon from '@mui/icons-material/ArtTrackRounded';
 import { useState, useEffect } from "react";
-import PaginationControls from "./PaginationControls.jsx"; // Adjust path as needed
-import MovieModal from "./MovieModal.jsx"; // 
-import movieList from '../movie_data.json';
-import genres from '../genres.json';
+import PaginationControls from "../../components/PaginationControls/PaginationControls.jsx"; // Adjust path as needed
+import MovieModal from "../../components/MovieModal/MovieModal.jsx"; // 
+import movieList from '../../data/movie_data.json';
+import genres from '../../data/genres.json';
 import Fuse from "fuse.js";
 import "./SearchPage.css";
 

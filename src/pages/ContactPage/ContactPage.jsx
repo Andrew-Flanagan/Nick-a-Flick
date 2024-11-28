@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography, Button, Container } from "@mui/material";
 import { Link } from "react-router-dom";
-import './styles/global.css';
+import '../../styles/global.css';
 
 
 const ContactPage = () => {

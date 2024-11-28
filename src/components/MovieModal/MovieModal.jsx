@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal, Box, Typography, Button } from "@mui/material";
-import genres from "../genres.json";
+import genres from "../../data/genres.json";
 import CloseIcon from '@mui/icons-material/Close';
 import "./MovieModal.css";
 

@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { AppBar, Toolbar, Button, Box } from "@mui/material";
-import HomePage from './components/HomePage.jsx';
-import SearchPage from './components/SearchPage.jsx';
-import ContactPage from './components/ContactPage.jsx';
+import HomePage from './pages/HomePage/HomePage.jsx';
+import SearchPage from './pages/SearchPage/SearchPage.jsx';
+import ContactPage from './pages/ContactPage/ContactPage.jsx';
 
 function App() {
   return (
