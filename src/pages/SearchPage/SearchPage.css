@@ -18,7 +18,7 @@
     &:hover {
         border: #e2e2e2 solid 4px;
         border-radius: 5px;
-        border-color:#f0f0f0;
+        border-color:#1976d2;
         transform: scale(1.05);
     }
 }

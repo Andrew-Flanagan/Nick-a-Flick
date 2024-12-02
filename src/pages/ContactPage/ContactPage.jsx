@@ -14,7 +14,8 @@ const ContactPage = () => {
         event.preventDefault();
         console.log(name, email, message);
         setSubmitted(true);
-        
+
+
     }
 
 
@@ -53,7 +54,7 @@ const ContactPage = () => {
                     fullWidth
                     label="Message"
                     multiline
-                    slotProps={{ htmlInput: { maxLength: 1000 } }}
+                    slotProps={{ htmlInput: { maxLength: 850 } }}
                     sx={{margin: "auto", mt: 1, '& .MuiInputBase-root': {
                         height: "30vh", alignItems: "flex-start", textOverflow: "ellipsis", overflow: 'scroll', flexGrow: 1}}}
                     required
