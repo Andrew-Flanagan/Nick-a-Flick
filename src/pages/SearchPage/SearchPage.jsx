@@ -33,15 +33,18 @@ import {
   
     const handleSearchChange = (event) => {
       dispatch({ type: "SET_SEARCH_TERM", payload: event.target.value });
+      dispatch({ type: "SET_PAGE", payload: 1 });
     };
   
     const handleGenreChange = (event) => {
       dispatch({ type: "SET_GENRE", payload: event.target.value });
+      dispatch({ type: "SET_PAGE", payload: 1 });
     };
   
     const handleSortChange = (event) => {
       const [criteria, order] = event.target.value.split(" ");
       dispatch({ type: "SET_SORT", payload: { criteria, order } });
+      dispatch({ type: "SET_PAGE", payload: 1 });
     };
   
     const handlePageChange = (newPage) => {
