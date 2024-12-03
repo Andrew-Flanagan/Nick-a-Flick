@@ -2,16 +2,28 @@ import React from "react";
 import { Modal, Box, Typography, Button } from "@mui/material";
 import genres from "../../data/genres.json";
 import CloseIcon from '@mui/icons-material/Close';
+import { useNavigate, Route } from "react-router-dom";
+import ContactPage from "../../pages/ContactPage/ContactPage";
 import "./MovieModal.css";
 
 const MovieModal = ({ movie, open, onClose }) => {
+  const navigate = useNavigate();
+
+
+
   if (!movie) return null;
+
+
+  const routeChange = (movieTitle) =>{
+    let path = `/contact`;
+    navigate(path, {state: {movie: movieTitle}});
+  }
 
   return (
     <Modal open={open} onClose={onClose}>
       <Box className="movie-modal">
         <Typography variant="h4" gutterBottom className="movie-modal-h1">
-          {movie.original_title}
+          {movie.title}
         </Typography>
         <Box
           component="img"
@@ -23,7 +35,7 @@ const MovieModal = ({ movie, open, onClose }) => {
             <CloseIcon sx={{ fontSize: 28, color: '#333' }} />
         </Box>
         <Box sx={{display: "flex", flexDirection: "column"}}>
-            <Button className="rent-button">Request Rental</Button>
+            <Button className="rent-button" onClick={() => {routeChange(movie.title)}}>Request Rental</Button>
         </Box>
         <Typography variant="body1" mt={2}>
           <strong>Overview:</strong> {movie.overview}

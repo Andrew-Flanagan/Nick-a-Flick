@@ -1,21 +1,29 @@
 import React from "react";
-import { Box, Typography, Button, Container, TextField } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Box, Typography, Button, Container, TextField, FormControl, InputLabel, Select, MenuItem } from "@mui/material";
+import { useLocation } from "react-router-dom";
 import '../../styles/global.css';
 
 
-const ContactPage = () => {
+const ContactPage = (movie) => {
     const [name, setName] = React.useState("");
     const [email, setEmail] = React.useState("");
     const [message, setMessage] = React.useState("");
     const [submitted, setSubmitted] = React.useState(false);
+    // const [request, setRequest] = React.useState("General Inquiry");
+
+    const location = useLocation();
 
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log(name, email, message);
         setSubmitted(true);
+    }
 
-
+    const populateMovie = () => {
+        if (location.state) {
+            return "Hi Chad, I would like to rent " + location.state.movie + ".";
+        }
+        return message;
     }
 
 
@@ -29,6 +37,18 @@ const ContactPage = () => {
                     Have a question? Reach out to the Chad!
                 </Typography>
                 <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
+                    {/* <FormControl sx={{display: "inline-block", marginRight: "16px"}} fullWidth>
+                        <InputLabel>Request</InputLabel>
+                        <Select
+                          label="Request"
+                          value={request}
+                          fullWidth
+                          onChange={(event) => { setRequest(event.target.value)}}
+                        >
+                          <MenuItem value={"General Request"}>General Inquiry</MenuItem>
+                          <MenuItem value={"Rental Request"}>Rental Request</MenuItem>
+                        </Select>
+                    </FormControl> */}
                     <TextField 
                         fullWidth 
                         label="Name"
@@ -59,7 +79,7 @@ const ContactPage = () => {
                         height: "30vh", alignItems: "flex-start", textOverflow: "ellipsis", overflow: 'scroll', flexGrow: 1}}}
                     required
                     onChange={(event) => setMessage(event.target.value)}
-                    value={message}
+                    value={populateMovie()}
                     error={message.length === 0 && submitted}
                 >
                 </TextField>
