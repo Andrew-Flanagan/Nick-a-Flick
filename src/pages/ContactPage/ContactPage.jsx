@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from "react";
-import { Box, Typography, Button, Container, TextField, FormControl, InputLabel, Select, MenuItem } from "@mui/material";
+import { Box, Typography, Button, Container, TextField } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import '../../styles/global.css';
 import emailjs from '@emailjs/browser';
-// import env from "react-dotenv";
 
 const ContactPage = () => {
     const [name, setName] = useState("");

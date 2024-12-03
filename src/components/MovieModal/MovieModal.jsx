@@ -2,8 +2,7 @@ import React from "react";
 import { Modal, Box, Typography, Button } from "@mui/material";
 import genres from "../../data/genres.json";
 import CloseIcon from '@mui/icons-material/Close';
-import { useNavigate, Route } from "react-router-dom";
-import ContactPage from "../../pages/ContactPage/ContactPage";
+import { useNavigate } from "react-router-dom";
 import "./MovieModal.css";
 
 const MovieModal = ({ movie, open, onClose }) => {

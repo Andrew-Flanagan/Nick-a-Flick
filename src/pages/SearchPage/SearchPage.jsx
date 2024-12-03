@@ -10,7 +10,6 @@ import Fuse from "fuse.js";
 import "./SearchPage.css";
 
 
-
 //to do:
 // include run time
 
@@ -28,6 +27,7 @@ const SearchPage = () => {
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
+  
   const filterMovies = () => {
     const filteredMovieList = movieList.filter((result) => result.genre_ids.includes(genre) || genre === "All");
     if (searchTerm.trim() === "") {
@@ -51,6 +51,7 @@ const SearchPage = () => {
   
   useEffect(() => {
     filterMovies();
+    window.scrollTo(0, 0);
   }, [searchTerm, page, numResults, genre]);
 
 
@@ -81,6 +82,7 @@ const SearchPage = () => {
       }
       return 0;
     });
+    setPage(1);
     setSearchResults(sortedResults.slice(0, numResults));
     setTotalResults(sortedResults);
     setSortBy(`${criteria} ${order}`);
