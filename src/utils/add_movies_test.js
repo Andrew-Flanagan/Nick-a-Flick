@@ -2,12 +2,14 @@ import axios from "axios";
 import fs from 'fs'
 import dotenv from 'dotenv'
 
-dotenv.config(); 
-const TMDB_API_KEY = process.env.TMDB_API_KEY;
+dotenv.config({ path: "../../.env" }); 
+const TMDB_API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
 
 const fetchMovies = async () => {
-  const movieList = fs.readFileSync("../../../list_of_movies.txt").toString().split("\n");
+  const input_file = "../data/sorted_list_of_movies.txt";
+  const output_file = "../data/movie_data_new.json";
+  const movieList = fs.readFileSync(input_file).toString().split("\n");
   // console.log(movieList);
   for (const movie of movieList) {
     const response = await axios.get(
@@ -21,16 +23,15 @@ const fetchMovies = async () => {
     );
 
     if (response.data.results.length > 0) {
-      // console.log(response.data.results[0]);
       const movieData = response.data.results[0];
 
-      if (!fs.existsSync("movie_data.json")) {
-        fs.writeFileSync("movie_data.json", "[\n");
+      if (!fs.existsSync(output_file)) {
+        fs.writeFileSync(output_file, "[\n");
       }
-      fs.appendFileSync("movie_data.json", JSON.stringify(movieData) + ",\n");
+      fs.appendFileSync(output_file, JSON.stringify(movieData) + ",\n");
     }
   }
-  fs.appendFileSync("movie_data.json", "]");
+  fs.appendFileSync(output_file, "]");
 };
 
 fetchMovies();

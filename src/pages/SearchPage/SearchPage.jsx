@@ -16,7 +16,7 @@ import {
   import PaginationControls from "../../components/PaginationControls/PaginationControls.jsx"; // Adjust path as needed
   import MovieModal from "../../components/MovieModal/MovieModal.jsx";
   import { useMovies } from "../../hooks/useMovies"; // Assuming you separated the hook and reducer
-  import movieList from "../../data/movie_data.json";
+  import movieList from "../../data/movie_data_new.json";
   import genres from "../../data/genres.json";
   import "./SearchPage.css";
   
