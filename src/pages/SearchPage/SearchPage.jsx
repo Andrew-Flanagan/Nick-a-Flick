@@ -20,6 +20,10 @@ import {
   import movieList from "../../data/all_data.json";
   import genres from "../../data/genres.json";
   import "./SearchPage.css";
+  import Tooltip from '@mui/material/Tooltip';
+  import Grid from '@mui/material/Grid2';
+  import placeholder_poster from "../../assets/images/Nick_a_flick.jpeg";
+
   
   const SearchPage = () => {
     const {
@@ -213,51 +217,42 @@ import {
             </Box>
           ) : (
             <Box>
-              {paginatedMovies.map((result) => (
-                <Box
-                  key={result.id}
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 1,
-                    marginTop: "15px",
-                  }}
-                >
-                  <img
-                    className="movie-poster"
-                    src={`https://image.tmdb.org/t/p/w200${result.poster_path}`}
-                    alt={`${getTitle(result)} Poster`}
-                    onClick={() => handleOpen(result)}
-                    style={{ cursor: "pointer" }}
-                  />
-                  <Box>
-                    <Typography
-                      variant="h5"
-                      gutterBottom
-                      fontWeight="bold"
-                      fontStyle="italic"
+                <Grid container spacing={1.5} justifyContent="center">
+                {paginatedMovies.map((result) => (
+                  <Grid
+                    className="movie-item"
+                    size={2.4}
+                    item 
+                    key={result.id} 
+                    xs={3}   // 4 items per row on mobile (12 / 3 = 4)
+                    sm={3}   // 4 items per row on small screens
+                    md={2.4} // 5 items per row on medium screens
+                    lg={2.4} // 5 items per row on large screens (adjust for the desired width)
+                    xl={2}   // 6 items per row on extra-large screens (adjust if needed)
+                    sx={{
+                    }}
+              
+                  >
+                    <Tooltip 
+                      title={
+                        <Typography fontSize={"1.5em"} textAlign={"center"}>
+                          {getTitle(result)}
+                        </Typography>
+                      } 
+                      placement="top" 
+                      className="tool-tip"
                     >
-                      <span
-                        className="movie-link"
+                      <img
+                        className="movie-poster"
+                        src={`https://image.tmdb.org/t/p/w200${result.poster_path}`}
+                        alt={getTitle(result) + "poster"}
+                        onError={(e) => { e.target.src = placeholder_poster }}
                         onClick={() => handleOpen(result)}
-                      >
-                        {getTitle(result)}
-                      </span>
-                    </Typography>
-                    <Typography variant="body1" gutterBottom>
-                      <strong>Release Date: </strong>
-                      {getReleaseDate(result)}
-                    </Typography>
-                    <Typography variant="body1" gutterBottom>
-                      <strong>Genre: </strong>
-                      {getGenres(result)}
-                    </Typography>
-                    <Typography variant="body1" gutterBottom>
-                      {result.overview}
-                    </Typography>
-                  </Box>
-                </Box>
-              ))}
+                      />
+                    </Tooltip>
+                  </Grid>
+                ))}
+              </Grid>
               {paginatedMovies.length === 0 && (
                 <Typography variant="h6" align="center" gutterBottom>
                   No results found.
@@ -268,6 +263,7 @@ import {
                 totalResults={totalResults}
                 numResults={state.numResults}
                 onPageChange={handlePageChange}
+                style={{ marginTop: "15px" }}
               />
             </Box>
           )}

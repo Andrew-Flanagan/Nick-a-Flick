@@ -15,10 +15,20 @@
 }
 
 .movie-poster{
+    aspect-ratio: 2/3;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
     &:hover {
         border: #e2e2e2 solid 4px;
-        border-radius: 5px;
         border-color:#1976d2;
         transform: scale(1.05);
+        cursor: pointer;
     }
+}
+
+.movie-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

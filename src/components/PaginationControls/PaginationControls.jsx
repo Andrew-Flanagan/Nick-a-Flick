@@ -14,12 +14,11 @@ const PaginationControls = ({ page, totalResults, numResults, onPageChange, genr
   const handleNextPage = () => {
     if (page < totalPages) {
       onPageChange(page + 1);
-      window.scrollTo({top: 0, behavior: "smooth"});
     }
   };
 
   return (
-    <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "15px", gap: "1rem" }}>
+    <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "15px", gap: "1rem", marginTop: "15px" }}>
       <Typography variant="h6" align="center" gutterBottom>
         Page {page} of {totalPages}. {totalResults} total{" "}
         {genre ? genres.find((g) => g.id === genre)?.name.toLocaleLowerCase() : "movies and tv"}.
