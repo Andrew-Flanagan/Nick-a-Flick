@@ -16,7 +16,8 @@ import {
   import PaginationControls from "../../components/PaginationControls/PaginationControls.jsx"; // Adjust path as needed
   import MovieModal from "../../components/MovieModal/MovieModal.jsx";
   import { useMovies } from "../../hooks/useMovies"; // Assuming you separated the hook and reducer
-  import movieList from "../../data/movie_data.json";
+  import { getTitle, getGenres, getReleaseDate } from "../../helpers/movieHelpers";
+  import movieList from "../../data/all_data.json";
   import genres from "../../data/genres.json";
   import "./SearchPage.css";
   
@@ -64,24 +65,6 @@ import {
       setOpen(false);
       setSelectedMovie(null);
     };
-
-    const getReleaseDate = (movie) => {
-        if (movie.release_date === undefined) {
-            return movie.first_air_date.substring(0, 4);
-        }
-        return movie.release_date.substring(0, 4);
-    }
-
-    const getTitle = (movie) => {
-        if (movie.title === undefined) {
-            return movie.name;
-        }
-        return movie.title;
-    }
-
-    const getGenres = (movie) => {
-      return movie.genres.map((genre) => genre.name).join(", ")
-    }
 
   
     return (

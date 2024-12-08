@@ -1,40 +1,30 @@
+63085
+
 A Midsummer Nights Dream (1999)
 A Midsummer Nights Dream (2017)
 Urban Legends: Final Cut
 Afro Samurai -- NOT Afro Samurai Resurrection
-Alien³
-Automan - ask chad what this is?
-Beauty and the beast? tv show or movie
-China to the max -- ask chad
+
 Dune (1984)
 Evil Dead 2
 Fear (1996)
 Ghost in the shell (2017)
-Harry Potter and the Deathly Hollows: Part 1
-Harry Potter and the Deathly Hollows: Part 2
 Haunted Castle (2001)
 In the Name of the King (2007)
 Inferno (2016)
 Kwaidan (1965)
 Monster High: The Movie
+
 Mortal Kombat (1995)
-Night Of the Demons
 One Week (2008?)
 Point Break (1991)
-Does chad have old Rampage movie?
-Redemption (2003)
 Runner Runner (2013)
-Scarecrow (Region 2)
 It Chapter One
-Stephen King's It (1995)
-THX?
-TMNT?
 The Chronicles of Narnia: Voyage Of The Dawn Trader
 The Hills Have Eyes (1977)
 The House With A Clock In It's Walls
 The Pet Sematary 2
 W. (2008)
-Urban Legends 2
 
 
 // tv shows to add
@@ -43,12 +33,11 @@ Tales Of Everyday Magic Painting The Future
 Tales Of Everyday Magic The Magic Hand Of Chance
 The Simpons Christmas 2
 The Tom Green Show: Subway Monkey Hour
-PBS Blackbeard's Lost Ship Secrets Of The Dead
-PBS Empires The Greeks Crucible Of Civilizations
-Penn and Teller B.S.!
-History's Mysteries
-History Pirates Of the Carribean
-National Geographic Is It Real Da Vinci's Code
+PBS Blackbeard's Lost Ship Secrets Of The Dead - 15030
+PBS Empires The Greeks Crucible Of Civilizations - 70027
+Penn and Teller B.S.! - 243
+History's Mysteries - 2879
+National Geographic Is It Real Da Vinci's Code - 16115
 
 
 
@@ -65,14 +54,11 @@ Death Row 2018 with Trevor McDonald
 Deepsea Challenge 3D?
 Double?
 Family Guy Presents: Stewie Griffin: The Untold Story	
-Fear? might be Fear (1996) instead of Fear (2023)
 Ghost Story? ask chad what this is
 K.G.F: Chapter 1
 K.G.F: Chapter 2
 Kamen Rider W Returns: Kamen Rider Accel	
-KWAIDAN
 Monster High 2	
-One Week Friends
 Stranger in the Woods	?
 The Ghost and the Darkness	
 Tin Tin? -- Tin and Tina
@@ -85,3 +71,12 @@ Tommyknockers Part 2?
 
 Movies I removed from .txt Files
 Broken - ask chad
+
+Ask Chad
+Automan - ask chad what this is?
+China to the max -- ask chad
+Redemption (2003)
+Scarecrow (Region 2)
+THX?
+TMNT?
+History Pirates Of the Caribbean

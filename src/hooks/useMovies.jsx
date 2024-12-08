@@ -1,4 +1,6 @@
 import { useReducer, useMemo } from "react";
+import { getTitle, getReleaseDate } from "../helpers/movieHelpers";
+
 
 const initialState = {
   searchTerm: "",
@@ -25,20 +27,6 @@ const movieReducer = (state, action) => {
       return state;
   }
 };
-
-const getReleaseDate = (movie) => {
-  if (movie.release_date === undefined) {
-    return movie.first_air_date.substring(0, 4);
-  }
-  return movie.release_date.substring(0, 4);
-}
-
-const getTitle = (movie) => {
-  if (movie.title === undefined) {
-    return movie.name;
-  }
-  return movie.title;
-}
 
 const getGenreIds = (movie) => {
   return movie.genres.map((genre) => genre.id)

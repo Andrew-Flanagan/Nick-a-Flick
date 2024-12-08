@@ -5,6 +5,7 @@
 - Separate Movies and Television? or just make genre tag "television"
 - Gallery
 - Improve display page - just show the posters? Netflix type display that shows genres with scroll left/right buttons. Large banner with staff recommendations or something
+- Find movies from the same collection from the movie modal page or something
 
 
 # Getting Started with Create React App
