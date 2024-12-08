@@ -9,7 +9,7 @@ const TMDB_API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 const fetchData = async () => {
   const input_file = "../data/ids.txt";
   const output_file = "../data/movie_data.json";
-  const req = "https://api.themoviedb.org/3/movie/"
+  const req = "https://api.themoviedb.org/3/tv/"
   const dataList = fs.readFileSync(input_file).toString().split("\n");
 
   for (const data of dataList) {

@@ -1,48 +1,12 @@
-63085
-
-A Midsummer Nights Dream (1999)
-A Midsummer Nights Dream (2017)
-Urban Legends: Final Cut
 Afro Samurai -- NOT Afro Samurai Resurrection
 
-Dune (1984)
-Evil Dead 2
-Fear (1996)
-Ghost in the shell (2017)
-Haunted Castle (2001)
-In the Name of the King (2007)
-Inferno (2016)
-Kwaidan (1965)
 Monster High: The Movie
 
-Mortal Kombat (1995)
 One Week (2008?)
-Point Break (1991)
-Runner Runner (2013)
-It Chapter One
-The Chronicles of Narnia: Voyage Of The Dawn Trader
-The Hills Have Eyes (1977)
-The House With A Clock In It's Walls
-The Pet Sematary 2
-W. (2008)
-
 
 // tv shows to add
-Tales Of Everyday Magic Entanglement
 Tales Of Everyday Magic Painting The Future
 Tales Of Everyday Magic The Magic Hand Of Chance
-The Simpons Christmas 2
-The Tom Green Show: Subway Monkey Hour
-PBS Blackbeard's Lost Ship Secrets Of The Dead - 15030
-PBS Empires The Greeks Crucible Of Civilizations - 70027
-Penn and Teller B.S.! - 243
-History's Mysteries - 2879
-National Geographic Is It Real Da Vinci's Code - 16115
-
-
-
-
-
 
 
 Movies to Remove
@@ -67,13 +31,9 @@ Tommyknockers Part 2?
 
 
 
-
-
-Movies I removed from .txt Files
-Broken - ask chad
-
 Ask Chad
 Automan - ask chad what this is?
+Broken
 China to the max -- ask chad
 Redemption (2003)
 Scarecrow (Region 2)
