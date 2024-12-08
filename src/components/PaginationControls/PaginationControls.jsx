@@ -14,6 +14,7 @@ const PaginationControls = ({ page, totalResults, numResults, onPageChange, genr
   const handleNextPage = () => {
     if (page < totalPages) {
       onPageChange(page + 1);
+      window.scrollTo({top: 0, behavior: "smooth"});
     }
   };
 
@@ -21,7 +22,7 @@ const PaginationControls = ({ page, totalResults, numResults, onPageChange, genr
     <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "15px", gap: "1rem" }}>
       <Typography variant="h6" align="center" gutterBottom>
         Page {page} of {totalPages}. {totalResults} total{" "}
-        {genre ? genres.find((g) => g.id === genre)?.name.toLocaleLowerCase() : "movies"}.
+        {genre ? genres.find((g) => g.id === genre)?.name.toLocaleLowerCase() : "movies and tv"}.
       </Typography>
       <ButtonGroup variant="contained" aria-label="Basic button group" size="small" sx={{ height: "56px" }}>
         <Button onClick={handlePrevPage} startIcon={<ArrowBackIosIcon />} variant="contained" disabled={page === 1}>

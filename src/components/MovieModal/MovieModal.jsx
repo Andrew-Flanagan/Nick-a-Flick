@@ -4,6 +4,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { getTitle, getGenres, getReleaseDate, getRuntime } from "../../helpers/movieHelpers";
 import { useNavigate } from "react-router-dom";
 import "./MovieModal.css";
+import IMDB_img from "../../assets/images/IMDB_Logo_2016.svg";
 
 const MovieModal = ({ movie, open, onClose }) => {
   const navigate = useNavigate();
@@ -24,7 +25,6 @@ const MovieModal = ({ movie, open, onClose }) => {
         <Box
           component="img"
           src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-          
           alt={`${getTitle(movie)} Poster`}
           sx={{ width: "50%", borderRadius: 1, alignContent: "center", display: "block", marginLeft: "auto", marginRight: "auto" }}
         />
@@ -52,6 +52,14 @@ const MovieModal = ({ movie, open, onClose }) => {
         <Typography variant="body1" mt={1}>
           <strong>Rating:</strong> {movie.vote_average} / 10
         </Typography>
+
+        <Box
+          component="img"
+          src={IMDB_img}
+          alt={"IMDB Logo"}
+          sx={{ mt: 2, width: "50%", borderRadius: 1, alignContent: "center", display: "block", marginLeft: "auto", marginRight: "auto", cursor: "pointer" }}
+          onClick = {() => window.open(`https://www.imdb.com/title/${movie.imdb_id}`, "_blank")}
+          />
         
       </Box>
     </Modal>
