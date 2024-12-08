@@ -280,14 +280,14 @@ import {
                   No results found.
                 </Typography>
               )}
+              <PaginationControls
+                page={state.page}
+                totalResults={totalResults}
+                numResults={state.numResults}
+                onPageChange={handlePageChange}
+              />
             </Box>
           )}
-          <PaginationControls
-            page={state.page}
-            totalResults={totalResults}
-            numResults={state.numResults}
-            onPageChange={handlePageChange}
-          />
           <MovieModal movie={selectedMovie} open={open} onClose={handleClose} />
         </Container>
       </Box>
