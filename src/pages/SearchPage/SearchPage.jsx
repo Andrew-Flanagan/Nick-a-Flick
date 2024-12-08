@@ -50,8 +50,7 @@ import {
     };
 
     const handleDisplayChange = (e) => {
-      console.log(e.target.value);
-      dispatch({ type: "TOGGLE_DISPLAY" });
+      dispatch({ type: "TOGGLE_DISPLAY", payload: e.currentTarget.value });
     };
 
     const handleOpen = (movie) => {

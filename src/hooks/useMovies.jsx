@@ -22,7 +22,7 @@ const movieReducer = (state, action) => {
     case "SET_PAGE":
       return { ...state, page: action.payload };
     case "TOGGLE_DISPLAY":
-        return { ...state, displayAsTable: !state.displayAsTable };
+        return { ...state, displayAsTable: action.payload === "table" };
     default:
       return state;
   }
