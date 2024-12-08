@@ -40,6 +40,11 @@ const getTitle = (movie) => {
   return movie.title;
 }
 
+const getGenreIds = (movie) => {
+  return movie.genres.map((genre) => genre.id)
+}
+
+
 
 const useMovies = (movies) => {
   const [state, dispatch] = useReducer(movieReducer, initialState);
@@ -52,7 +57,7 @@ const useMovies = (movies) => {
         .includes(state.searchTerm.toLowerCase());
       const matchesGenre =
         state.genre === "All" ||
-        movie.genre_ids.includes(state.genre);
+        getGenreIds(movie).includes(state.genre);
       return matchesSearch && matchesGenre;
     });
   }, [state.searchTerm, state.genre, movies]);

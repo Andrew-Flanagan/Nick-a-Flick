@@ -18,6 +18,10 @@ const MovieModal = ({ movie, open, onClose }) => {
     navigate(path, {state: {movie: movieTitle}});
   }
 
+  const getGenres = (movie) => {
+    return movie.genres.map((genre) => genre.name).join(", ")
+  }
+
   return (
     <Modal open={open} onClose={onClose}>
       <Box className="movie-modal">
@@ -44,7 +48,7 @@ const MovieModal = ({ movie, open, onClose }) => {
         </Typography>
         <Typography variant="body1" mt={1}>
           <strong>Genres:</strong>{" "}
-          {movie.genre_ids.map((genreId) => genres.find(g => g.id === genreId).name).join(", ")}
+          {getGenres(movie)}
         </Typography>
         <Typography variant="body1" mt={1}>
           <strong>Rating:</strong> {movie.vote_average} / 10

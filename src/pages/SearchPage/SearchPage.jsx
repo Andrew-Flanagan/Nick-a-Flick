@@ -16,7 +16,7 @@ import {
   import PaginationControls from "../../components/PaginationControls/PaginationControls.jsx"; // Adjust path as needed
   import MovieModal from "../../components/MovieModal/MovieModal.jsx";
   import { useMovies } from "../../hooks/useMovies"; // Assuming you separated the hook and reducer
-  import movieList from "../../data/tv_data.json";
+  import movieList from "../../data/movie_data.json";
   import genres from "../../data/genres.json";
   import "./SearchPage.css";
   
@@ -77,6 +77,10 @@ import {
             return movie.name;
         }
         return movie.title;
+    }
+
+    const getGenres = (movie) => {
+      return movie.genres.map((genre) => genre.name).join(", ")
     }
 
   
@@ -216,9 +220,7 @@ import {
                         </span>
                       </td>
                       <td>
-                        {result.genre_ids
-                          .map((id) => genres.find((g) => g.id === id)?.name)
-                          .join(", ")}
+                        {getGenres(result)}
                       </td>
                       <td>{getReleaseDate(result)}</td>
                     </tr>
@@ -265,9 +267,7 @@ import {
                     </Typography>
                     <Typography variant="body1" gutterBottom>
                       <strong>Genre: </strong>
-                      {result.genre_ids
-                        .map((id) => genres.find((g) => g.id === id)?.name)
-                        .join(", ")}
+                      {getGenres(result)}
                     </Typography>
                     <Typography variant="body1" gutterBottom>
                       {result.overview}
@@ -282,6 +282,12 @@ import {
               )}
             </Box>
           )}
+          <PaginationControls
+            page={state.page}
+            totalResults={totalResults}
+            numResults={state.numResults}
+            onPageChange={handlePageChange}
+          />
           <MovieModal movie={selectedMovie} open={open} onClose={handleClose} />
         </Container>
       </Box>
