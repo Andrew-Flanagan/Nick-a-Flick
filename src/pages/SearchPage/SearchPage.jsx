@@ -16,7 +16,7 @@ import {
   import PaginationControls from "../../components/PaginationControls/PaginationControls.jsx"; // Adjust path as needed
   import MovieModal from "../../components/MovieModal/MovieModal.jsx";
   import { useMovies } from "../../hooks/useMovies"; // Assuming you separated the hook and reducer
-  import movieList from "../../data/movie_data_new.json";
+  import movieList from "../../data/tv_data.json";
   import genres from "../../data/genres.json";
   import "./SearchPage.css";
   
@@ -64,6 +64,21 @@ import {
       setOpen(false);
       setSelectedMovie(null);
     };
+
+    const getReleaseDate = (movie) => {
+        if (movie.release_date === undefined) {
+            return movie.first_air_date.substring(0, 4);
+        }
+        return movie.release_date.substring(0, 4);
+    }
+
+    const getTitle = (movie) => {
+        if (movie.title === undefined) {
+            return movie.name;
+        }
+        return movie.title;
+    }
+
   
     return (
       <Box
@@ -83,7 +98,7 @@ import {
             fontWeight="bold"
             fontFamily="Press Start 2P"
           >
-            Search for movies
+            Search for movies and television
           </Typography>
           <Box
             sx={{
@@ -197,7 +212,7 @@ import {
                           className="movie-link"
                           onClick={() => handleOpen(result)}
                         >
-                          {result.title}
+                          {getTitle(result)}
                         </span>
                       </td>
                       <td>
@@ -205,7 +220,7 @@ import {
                           .map((id) => genres.find((g) => g.id === id)?.name)
                           .join(", ")}
                       </td>
-                      <td>{result.release_date.substring(0, 4)}</td>
+                      <td>{getReleaseDate(result)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -226,7 +241,7 @@ import {
                   <img
                     className="movie-poster"
                     src={`https://image.tmdb.org/t/p/w200${result.poster_path}`}
-                    alt={`${result.title} Poster`}
+                    alt={`${getTitle(result)} Poster`}
                     onClick={() => handleOpen(result)}
                     style={{ cursor: "pointer" }}
                   />
@@ -241,12 +256,12 @@ import {
                         className="movie-link"
                         onClick={() => handleOpen(result)}
                       >
-                        {result.title}
+                        {getTitle(result)}
                       </span>
                     </Typography>
                     <Typography variant="body1" gutterBottom>
                       <strong>Release Date: </strong>
-                      {result.release_date.substring(0, 4)}
+                      {getReleaseDate(result)}
                     </Typography>
                     <Typography variant="body1" gutterBottom>
                       <strong>Genre: </strong>

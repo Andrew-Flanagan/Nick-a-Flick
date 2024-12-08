@@ -573,10 +573,8 @@ Open Season
 Outlander
 Over The Garden Wall
 Oz The Great and Powerful
-PBS Blackbeard's Lost Ship Secrets Of The Dead
-PBS Empires The Greeks Crucible Of Civilizations
 Pacific Rim
-Pacific Rim Uprising
+Pacific Rim: Uprising
 Package
 Pan
 Pan's Labyrinth
@@ -585,25 +583,22 @@ Panic Room
 Paris, Je T'aime
 Passengers
 Patient Zero
-Penn and Teller B.S.!
 Penny Dreadful
 Percy Jackson Sea of Monsters
 Perfect Sense
-Perriers Bounty
+Perrier's Bounty
 Personal Effects
 Phonebooth
 Pig
-Pirates of the Carribean At World's End
-Pirates of the Carribean Dead Man's Chest
-Pirates of the Carribean On STranger Tides
-Pirates of the Carribean Salazar's Revenge
-Pirates of the Carribean the Curse of the Black Pearl
-Pirates: Band Of Misfits
+Pirates of the Caribbean: At World's End
+Pirates of the Caribbean: Dead Man's Chest
+Pirates of the Caribbean: On Stranger Tides
+Pirates of the Caribbean: Salazar's Revenge
+Pirates of the Caribbean: the Curse of the Black Pearl
+The Pirates! In an Adventure with Scientists!
 Platoon
 Play Mandolin Today!
 Point Break
-Point Break (2015)
-Poltergeist: The Legacy
 Possum
 Power Rangers
 Predator
@@ -617,7 +612,6 @@ Pulse
 Puss In Boots
 Raising Cain
 Rampage
-Rampage 3D
 Ready Or Not
 Ready Player One
 Reboot
@@ -625,26 +619,25 @@ Rebound
 Red Eye
 Redacted
 Redbelt
-Redemption 2003
 Reign Of Fire
 Remember Me
 Reminiscence
 Rent
-Rent Filmed Live On Broadway
-Resident Evil Extinction
-Resident Evil Welcome to Raccoon City
+Rent: Filmed Live On Broadway
+Resident Evil: Extinction
+Resident Evil: Welcome to Raccoon City
 Resident Evil: Damnation
 Resident Evil: Death Island
 Resident Evil: Degeneration
 Resident Evil: Vendetta
-Return of the living dead part II 
+Return of the Living Dead Part II 
 Revenge of the Pink Panther
 Rich and Strange
 Rise Of The Guardians
 Rising Sun
 Robin Hood
 Robin Hood: Prince Of Thieves
-Robocop
+RoboCop
 Rock N' Rolla
 Rock Star
 Roger Dodger
@@ -653,12 +646,11 @@ Romeo And Juliet
 Romper Stomper
 Rounders
 Run Lola Run
-Runner Runner
 Running Scared
 S1mone
 Sabotage
 Safe Haven
-Safety Not Guranteed
+Safety Not Guaranteed
 Sanctum
 Saving Private Ryan
 Saw
@@ -668,13 +660,12 @@ Saw III
 Saw IV
 Saw V
 Saw VI
-Scarecrow (Region 2)
+Scarecrow
 Scary Movie
 Scary Movie 2
-Scary Movie 3.5
+Scary Movie 3
 Scary Movie 4
 Scary Stories To Tell In The Dark
-Science of the Bible
 Scool for Scoundrels
 Scott Pilgrim vs. The World
 Scouts Guide to the Zombie Apocalypse
@@ -686,8 +677,7 @@ Secret Agent
 Secret Window
 Serendipity
 Session 9
-Sex and the City Essentials: Lust
-Shakira: Oral Fixation
+Shakira: Oral Fixation Tour
 Shanghai Kiss
 Shaun Of The Dead
 Sherlock Holmes
@@ -699,7 +689,7 @@ Shrek The Third
 Shutter
 Sideways
 Silent Hill
-Silent Hill: revelation
+Silent Hill: Revelation
 Sin City
 Sin City: A Dame To Kill For
 Sing
@@ -707,9 +697,8 @@ Sinister
 Sleepers
 Sleepy Hollow
 Slender Man
-Sliders
 Smallville
-Snake Eyes GI Joe Origins
+Snake Eyes: G.I. Joe Origins
 Snatch
 Sniper
 Sniper 2
@@ -720,7 +709,7 @@ Sniper: Legacy
 Sniper: Reloaded
 Snow White And the Huntsman
 Solace
-Solo: Star Wars
+Solo: A Star Wars Story
 Southland Tales
 Spartan
 Spawn
@@ -729,7 +718,7 @@ Sphere
 Spider-Man
 Spider-Man 2
 Spider-Man 3
-Spider-Man Into the Spiderverse
+Spider-Man: Into the Spiderverse
 Spider-Man: Homecoming
 Spiral
 Spring Breakers
@@ -738,45 +727,42 @@ Star Trek: Evolutions
 Star Trek: First Contact
 Star Trek: Generations
 Star Trek: Insurrection
-Star Trek: Into Darkness
+Star Trek Into Darkness
 Star Trek: Nemesis
-Star Wars Holiday Special
-Star Wars: A New Hope
-Star Wars: Return Of The Jedi
-Star Wars: The Empire Strikes Back
+The Star Wars Holiday Special
+Star Wars
+Return Of The Jedi
+The Empire Strikes Back
 Star Wars: The Force Awakens
 Star Wars: The Last Jedi
 Stardust
 Starship Troopers
 Starship Troopers: Invasion
-Starship Troopers: Traitors Of Mars
+Starship Troopers: Traitor of Mars
 Stateside
 Static
 Stay
 Stay Alive
 Step Brothers
 Step Up
-Step Up 2 The Streets
+Step Up 2: The Streets
 Step Up 3D
-Step Up 5: All In
+Step Up All In
 Step Up Revolution
-Stephen King's It (1995)
 Stir of Echoes
 Stop-Loss
-Street Fighter: Assassin's Fist
+Street Fighter: Assassin's Fist The Movie
 Street Fighter: The Legend Of Chun-Li
 Street Kings
 Sucker Punch
 Suicide Squad
 Summer Catch
-Supernatural
-Supernatural: The Anime Series
 Supernova
 Surf Ninjas
 Swimfan
 Swingers
 Swiss Army Man
-T2: Trainspotting
+T2 Trainspotting
 THX
 TMNT
 Tag
@@ -787,10 +773,7 @@ Taking Lives
 Tales From The Crypt
 Tales From The Crypt Presents: Demon Knight
 Tales From The Darkside
-Tales Of Everyday Magic Entanglement
-Tales Of Everyday Magic Painting The Future
-Tales Of Everyday Magic The Magic Hand Of Chance
-Team America World Police
+Team America: World Police
 Teenage Mutant Ninja Turtles
 Teenage Mutant Ninja Turtles: Out Of The Shadows
 Tekken 2: Kazuya's Revenge
@@ -805,9 +788,9 @@ The Air I Breathe
 The Alkalarian Guide To Natural Foods Shopping
 The Amazing Spider-Man
 The Amazing Spider-Man 2
-The Angry Video Game Nerd X
+The Angry Video Game Nerd: The Movie
 The Art of War
-The Banana Split Movie
+The Banana Splits Movie
 The Believer
 The Best Of Me
 The Big Empty
@@ -815,7 +798,7 @@ The Big Lebowski
 The Bodyguard
 The Book of Eli
 The Boondock Saints
-The Boondock Saints 2: All Saints Day
+The Boondock Saints II: All Saints Day
 The Bourne Identity
 The Boxtrolls
 The Brothers Grimsby
@@ -826,17 +809,16 @@ The Campaign
 The Choice
 The Chronicles Of Riddick
 The Chronicles of Narnia: Voyage Of The Dawn Trader
-The Cleveland Show
 The Condemned
 The Conjuring 3: The Devil Made Me Do It
 The Constant Gardener
-The Corpse Bride
+Corpse Bride
 The Counterfeiters
 The Craft
 The Craft Legacy
 The Crazies
 The Crow
-The Crow City of Angels
+The Crow: City of Angels
 The Curve
 The Cutting Edge
 The Da Vinci Code
@@ -845,7 +827,7 @@ The Dark Knight Rises
 The Dead Zone
 The Departed
 The Devil Wears Prada
-The Devils Advocate
+The Devil's Advocate
 The Dust Factory
 The English Patient
 The Equalizer 2
@@ -853,7 +835,7 @@ The Evil Dead
 The Exorcism Of Emily Rose
 The Expendables
 The Expendables 2
-The Fabric of Time
+Fabric of Time
 The Faculty
 The Family
 The Fast And The Furious
@@ -865,7 +847,7 @@ The Frighteners
 The Game
 The Ghost Writer
 The Giant Mechanical Man
-The Godfather Part 2
+The Godfather Part II
 The Good Student
 The Gravedancers
 The Great Wall
@@ -877,7 +859,6 @@ The Grudge 3
 The Guard
 The Hard Corps
 The Haunting Hour
-The Hills Have Eyes (1979)
 The Hills Have Eyes 2
 The Hobbit: An Unexpected Journey
 The Hobbit: The Battle of the Five Armies
@@ -938,20 +919,18 @@ The Muse
 The Naked Gun 2½: The Smell of Fear
 The Naked Gun: From the Files of Police Squad! 
 The Neverending Story
-The Neverending Story 2
-The New Mutants9
+The Neverending Story II: The Next Chapter
+The NeverEnding Story III
+The New Mutants
 The Next Three Days
 The Ninth Gate
-The Office Season 1
 The One
 The One I Love
 The Others
 The Package
 The Patriot
 The Peanuts Movie
-The Peep Show (Region 2)
 The Penguin King
-The Pet Sematary 2
 The Phantom Of The Opera
 The Pink Panther
 The Polar Express
@@ -964,7 +943,6 @@ The Raid 2
 The Raid Redemption
 The Raven
 The Recruit
-The Red Road
 The Rescuers
 The Rescuers Down Under
 The Ring Two
@@ -974,14 +952,11 @@ The Rock
 The Royal Tenenbaums
 The Score
 The Scorpion King
-The Secret Dare to Dream
+The Secret: Dare to Dream
 The Shallows
-The Simpons Christmas 2
 The Sixth Sense
 The Skeleton Key
 The Skulls
-The Sopranos
-The Strain
 The Stranger
 The Strangers
 The Strangers: Prey At Night
@@ -990,34 +965,30 @@ The Thin Red Line
 The Thing
 The Thirteenth Floor
 The Time Machine
-The Tom Green Show: Subway Monkey Hour
 The Town
 The Twilight Saga: Breaking Dawn Part 1
 The Twilight Saga: Breaking Dawn Part 2
 The Twilight Saga: Eclipse
 The Twilight Saga: New Moon
-The Twilight Zone
 The Untouchables
 The Usual Suspects
 The Village
 The Visitation
 The Vow
 The Walk
-The Walking Dead
 The Watcher
 The Wave
-The Way, Way Back
-The Weatherman
-The Wire
+The Way Way Back
+The Weather Man
 The Wizard of Oz
 The World Is Not Enough
 The World's End
 The Yellow Birds
-Thirteen Ghosts
+Thir13en Ghosts
 This Is the End
 Thor
-Thor Ragnarok
-Thor The Dark World
+Thor: Ragnarok
+Thor: The Dark World
 Three Kings
 Thriller
 Tiger Eyes
@@ -1026,8 +997,8 @@ Time Lapse
 Timeline
 Tin Cup
 Tin Tin
-Tiny Giants
-Titan AE
+Tiny Giants 3D
+Titan A.E.
 Titanic
 Tom Green Live
 Tommyknockers Part 2
@@ -1047,21 +1018,19 @@ Transformers: Rise of the Beasts
 Transformers: The Last Knight
 Transporter 2
 Trinity and Beyond: The Atomic Bomb Movie
-Tron Legacy
+Tron: Legacy
 Troy
-True Carribean Pirates
-True Detective
 Twilight
 Twister
 Ultraman
 Unbreakable
 Uncertainty
-Under
+Underwater
 Underworld: Awakening
-Universal Soldier The Return
+Universal Soldier: The Return
 Until The Light Takes Us
 Upside Down
-Urban Legends
+Urban Legend
 Urban Legends 2
 V For Vendetta
 Van Helsing
@@ -1072,24 +1041,22 @@ Veronika Decides to Die
 Vertical Limit
 Village Of The Damned
 Virtuosity
-Voice of the Stone
+Voice from the Stone
 W.
 Walk The Line
 Wallace & Gromit: The Curse Of The Were-Rabbit
 War Horse
-War Inc
+War, Inc
 Warcraft
 Warm Bodies
 Water for Elephants
-Way of the Gun
+The Way of the Gun
 We Bought a Zoo
 We Own the Night
 We Were Soldiers
-Weather Man
 Wedding Daze
-Weird Al Yankovic Live: The Apocalypse Tour
+'Weird Al' Yankovic - Live! The Alpocalypse Tour
 Wes Craven's New Nightmare
-Westworld Season 1
 What Dreams May Come
 Where The Wild Things Are
 Whip It
@@ -1101,7 +1068,9 @@ Windtalkers
 Winter's Tale
 Wolves
 World War Z
-Worricker
+Worricker: Turks & Caicos
+Worricker: Page Eight
+Worricker: Salting the Battlefield
 Wrong Turn
 X-Men Dark Phoenix
 X-Men Origins
@@ -1109,8 +1078,6 @@ XXX: State of the Union
 Year One
 You Will Meet a Tall Dark Stranger
 You're Not You
-Younga Yoga Vol. 1
-Younga Yoga Vol. 2
 Your Highness
 Zathura: A Space Adventure
 Zombieland

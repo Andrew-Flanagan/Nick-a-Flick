@@ -1,3 +1,12 @@
+# TODO List
+
+- Newsletter
+- Improve search (e.g. search "mission impossible")
+- Separate Movies and Television? or just make genre tag "television"
+- Gallery
+- Improve display page - just show the posters? Netflix type display that shows genres with scroll left/right buttons. Large banner with staff recommendations or something
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

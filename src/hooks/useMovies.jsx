@@ -26,13 +26,28 @@ const movieReducer = (state, action) => {
   }
 };
 
+const getReleaseDate = (movie) => {
+  if (movie.release_date === undefined) {
+    return movie.first_air_date.substring(0, 4);
+  }
+  return movie.release_date.substring(0, 4);
+}
+
+const getTitle = (movie) => {
+  if (movie.title === undefined) {
+    return movie.name;
+  }
+  return movie.title;
+}
+
+
 const useMovies = (movies) => {
   const [state, dispatch] = useReducer(movieReducer, initialState);
 
 
   const filteredMovies = useMemo(() => {
     return movies.filter((movie) => {
-      const matchesSearch = movie.title
+      const matchesSearch = getTitle(movie)
         .toLowerCase()
         .includes(state.searchTerm.toLowerCase());
       const matchesGenre =
@@ -48,9 +63,10 @@ const useMovies = (movies) => {
     return [...filteredMovies].sort((a, b) => {
       let comparison = 0;
       if (criteria === "Name") {
-        comparison = a.title.localeCompare(b.title);
+
+        comparison = getTitle(a).localeCompare(getTitle(b));
       } else if (criteria === "Year") {
-        comparison = new Date(a.release_date) - new Date(b.release_date);
+        comparison = new Date(getReleaseDate(a)) - new Date(getReleaseDate(b));
       }
 
       return order === "Ascending" ? comparison : -comparison;
