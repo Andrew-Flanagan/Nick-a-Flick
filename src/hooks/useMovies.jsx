@@ -7,7 +7,7 @@ const initialState = {
   genre: "All",
   sortBy: { criteria: "Name", order: "Ascending" },
   page: 1,
-  numResults: 25,
+  numResults: 50,
   displayAsTable: false,
 };
 

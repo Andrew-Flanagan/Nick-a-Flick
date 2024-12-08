@@ -1,24 +1,15 @@
 import { useState } from "react";
 import {
     Box,
-    Button,
-    ButtonGroup,
     Container,
-    TextField,
     Typography,
-    InputLabel,
-    MenuItem,
-    FormControl,
-    Select,
   } from "@mui/material";
-  import TableRowsRoundedIcon from "@mui/icons-material/TableRowsRounded";
-  import ArtTrackRoundedIcon from "@mui/icons-material/ArtTrackRounded";
   import PaginationControls from "../../components/PaginationControls/PaginationControls.jsx"; // Adjust path as needed
   import MovieModal from "../../components/MovieModal/MovieModal.jsx";
+  import SearchParams from "../../components/SearchParams/SearchParams.jsx";
   import { useMovies } from "../../hooks/useMovies"; // Assuming you separated the hook and reducer
   import { getTitle, getGenres, getReleaseDate } from "../../helpers/movieHelpers";
   import movieList from "../../data/all_data.json";
-  import genres from "../../data/genres.json";
   import "./SearchPage.css";
   import Tooltip from '@mui/material/Tooltip';
   import Grid from '@mui/material/Grid2';
@@ -54,10 +45,12 @@ import {
   
     const handlePageChange = (newPage) => {
       dispatch({ type: "SET_PAGE", payload: newPage });
+      window.scrollTo(0, 0);
+
     };
 
     const handleDisplayChange = () => {
-        dispatch({ type: "TOGGLE_DISPLAY" });
+      dispatch({ type: "TOGGLE_DISPLAY" });
     };
 
     const handleOpen = (movie) => {
@@ -89,80 +82,15 @@ import {
             fontWeight="bold"
             fontFamily="Press Start 2P"
           >
-            Search for movies and television
+            Search from {totalResults} movies and television
           </Typography>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              marginBottom: "15px",
-              gap: "1rem",
-            }}
-          >
-            <FormControl sx={{ width: "100px" }}>
-              <InputLabel id="genre-select-label">Genres</InputLabel>
-              <Select
-                labelId="genre-select-label"
-                id="genre-select"
-                label="Genres"
-                value={state.genre}
-                onChange={handleGenreChange}
-              >
-                <MenuItem value={"All"}>All</MenuItem>
-                {genres.map((genre) => (
-                  <MenuItem key={genre.id} value={genre.id}>
-                    {genre.name}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-            <FormControl sx={{ width: "100px" }}>
-              <InputLabel id="sort-select-label">Sort</InputLabel>
-              <Select
-                labelId="sort-select-label"
-                id="sort-select"
-                label="Sort"
-                value={`${state.sortBy.criteria} ${state.sortBy.order}`}
-                onChange={handleSortChange}
-              >
-                <MenuItem value={"Name Ascending"}>Name Ascending</MenuItem>
-                <MenuItem value={"Name Descending"}>Name Descending</MenuItem>
-                <MenuItem value={"Year Ascending"}>Year Ascending</MenuItem>
-                <MenuItem value={"Year Descending"}>Year Descending</MenuItem>
-              </Select>
-            </FormControl>
-            <ButtonGroup
-              variant="contained"
-              aria-label="Display options"
-              size="large"
-              sx={{ height: "56px" }}
-            >
-              <Button
-                onClick={handleDisplayChange}
-                startIcon={<ArtTrackRoundedIcon />}
-                variant={state.displayAsTable ? "contained" : "outlined"}
-              >
-                List
-              </Button>
-              <Button
-                onClick={handleDisplayChange}
-                startIcon={<TableRowsRoundedIcon />}
-                variant={!state.displayAsTable ? "contained" : "outlined"}
-              >
-                Table
-              </Button>
-            </ButtonGroup>
-            <TextField
-              id="search-input"
-              label="Search"
-              value={state.searchTerm}
-              onChange={handleSearchChange}
-              variant="outlined"
-              fullWidth
-              sx={{ mr: 1, minWidth: "40vw" }}
-            />
-          </Box>
+          <SearchParams
+          state={state}
+          onSearchChange={handleSearchChange}
+          onGenreChange={handleGenreChange}
+          onSortChange={handleSortChange}
+          onDisplayChange={handleDisplayChange}
+          />
           <PaginationControls
             page={state.page}
             totalResults={totalResults}
@@ -214,6 +142,13 @@ import {
                   ))}
                 </tbody>
               </table>
+              <PaginationControls
+                page={state.page}
+                totalResults={totalResults}
+                numResults={state.numResults}
+                onPageChange={handlePageChange}
+                style={{ marginTop: "15px" }}
+              />
             </Box>
           ) : (
             <Box>
@@ -222,7 +157,6 @@ import {
                   <Grid
                     className="movie-item"
                     size={2.4}
-                    item 
                     key={result.id} 
                     xs={3}   // 4 items per row on mobile (12 / 3 = 4)
                     sm={3}   // 4 items per row on small screens

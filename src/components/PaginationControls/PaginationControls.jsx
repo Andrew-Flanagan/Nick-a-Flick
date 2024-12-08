@@ -1,8 +1,8 @@
-import { Box, Typography, ButtonGroup, Button } from "@mui/material";
+import { Box, ButtonGroup, Button } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-const PaginationControls = ({ page, totalResults, numResults, onPageChange, genre, genres }) => {
+const PaginationControls = ({ page, totalResults, numResults, onPageChange }) => {
   const totalPages = Math.ceil(totalResults / numResults);
   const pageArray = Array.from({ length: totalPages }, (_, i) => i + 1);
 
