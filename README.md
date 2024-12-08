@@ -4,10 +4,11 @@
 - Improve search (e.g. search "mission impossible")
 - Separate Movies and Television? or just make genre tag "television"
 - Gallery of the store
-- Improve display page - just show the posters? Netflix type display that shows genres with scroll left/right buttons. Large banner with staff recommendations or something
+- ~~Improve display page - just show the posters? Netflix type display that shows genres with scroll left/right buttons. Large banner with staff recommendations or something~~
+- maybe add a staff pick banner - or some way to display staff picks
 - Find movies from the same collection from the movie modal page or something
 - mobile
-- improve pagination - jump to pages, jump to end and beginning, copy letterboxd
+- ~~improve pagination - jump to pages, jump to end and beginning, copy letterboxd~~ 
 - standardize naming conventions, and remove reference of "movie" since inclusion of television -- "media"? -- possibly include video games at some point
 
 

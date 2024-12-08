@@ -49,7 +49,8 @@ import {
 
     };
 
-    const handleDisplayChange = () => {
+    const handleDisplayChange = (e) => {
+      console.log(e.target.value);
       dispatch({ type: "TOGGLE_DISPLAY" });
     };
 

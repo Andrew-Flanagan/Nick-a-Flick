@@ -59,12 +59,14 @@ const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, o
                 sx={{ height: "56px" }}
                 >
                 <Button
+                    value="grid"
                     onClick={onDisplayChange}
                     startIcon={<ViewCompactIcon />}
                     variant={state.displayAsTable ? "outlined" : "contained"}
                 >
                 </Button>
                 <Button
+                    value="table"
                     onClick={onDisplayChange}
                     startIcon={<TableRowsRoundedIcon />}
                     variant={state.displayAsTable ? "contained" : "outlined"}
