@@ -29,7 +29,7 @@ const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, o
                 value={state.genre}
                 onChange={onGenreChange}
               >
-                <MenuItem value={"All"}>All</MenuItem>
+                <MenuItem value={"All"}>Any Genre</MenuItem>
                 {genres.map((genre) => (
                   <MenuItem key={genre.id} value={genre.id}>
                     {genre.name}
@@ -63,6 +63,7 @@ const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, o
                     onClick={onDisplayChange}
                     startIcon={<ViewCompactIcon />}
                     variant={state.displayAsTable ? "outlined" : "contained"}
+                    size="small"
                 >
                 </Button>
                 <Button
@@ -70,6 +71,7 @@ const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, o
                     onClick={onDisplayChange}
                     startIcon={<TableRowsRoundedIcon />}
                     variant={state.displayAsTable ? "contained" : "outlined"}
+                    size="small"
                 >
                 </Button>
                 </ButtonGroup>
