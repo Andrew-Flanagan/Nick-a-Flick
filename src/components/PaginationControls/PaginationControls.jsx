@@ -54,10 +54,7 @@ const PaginationControls = ({ page, totalResults, numResults, onPageChange, genr
     if (p === page) {
       return "contained";
     }
-    if (p === "...") {
-      return "text";
-    }
-    return "outlined";
+    return "text";
   };
 
   return (
