@@ -7,7 +7,8 @@
 - Improve display page - just show the posters? Netflix type display that shows genres with scroll left/right buttons. Large banner with staff recommendations or something
 - Find movies from the same collection from the movie modal page or something
 - mobile
-- improve pagination - jump to pages, jump to end and beginning
+- improve pagination - jump to pages, jump to end and beginning, copy letterboxd
+- standardize naming conventions, and remove reference of "movie" since inclusion of television -- "media"? -- possibly include video games at some point
 
 
 # Getting Started with Create React App
