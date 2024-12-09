@@ -1,7 +1,7 @@
 # TODO List
 
 - Newsletter
-- Improve search (e.g. search "mission impossible")
+- ~~Improve search (e.g. search "mission impossible")~~ might need more testing
 - Separate Movies and Television? or just make genre tag "television"
 - Gallery of the store
 - ~~Improve display page - just show the posters? Netflix type display that shows genres with scroll left/right buttons. Large banner with staff recommendations or something~~

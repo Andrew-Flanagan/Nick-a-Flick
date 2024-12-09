@@ -32,15 +32,19 @@ const getGenreIds = (movie) => {
   return movie.genres.map((genre) => genre.id)
 }
 
+const normalizeText = (text) => text.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+
 const useMovies = (movies) => {
   const [state, dispatch] = useReducer(movieReducer, initialState);
 
 
   const filteredMovies = useMemo(() => {
     return movies.filter((movie) => {
-      const matchesSearch = getTitle(movie)
-        .toLowerCase()
-        .includes(state.searchTerm.toLowerCase());
+      const normTitle = normalizeText(getTitle(movie));
+      const normSearchTerm = normalizeText(state.searchTerm);
+      const matchesSearch = normTitle
+        .includes(normSearchTerm);
       const matchesGenre =
         state.genre === "All" ||
         getGenreIds(movie).includes(state.genre);
