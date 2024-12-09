@@ -29,6 +29,22 @@ const theme = createTheme({
       fontSize: 14,
     },
 
+    components: {
+      MuiSelect: {
+        styleOverrides: {
+          root: {
+            "&:before, &:after": {
+              borderBottom: "0 !important",
+              paddingRight: "0px !important",
+              textAlign: "left",
+              
+            },
+          },
+        },
+      },
+    },
+  
+
   });
   
   export default theme;

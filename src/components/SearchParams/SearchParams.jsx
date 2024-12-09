@@ -3,8 +3,20 @@ import { Box, Button, ButtonGroup, TextField, FormControl, InputLabel, Select, M
 import TableRowsRoundedIcon from "@mui/icons-material/TableRowsRounded";
 import ViewCompactIcon from '@mui/icons-material/ViewCompact';
 import genres from "../../data/genres.json";
+import { styled } from '@mui/system';
+
 
 const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, onSortChange }) => {
+
+  const CustomButton = styled(Button)({
+    width: '2rem',
+    height: '2rem',
+    alignItems: 'center',
+    display: "flex",
+    padding: 0,
+    justifyContent: 'center',
+  });
+  
 
     return (
     <Box>
@@ -12,15 +24,12 @@ const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, o
             sx={{
               display: "flex",
               alignItems: "center",
-              justifyContent: "center",
+              justifyContent: "right",
               marginBottom: "15px",
               gap: "1rem",
-              padding: "1rem",
-              borderTop: "1px solid #808080",
-              borderBottom: "1px solid #808080",
             }}
         >
-            <FormControl sx={{ width: "100px" }}>
+            <FormControl sx={{ width: "auto" }}>
               <Select
                 labelId="genre-select-label"
                 id="genre-select"
@@ -31,7 +40,7 @@ const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, o
                 sx={{ borderRadius: "5px", overflow: "auto" }}
                 defaultValue={"All"}
               >
-                <MenuItem value={"All"}>Genre</MenuItem>
+                <MenuItem value={"All"}>Any Genre</MenuItem>
                 {genres.map((genre) => (
                   <MenuItem key={genre.id} value={genre.id}>
                     {genre.name}
@@ -39,8 +48,8 @@ const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, o
                 ))}
               </Select>
             </FormControl>
-            <Typography>Sort by:</Typography>
-            <FormControl sx={{ width: "150px" }}>
+            <Typography sx={{marginRight: "-0.8rem", padding: "4px 0px 6px 0px"}}>Sort:</Typography>
+            <FormControl sx={{ width: "auto" }}>
               <Select
                 labelId="sort-select-label"
                 id="sort-select"
@@ -62,24 +71,23 @@ const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, o
                 <ButtonGroup
                 variant="contained"
                 aria-label="Display options"
-                sx={{ height: "56px" }}
                 >
-                <Button
-                    value="grid"
-                    onClick={onDisplayChange}
-                    startIcon={<ViewCompactIcon />}
-                    variant={state.displayAsTable ? "outlined" : "contained"}
-                    size="small"
-                >
-                </Button>
-                <Button
-                    value="table"
-                    onClick={onDisplayChange}
-                    startIcon={<TableRowsRoundedIcon />}
-                    variant={state.displayAsTable ? "contained" : "outlined"}
-                    size="small"
-                >
-                </Button>
+                  <CustomButton
+                      value="grid"
+                      onClick={onDisplayChange}
+                      startIcon={<ViewCompactIcon sx={{marginRight: "-8px"}} />}
+                      variant={state.displayAsTable ? "outlined" : "contained"}
+                      size="small"
+                  >
+                  </CustomButton>
+                  <CustomButton
+                      value="table"
+                      onClick={onDisplayChange}
+                      startIcon={<TableRowsRoundedIcon sx={{marginRight: "-8px"}}/>}
+                      variant={state.displayAsTable ? "contained" : "outlined"}
+                      size="small"
+                  >
+                  </CustomButton>
                 </ButtonGroup>
             
           </Box>
