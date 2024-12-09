@@ -19,7 +19,7 @@ const HomePage = () => {
             Browse Movies
           </Button>
         </Box>
-      <MovieScroller title="New Releases"  data={new_releases}/>
+      <MovieScroller title="New Releases"  data={new_releases} subTitle="New Release"/>
       </Container>
     </Box>
   );

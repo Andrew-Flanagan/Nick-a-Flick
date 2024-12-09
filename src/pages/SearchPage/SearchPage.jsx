@@ -88,7 +88,7 @@ import MovieScroller from "../../components/MovieScroller/MovieScroller";
           minHeight: "100vh",
         }}
       >
-        <MovieScroller title="" data={staff_picks} />
+        <MovieScroller title="" data={staff_picks} subTitle="Staff Pick"/>
         <Container maxWidth="lg">
           <Typography
             variant="h3"
@@ -96,6 +96,7 @@ import MovieScroller from "../../components/MovieScroller/MovieScroller";
             gutterBottom
             fontWeight="bold"
             fontFamily="Press Start 2P"
+            sx={{ paddingTop: "1rem" }}
           >
             Search From {totalResults} {getGenreName(state.genre)} Movies and TV
           </Typography>

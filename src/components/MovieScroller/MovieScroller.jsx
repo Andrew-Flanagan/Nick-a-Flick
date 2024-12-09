@@ -7,7 +7,7 @@ import MovieModal from "../MovieModal/MovieModal";
 
 
 
-const MovieScroller = ({title, data}) => {
+const MovieScroller = ({title, data, subTitle}) => {
     const [currMovie, setCurrMovie] = useState(data[0]);
     const [open, setOpen] = useState(false);
 
@@ -16,34 +16,13 @@ const MovieScroller = ({title, data}) => {
         setCurrMovie(movie);
     };
 
-    function Item(props) {
+    function CarouselBox({media, top, subTitle}) {
         return (
-          <Box
-            sx={{
-              height: "60vh",
-              width: "100vw",
-              position: "relative", // Allows absolutely positioned children
-            }}
-          >
-            <img
-              src={`https://image.tmdb.org/t/p/original${props.item.backdrop_path}`}
-              alt={`${props.item.title} Poster`}
-              onClick={() => handleOpen(props.item)}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                objectPosition: "top center",
-                cursor: "pointer",
-              }}
-            />
             <Box
-                onClick={() => handleOpen(props.item)}
+                onClick={() => handleOpen(media)}
               sx={{
                 position: "absolute", // Positions the text box on top of the image
-                top: "10%",
-                left: "50%",
-                transform: "translate(-50%, -50%)", // Centers the text
+                top: `${top}%`,
                 color: "white",
                 backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent background
                 padding: "1rem 2rem",
@@ -53,13 +32,42 @@ const MovieScroller = ({title, data}) => {
               }}
             >
               <Typography variant="h4" component="h1">
-                {getTitle(props.item)}
+                {subTitle} - <span style={{ fontStyle: 'italic' }}>{getTitle(media)}</span>
               </Typography>
               <Typography variant="body1">
-                {getGenres(props.item)} • {getRuntime(props.item)} mins •{" "}
-                {getReleaseDate(props.item)}
+                {getGenres(media)} • {getRuntime(media)} mins •{" "}
+                {getReleaseDate(media)}
               </Typography>
             </Box>
+        );
+    };            
+
+    function Item(props) {
+        return (
+          <Box
+            sx={{
+              height: "60vh",
+              width: "100vw",
+              maxWidth: "100%",
+              position: "relative", // Allows absolutely positioned children
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <img
+              src={`https://image.tmdb.org/t/p/original${props.item.backdrop_path}`}
+              alt={`${props.item.title} Poster`}
+              onClick={() => handleOpen(props.item)}
+              style={{
+                width: "100vw",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "top center",
+                cursor: "pointer",
+              }}
+            />
+            <CarouselBox media={props.item} top={0} left={0} transform={[0,0]} subTitle={subTitle}/>
           </Box>
         );
       }
@@ -70,7 +78,7 @@ const MovieScroller = ({title, data}) => {
             {title && <Typography variant="h3" align="center" sx={{paddingTop: "2rem", paddingBottom: "2rem"}}>
                 {title}
             </Typography>}
-            <Carousel autoPlay={false}>
+            <Carousel>
                 {
                     data.map((movie, i) => <Item key={i} item={movie} />)
                 }

@@ -1,6 +1,6 @@
 # TODO List
 
-- Newsletter
+- Newsletter 
 - ~~Improve search (e.g. search "mission impossible")~~ might need more testing
 - Separate Movies and Television? or just make genre tag "television"
 - Gallery of the store
@@ -12,6 +12,11 @@
 - standardize naming conventions, and remove reference of "movie" since inclusion of television -- "media"? -- possibly include video games at some point
 - not sure correct language to use, but use history (URL bar) to make more user friendly (use case: request rental then go back, should put you back in modal with your filters)
 - standardize styling
+- make font cooler
+- Accounts
+    - "Seen"
+    - my list
+    - favourites
 
 
 # Getting Started with Create React App
