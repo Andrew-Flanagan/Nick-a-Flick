@@ -6,9 +6,10 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
+    max-width: 75%;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* softer shadow */
     padding: 16px; /* equivalent to p: 4 */
-    border-radius: 2px;
+    border-radius: 18px;
     background-color: #1976d2;
     animation: fadeIn 0.3s ease-in-out;
 }
@@ -19,6 +20,7 @@
     font-size: 1.25rem;
     font-style: italic;
     color:aliceblue;
+    margin: 1.5rem 0px 0.5rem 0px;
 }
 
 button.rent-button{

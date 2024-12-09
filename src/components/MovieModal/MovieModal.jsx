@@ -19,7 +19,7 @@ const MovieModal = ({ movie, open, onClose }) => {
   return (
     <Modal open={open} onClose={onClose}>
       <Box className="movie-modal">
-        <Typography variant="h4" gutterBottom className="movie-modal-h1">
+        <Typography variant="h4" gutterBottom className="movie-modal-h1" >
           {getTitle(movie)}
         </Typography>
         <Box
@@ -29,7 +29,7 @@ const MovieModal = ({ movie, open, onClose }) => {
           sx={{ width: "50%", borderRadius: 1, alignContent: "center", display: "block", marginLeft: "auto", marginRight: "auto" }}
         />
         <Box sx={{ position: 'absolute', top: 10, right: 10, cursor: 'pointer' }} onClick={onClose}>
-            <CloseIcon sx={{ fontSize: 28, color: '#333' }} />
+            <CloseIcon sx={{ fontSize: 28, color: '#333', }} />
         </Box>
         <Box sx={{display: "flex", flexDirection: "column"}}>
             <Button className="rent-button" onClick={() => {routeChange(getTitle(movie))}}>Request Rental</Button>

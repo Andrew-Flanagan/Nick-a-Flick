@@ -7,9 +7,10 @@
 - ~~Improve display page - just show the posters? Netflix type display that shows genres with scroll left/right buttons. Large banner with staff recommendations or something~~
 - maybe add a staff pick banner - or some way to display staff picks
 - Find movies from the same collection from the movie modal page or something
-- mobile
+- ~~mobile~~
 - ~~improve pagination - jump to pages, jump to end and beginning, copy letterboxd~~ 
 - standardize naming conventions, and remove reference of "movie" since inclusion of television -- "media"? -- possibly include video games at some point
+- not sure correct language to use, but use history (URL bar) to make more user friendly (use case: request rental then go back, should put you back in modal with your filters)
 
 
 # Getting Started with Create React App
