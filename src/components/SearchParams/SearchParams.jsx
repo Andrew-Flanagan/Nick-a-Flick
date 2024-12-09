@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, ButtonGroup, TextField, FormControl, InputLabel, Select, MenuItem } from "@mui/material";
+import { Box, Button, ButtonGroup, TextField, FormControl, InputLabel, Select, MenuItem, Typography } from "@mui/material";
 import TableRowsRoundedIcon from "@mui/icons-material/TableRowsRounded";
 import ViewCompactIcon from '@mui/icons-material/ViewCompact';
 import genres from "../../data/genres.json";
@@ -21,15 +21,17 @@ const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, o
             }}
         >
             <FormControl sx={{ width: "100px" }}>
-              <InputLabel variant="outlined" id="genre-select-label">Genres</InputLabel>
               <Select
                 labelId="genre-select-label"
                 id="genre-select"
                 label="Genres"
                 value={state.genre}
                 onChange={onGenreChange}
+                variant="standard"
+                sx={{ borderRadius: "5px", overflow: "auto" }}
+                defaultValue={"All"}
               >
-                <MenuItem value={"All"}>Any Genre</MenuItem>
+                <MenuItem value={"All"}>Genre</MenuItem>
                 {genres.map((genre) => (
                   <MenuItem key={genre.id} value={genre.id}>
                     {genre.name}
@@ -37,25 +39,29 @@ const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, o
                 ))}
               </Select>
             </FormControl>
-            <FormControl sx={{ width: "100px" }}>
-              <InputLabel id="sort-select-label">Sort</InputLabel>
+            <Typography>Sort by:</Typography>
+            <FormControl sx={{ width: "150px" }}>
               <Select
                 labelId="sort-select-label"
                 id="sort-select"
                 label="Sort"
                 value={`${state.sortBy.criteria} ${state.sortBy.order}`}
                 onChange={onSortChange}
+                variant="standard"
               >
-                <MenuItem value={"Name Ascending"}>Name Ascending</MenuItem>
-                <MenuItem value={"Name Descending"}>Name Descending</MenuItem>
-                <MenuItem value={"Year Ascending"}>Year Ascending</MenuItem>
-                <MenuItem value={"Year Descending"}>Year Descending</MenuItem>
+                <MenuItem value={"Name Ascending"}>Name A-Z</MenuItem>
+                <MenuItem value={"Name Descending"}>Name Z-A</MenuItem>
+                <MenuItem value={"Year Ascending"}>Year Oldest First</MenuItem>
+                <MenuItem value={"Year Descending"}>Year Newest First</MenuItem>
+                <MenuItem value={"Popularity Descending"}>Popularity High-Low</MenuItem>
+                <MenuItem value={"Popularity Ascending"}>Popularity Low-High</MenuItem>
+                <MenuItem value={"Runtime Descending"}>Runtime High-Low</MenuItem>
+                <MenuItem value={"Runtime Ascending"}>Runtime Low-High</MenuItem>
               </Select>
             </FormControl>
                 <ButtonGroup
                 variant="contained"
                 aria-label="Display options"
-                size="large"
                 sx={{ height: "56px" }}
                 >
                 <Button

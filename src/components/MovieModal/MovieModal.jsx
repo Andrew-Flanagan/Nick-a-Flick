@@ -47,7 +47,7 @@ const MovieModal = ({ movie, open, onClose }) => {
         {}
         <Typography variant="body1" mt={1}>
           <strong>Runtime:</strong>{" "}
-          {getRuntime(movie)}
+          {getRuntime(movie) + " minutes"}
         </Typography>
         <Typography variant="body1" mt={1}>
           <strong>Rating:</strong> {movie.vote_average} / 10

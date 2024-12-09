@@ -1,5 +1,5 @@
 import { useReducer, useMemo } from "react";
-import { getTitle, getReleaseDate } from "../helpers/movieHelpers";
+import { getTitle, getReleaseDate, getRuntime } from "../helpers/movieHelpers";
 
 
 const initialState = {
@@ -32,8 +32,6 @@ const getGenreIds = (movie) => {
   return movie.genres.map((genre) => genre.id)
 }
 
-
-
 const useMovies = (movies) => {
   const [state, dispatch] = useReducer(movieReducer, initialState);
 
@@ -61,7 +59,12 @@ const useMovies = (movies) => {
       } else if (criteria === "Year") {
         comparison = new Date(getReleaseDate(a)) - new Date(getReleaseDate(b));
       }
-
+      else if (criteria === "Popularity") {
+        comparison = a.popularity - b.popularity;
+      }
+      else if (criteria === "Runtime") {
+        comparison = getRuntime(a) - getRuntime(b);
+      }
       return order === "Ascending" ? comparison : -comparison;
     });
   }, [filteredMovies, state.sortBy]);

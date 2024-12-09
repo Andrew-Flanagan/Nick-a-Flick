@@ -88,7 +88,7 @@ import {
             fontWeight="bold"
             fontFamily="Press Start 2P"
           >
-            Search from {totalResults} {getGenreName(state.genre)} movies and television
+            Search From {totalResults} {getGenreName(state.genre)} Movies and TV
           </Typography>
           <SearchParams
           state={state}

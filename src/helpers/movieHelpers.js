@@ -18,7 +18,7 @@ export const getReleaseDate = (movie) => {
 
 export const getRuntime = (movie) => {
   if (movie.runtime === undefined) {
-      return movie.episode_run_time[0] + " minutes per episode";
+      return movie.episode_run_time[0];
   }
-  return movie.runtime + " minutes";
+  return movie.runtime;
 }
