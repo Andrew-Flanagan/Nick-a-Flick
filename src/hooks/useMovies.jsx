@@ -53,17 +53,25 @@ const useMovies = (movies) => {
     const { criteria, order } = state.sortBy;
     return [...filteredMovies].sort((a, b) => {
       let comparison = 0;
-      if (criteria === "Name") {
-
-        comparison = getTitle(a).localeCompare(getTitle(b));
-      } else if (criteria === "Year") {
-        comparison = new Date(getReleaseDate(a)) - new Date(getReleaseDate(b));
-      }
-      else if (criteria === "Popularity") {
-        comparison = a.popularity - b.popularity;
-      }
-      else if (criteria === "Runtime") {
-        comparison = getRuntime(a) - getRuntime(b);
+      switch (criteria) {
+        case "Name":
+          comparison = getTitle(a).localeCompare(getTitle(b));
+          break;
+        case "Year":
+          comparison = new Date(getReleaseDate(a)) - new Date(getReleaseDate(b));
+          break;
+        case "Popularity":
+          comparison = a.popularity - b.popularity;
+          break;
+        case "Runtime":
+          comparison = getRuntime(a) - getRuntime(b);
+          break;
+        case "Rating":
+          comparison = a.vote_average - b.vote_average;
+          break;
+        default:
+          comparison = 0;
+          break;
       }
       return order === "Ascending" ? comparison : -comparison;
     });

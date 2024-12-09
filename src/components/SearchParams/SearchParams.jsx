@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, ButtonGroup, TextField, FormControl, InputLabel, Select, MenuItem, Typography } from "@mui/material";
+import { Box, Button, ButtonGroup, TextField, FormControl, Select, MenuItem, Typography } from "@mui/material";
 import TableRowsRoundedIcon from "@mui/icons-material/TableRowsRounded";
 import ViewCompactIcon from '@mui/icons-material/ViewCompact';
 import genres from "../../data/genres.json";
@@ -20,33 +20,33 @@ const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, o
 
     return (
     <Box>
-        <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "right",
-              marginBottom: "15px",
-              gap: "1rem",
-            }}
-        >
-            <FormControl sx={{ width: "auto" }}>
-              <Select
-                labelId="genre-select-label"
-                id="genre-select"
-                label="Genres"
-                value={state.genre}
-                onChange={onGenreChange}
-                variant="standard"
-                sx={{ borderRadius: "5px", overflow: "auto" }}
-                defaultValue={"All"}
-              >
-                <MenuItem value={"All"}>Any Genre</MenuItem>
-                {genres.map((genre) => (
-                  <MenuItem key={genre.id} value={genre.id}>
-                    {genre.name}
-                  </MenuItem>
-                ))}
-              </Select>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "right",
+          marginBottom: "15px",
+          gap: "1rem",
+        }}
+      >
+        <FormControl sx={{ width: "auto" }}>
+          <Select
+            labelId="genre-select-label"
+            id="genre-select"
+            label="Genres"
+            value={state.genre}
+            onChange={onGenreChange}
+            variant="standard"
+            sx={{ borderRadius: "5px", overflow: "auto" }}
+            defaultValue={"All"}
+          >
+            <MenuItem value={"All"}>Any Genre</MenuItem>
+            {genres.map((genre) => (
+              <MenuItem key={genre.id} value={genre.id}>
+                {genre.name}
+              </MenuItem>
+            ))}
+          </Select>
             </FormControl>
             <Typography sx={{marginRight: "-0.8rem", padding: "4px 0px 6px 0px"}}>Sort:</Typography>
             <FormControl sx={{ width: "auto" }}>
@@ -66,40 +66,41 @@ const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, o
                 <MenuItem value={"Popularity Ascending"}>Popularity Low-High</MenuItem>
                 <MenuItem value={"Runtime Descending"}>Longest First</MenuItem>
                 <MenuItem value={"Runtime Ascending"}>Shortest First</MenuItem>
+                <MenuItem value={"Rating Descending"}>Rating High-Low</MenuItem>
+                <MenuItem value={"Rating Ascending"}>Rating Low-High</MenuItem>
               </Select>
             </FormControl>
-                <ButtonGroup
-                variant="contained"
-                aria-label="Display options"
+              <ButtonGroup
+              variant="contained"
+              aria-label="Display options"
+              >
+                <CustomButton
+                    value="grid"
+                    onClick={onDisplayChange}
+                    startIcon={<ViewCompactIcon sx={{marginRight: "-8px"}} />}
+                    variant={state.displayAsTable ? "outlined" : "contained"}
+                    size="small"
                 >
-                  <CustomButton
-                      value="grid"
-                      onClick={onDisplayChange}
-                      startIcon={<ViewCompactIcon sx={{marginRight: "-8px"}} />}
-                      variant={state.displayAsTable ? "outlined" : "contained"}
-                      size="small"
-                  >
-                  </CustomButton>
-                  <CustomButton
-                      value="table"
-                      onClick={onDisplayChange}
-                      startIcon={<TableRowsRoundedIcon sx={{marginRight: "-8px"}}/>}
-                      variant={state.displayAsTable ? "contained" : "outlined"}
-                      size="small"
-                  >
-                  </CustomButton>
-                </ButtonGroup>
-            
-          </Box>
-          <TextField
-              id="search-input"
-              label="Search"
-              value={state.searchTerm}
-              onChange={onSearchChange}
-              variant="outlined"
-              fullWidth
-            />
+                </CustomButton>
+                <CustomButton
+                    value="table"
+                    onClick={onDisplayChange}
+                    startIcon={<TableRowsRoundedIcon sx={{marginRight: "-8px"}}/>}
+                    variant={state.displayAsTable ? "contained" : "outlined"}
+                    size="small"
+                >
+                </CustomButton>
+              </ButtonGroup>
         </Box>
+        <TextField
+            id="search-input"
+            label="Search"
+            value={state.searchTerm}
+            onChange={onSearchChange}
+            variant="outlined"
+            fullWidth
+          />
+      </Box>
     );
 };
 
