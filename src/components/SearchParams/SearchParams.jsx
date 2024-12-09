@@ -4,9 +4,10 @@ import TableRowsRoundedIcon from "@mui/icons-material/TableRowsRounded";
 import ViewCompactIcon from '@mui/icons-material/ViewCompact';
 import genres from "../../data/genres.json";
 import { styled } from '@mui/system';
+import theme from "../../styles/theme";
 
 
-const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, onSortChange }) => {
+const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, onSortChange, onResetFilters }) => {
 
   const CustomButton = styled(Button)({
     width: '2rem',
@@ -16,6 +17,13 @@ const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, o
     padding: 0,
     justifyContent: 'center',
   });
+
+  const checkFilters = () => {
+    if (state.genre === "All" && state.sortBy.criteria === "Name" && state.sortBy.order === "Ascending" && state.searchTerm === "") {
+      return false;
+    }
+    return true;
+  };
   
 
     return (
@@ -29,6 +37,16 @@ const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, o
           gap: "1rem",
         }}
       >
+        <Button
+          onClick={onResetFilters}
+          sx={{
+            display: checkFilters() ? "block" : "none",
+            marginRight: "auto",
+            backgroundColor: theme.palette.primary.main,
+            color: theme.palette.secondary.main
+          }}>
+          Remove Filters/Sorting
+        </Button>
         <FormControl sx={{ width: "auto" }}>
           <Select
             labelId="genre-select-label"

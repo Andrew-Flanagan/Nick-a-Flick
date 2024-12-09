@@ -47,7 +47,7 @@ const ContactPage = () => {
 
 
     return (
-        <Box sx={{py: 8}}>
+        <Box sx={{py: 4}}>
             <Container>
                 <Typography variant="h2" align="center" gutterBottom fontWeight="bold" fontFamily="Press Start 2P">
                     Contact Us

@@ -64,6 +64,13 @@ import {
       setSelectedMovie(null);
     };
 
+    const handleResetFilters = () => {
+      dispatch({ type: "SET_SEARCH_TERM", payload: "" });
+      dispatch({ type: "SET_GENRE", payload: "All" });
+      dispatch({ type: "SET_SORT", payload: { criteria: "Name", order: "Ascending" } });
+      dispatch({ type: "SET_PAGE", payload: 1 });
+    };
+
     const getGenreName = (genreId) => {
       const genre = genres.find((genre) => genre.id === genreId);
       return genre ? genre.name : "";
@@ -75,7 +82,7 @@ import {
         sx={{
           backgroundColor: "#FEE440",
           color: "#1A1A1D",
-          py: 8,
+          py: 4,
           overflowY: "scroll",
           minHeight: "100vh",
         }}
@@ -96,6 +103,7 @@ import {
           onGenreChange={handleGenreChange}
           onSortChange={handleSortChange}
           onDisplayChange={handleDisplayChange}
+          onResetFilters={handleResetFilters}
           />
           <PaginationControls
             page={state.page}
