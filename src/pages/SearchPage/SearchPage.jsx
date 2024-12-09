@@ -14,6 +14,7 @@ import {
   import Tooltip from '@mui/material/Tooltip';
   import Grid from '@mui/material/Grid2';
   import placeholder_poster from "../../assets/images/Nick_a_flick.jpeg";
+  import genres from "../../data/genres.json";
 
   
   const SearchPage = () => {
@@ -63,6 +64,11 @@ import {
       setSelectedMovie(null);
     };
 
+    const getGenreName = (genreId) => {
+      const genre = genres.find((genre) => genre.id === genreId);
+      return genre ? genre.name : "";
+    }
+
   
     return (
       <Box
@@ -76,13 +82,13 @@ import {
       >
         <Container maxWidth="lg">
           <Typography
-            variant="h2"
+            variant="h3"
             align="center"
             gutterBottom
             fontWeight="bold"
             fontFamily="Press Start 2P"
           >
-            Search from {totalResults} movies and television
+            Search from {totalResults} {getGenreName(state.genre)} movies and television
           </Typography>
           <SearchParams
           state={state}
