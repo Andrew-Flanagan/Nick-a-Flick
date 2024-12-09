@@ -1,0 +1,83 @@
+import React from "react";
+import { useState } from "react";
+import { Box, Typography } from "@mui/material";
+import { getGenres, getTitle, getRuntime, getReleaseDate } from "../../helpers/movieHelpers";
+import Carousel from 'react-material-ui-carousel'
+import MovieModal from "../MovieModal/MovieModal";
+
+
+
+const MovieScroller = ({title, data}) => {
+    const [currMovie, setCurrMovie] = useState(data[0]);
+    const [open, setOpen] = useState(false);
+
+    const handleOpen = (movie) => {
+        setOpen(true);
+        setCurrMovie(movie);
+    };
+
+    function Item(props) {
+        return (
+          <Box
+            sx={{
+              height: "60vh",
+              width: "100vw",
+              position: "relative", // Allows absolutely positioned children
+            }}
+          >
+            <img
+              src={`https://image.tmdb.org/t/p/original${props.item.backdrop_path}`}
+              alt={`${props.item.title} Poster`}
+              onClick={() => handleOpen(props.item)}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "top center",
+                cursor: "pointer",
+              }}
+            />
+            <Box
+                onClick={() => handleOpen(props.item)}
+              sx={{
+                position: "absolute", // Positions the text box on top of the image
+                top: "10%",
+                left: "50%",
+                transform: "translate(-50%, -50%)", // Centers the text
+                color: "white",
+                backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent background
+                padding: "1rem 2rem",
+                borderRadius: "8px",
+                textAlign: "center",
+                cursor: "pointer",
+              }}
+            >
+              <Typography variant="h4" component="h1">
+                {getTitle(props.item)}
+              </Typography>
+              <Typography variant="body1">
+                {getGenres(props.item)} • {getRuntime(props.item)} mins •{" "}
+                {getReleaseDate(props.item)}
+              </Typography>
+            </Box>
+          </Box>
+        );
+      }
+      
+
+    return (
+        <Box>
+            {title && <Typography variant="h3" align="center" sx={{paddingTop: "2rem", paddingBottom: "2rem"}}>
+                {title}
+            </Typography>}
+            <Carousel autoPlay={false}>
+                {
+                    data.map((movie, i) => <Item key={i} item={movie} />)
+                }
+            </Carousel>
+            <MovieModal movie={currMovie} open={open} onClose={() => setCurrMovie(null)} />
+        </Box>
+    );
+};
+
+export default MovieScroller;

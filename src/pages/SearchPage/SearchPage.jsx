@@ -4,18 +4,19 @@ import {
     Container,
     Typography,
   } from "@mui/material";
-  import PaginationControls from "../../components/PaginationControls/PaginationControls.jsx"; // Adjust path as needed
-  import MovieModal from "../../components/MovieModal/MovieModal.jsx";
-  import SearchParams from "../../components/SearchParams/SearchParams.jsx";
-  import { useMovies } from "../../hooks/useMovies"; // Assuming you separated the hook and reducer
-  import { getTitle, getGenres, getReleaseDate } from "../../helpers/movieHelpers";
-  import movieList from "../../data/all_data.json";
-  import "./SearchPage.css";
-  import Tooltip from '@mui/material/Tooltip';
-  import Grid from '@mui/material/Grid2';
-  import placeholder_poster from "../../assets/images/Nick_a_flick.jpeg";
-  import genres from "../../data/genres.json";
-
+import PaginationControls from "../../components/PaginationControls/PaginationControls.jsx"; // Adjust path as needed
+import MovieModal from "../../components/MovieModal/MovieModal.jsx";
+import SearchParams from "../../components/SearchParams/SearchParams.jsx";
+import { useMovies } from "../../hooks/useMovies"; // Assuming you separated the hook and reducer
+import { getTitle, getGenres, getReleaseDate } from "../../helpers/movieHelpers";
+import movieList from "../../data/all_data.json";
+import "./SearchPage.css";
+import Tooltip from '@mui/material/Tooltip';
+import Grid from '@mui/material/Grid2';
+import placeholder_poster from "../../assets/images/Nick_a_flick.jpeg";
+import genres from "../../data/genres.json";
+import staff_picks from "../../data/staff_picks.json";
+import MovieScroller from "../../components/MovieScroller/MovieScroller";
   
   const SearchPage = () => {
     const {
@@ -46,7 +47,7 @@ import {
   
     const handlePageChange = (newPage) => {
       dispatch({ type: "SET_PAGE", payload: newPage });
-      window.scrollTo(0, 0);
+      window.scrollTo(0, 500);
 
     };
 
@@ -82,11 +83,12 @@ import {
         sx={{
           backgroundColor: "#FEE440",
           color: "#1A1A1D",
-          py: 4,
+          // py: 4,
           overflowY: "scroll",
           minHeight: "100vh",
         }}
       >
+        <MovieScroller title="" data={staff_picks} />
         <Container maxWidth="lg">
           <Typography
             variant="h3"
