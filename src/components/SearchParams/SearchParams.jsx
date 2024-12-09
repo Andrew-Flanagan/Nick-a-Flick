@@ -28,6 +28,17 @@ const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, o
 
     return (
     <Box>
+      <Button
+        onClick={onResetFilters}
+        sx={{
+          display: checkFilters() ? "block" : "none",
+          marginLeft: "auto",
+          marginBottom: "0.5rem",
+          backgroundColor: theme.palette.primary.main,
+          color: theme.palette.secondary.main
+        }}
+        >Remove Filters/Sorting
+      </Button>
       <Box
         sx={{
           display: "flex",
@@ -37,16 +48,6 @@ const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, o
           gap: "1rem",
         }}
       >
-        <Button
-          onClick={onResetFilters}
-          sx={{
-            display: checkFilters() ? "block" : "none",
-            marginRight: "auto",
-            backgroundColor: theme.palette.primary.main,
-            color: theme.palette.secondary.main
-          }}>
-          Remove Filters/Sorting
-        </Button>
         <FormControl sx={{ width: "auto" }}>
           <Select
             labelId="genre-select-label"
