@@ -51,12 +51,12 @@ const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, o
               >
                 <MenuItem value={"Name Ascending"}>Name A-Z</MenuItem>
                 <MenuItem value={"Name Descending"}>Name Z-A</MenuItem>
-                <MenuItem value={"Year Ascending"}>Year Oldest First</MenuItem>
-                <MenuItem value={"Year Descending"}>Year Newest First</MenuItem>
+                <MenuItem value={"Year Ascending"}>Oldest First</MenuItem>
+                <MenuItem value={"Year Descending"}>Newest First</MenuItem>
                 <MenuItem value={"Popularity Descending"}>Popularity High-Low</MenuItem>
                 <MenuItem value={"Popularity Ascending"}>Popularity Low-High</MenuItem>
-                <MenuItem value={"Runtime Descending"}>Runtime High-Low</MenuItem>
-                <MenuItem value={"Runtime Ascending"}>Runtime Low-High</MenuItem>
+                <MenuItem value={"Runtime Descending"}>Longest First</MenuItem>
+                <MenuItem value={"Runtime Ascending"}>Shortest First</MenuItem>
               </Select>
             </FormControl>
                 <ButtonGroup
