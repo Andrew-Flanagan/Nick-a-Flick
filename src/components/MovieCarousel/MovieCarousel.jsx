@@ -6,7 +6,8 @@ import MovieModal from "../MovieModal/MovieModal";
 import MovieBackdrop from "../MovieBackdrop/MovieBackdrop";
 import "./MovieCarousel.css";
 import theme from "../../styles/theme";
-
+import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
+import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
 
 
 const MovieCarousel = ({title, data, subTitle}) => {
@@ -25,19 +26,20 @@ const MovieCarousel = ({title, data, subTitle}) => {
             </Typography>}
             <Carousel
               navButtonsProps={{          // Change the colors and radius of the actual buttons. THIS STYLES BOTH BUTTONS
+                disableRipple: true,
                 style: {
                     borderRadius: 0,
                     height: "100%",
                     width: "100%",
                     top: 'unset',
-                    backgroundColor: "none",
                     padding: 0,
+                    backgroundColor: "transparent",
                 }}}
                 navButtonsWrapperProps={{   // Move the buttons to the bottom. Unsetting top here to override default style.
                     style: {
                         bottom: "50%",
+                        backgroundColor: "transparent",
                         width: "10%",
-                        opacity: 0,
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -45,7 +47,10 @@ const MovieCarousel = ({title, data, subTitle}) => {
                         top: 'unset',
                         padding: 0,
                     }
-                }}        >
+                }}
+                NextIcon={<ArrowForwardIosOutlinedIcon sx={{fontSize: "3rem", color: "white"}} />}
+                PrevIcon={<ArrowBackIosNewOutlinedIcon sx={{fontSize: "3rem", color: "white"}} />}
+                >
                 { 
                   data.map((movie, i) => <MovieBackdrop key={i} media={movie} handleOpen={handleOpen} subTitle={subTitle} gradient={theme.palette.secondary.main}/>)
                 }

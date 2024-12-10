@@ -17,3 +17,8 @@
   padding: 0 !important;
 };
   
+.nav-icon {
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+};
