@@ -67,7 +67,7 @@ const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, o
             ))}
           </Select>
             </FormControl>
-            <Typography sx={{marginRight: "-0.8rem", padding: "4px 0px 6px 0px"}}>Sort:</Typography>
+            <Typography variant="body" sx={{marginRight: "-0.8rem", padding: "4px 0px 6px 0px"}}>Sort:</Typography>
             <FormControl sx={{ width: "auto" }}>
               <Select
                 labelId="sort-select-label"
@@ -99,6 +99,7 @@ const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, o
                     startIcon={<ViewCompactIcon sx={{marginRight: "-8px"}} />}
                     variant={state.displayAsTable ? "outlined" : "contained"}
                     size="small"
+                    sx = {{borderRadius: "4px"}}
                 >
                 </CustomButton>
                 <CustomButton
@@ -107,6 +108,7 @@ const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, o
                     startIcon={<TableRowsRoundedIcon sx={{marginRight: "-8px"}}/>}
                     variant={state.displayAsTable ? "contained" : "outlined"}
                     size="small"
+                    sx={{borderRadius: "4px"}}
                 >
                 </CustomButton>
               </ButtonGroup>

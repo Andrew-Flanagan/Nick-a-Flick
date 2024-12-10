@@ -32,7 +32,7 @@ const MovieModal = ({ movie, open, onClose }) => {
             <CloseIcon className="close-button" />
         </Box>
         <Box sx={{display: "flex", flexDirection: "column"}}>
-            <Button className="rent-button" onClick={() => {routeChange(getTitle(movie))}}>Request Rental</Button>
+            <Button color="secondary" variant="contained" className="rent-button" onClick={() => {routeChange(getTitle(movie))}}>Request Rental</Button>
         </Box>
         <Box className="modal-content">
         <Typography variant="body1" mt={2}>

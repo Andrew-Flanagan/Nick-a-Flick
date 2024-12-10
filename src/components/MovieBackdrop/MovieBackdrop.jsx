@@ -18,7 +18,7 @@ const MovieBackdrop = ({media, handleOpen, subTitle, gradient}) => {
               onClick={() => handleOpen(media)}
               className="img-box-text"
           >
-            <Typography variant="h4" component="h1">
+            <Typography variant="h4" component="h1" color="white">
               {subTitle && `${subTitle} - `}<span style={{ fontStyle: 'italic' }}>{getTitle(media)}</span>
             </Typography>
             <Typography variant="body1">

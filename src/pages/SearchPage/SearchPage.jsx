@@ -17,6 +17,7 @@ import placeholder_poster from "../../assets/images/Nick_a_flick.jpeg";
 import genres from "../../data/genres.json";
 import staff_picks from "../../data/staff_picks.json";
 import MovieScroller from "../../components/MovieScroller/MovieScroller";
+
   
   const SearchPage = () => {
     const {
@@ -81,9 +82,6 @@ import MovieScroller from "../../components/MovieScroller/MovieScroller";
     return (
       <Box
         sx={{
-          backgroundColor: "#FEE440",
-          color: "#1A1A1D",
-          // py: 4,
           overflowY: "scroll",
           minHeight: "100vh",
         }}

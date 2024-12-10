@@ -107,7 +107,7 @@ const ContactPage = () => {
                     >
                     </TextField>
                     <Box sx={{display: "flex"}}>
-                        <Button variant="outlined" type="submit" size="large" sx={{marginLeft: "auto", mt: 1, bgcolor: "#1976d2", color: "#FEE440"}}>Send</Button>
+                        <Button variant="contained" type="submit" size="large" sx={{marginLeft: "auto", mt: 1}}>Send</Button>
                     </Box>
                 </form>
             </Container>

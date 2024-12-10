@@ -4,7 +4,7 @@
 - ~~Improve search (e.g. search "mission impossible")~~ might need more testing
 - Separate Movies and Television? or just make genre tag "television"
 - Gallery of the store
-- Improve Movie Modal, more like Netflix
+- ~~Improve Movie Modal, more like Netflix~~
 - ~~Improve display page - just show the posters? Netflix type display that shows genres with scroll left/right buttons. Large banner with staff recommendations or something~~
 - ~~maybe add a staff pick banner - or some way to display staff picks~~
 - Find movies from the same collection from the movie modal page or something

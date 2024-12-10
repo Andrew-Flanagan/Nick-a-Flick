@@ -9,6 +9,7 @@
     max-width: 75%;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* softer shadow */
     border-radius: 18px;
+    outline: none;
     background-color: #0C2862;
     color: #CBD0DA;
     animation: fadeIn 0.3s ease-in-out;
@@ -24,9 +25,7 @@
 }
 
 button.rent-button{
-    color: #1976d2;
-    background-color: #FEE440;
-    width: 50%;
+    width: 30%;
     display: block;
     margin: auto;
     font-weight: bold;

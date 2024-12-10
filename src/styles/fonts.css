@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'MovieTimes';
+    src: url('/src/assets/fonts/MovieTimes-pg61.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Showtime';
+    src: url('/src/assets/fonts/Showtime-R9Ke.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
