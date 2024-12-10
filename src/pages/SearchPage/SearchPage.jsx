@@ -117,7 +117,6 @@ import MovieScroller from "../../components/MovieScroller/MovieScroller";
           {state.displayAsTable ? (
             <Box
               sx={{
-                display: "flex",
                 alignItems: "center",
                 gap: 1,
                 marginTop: "15px",
