@@ -1,0 +1,28 @@
+.img-box{
+    height: 60vh;
+    width: 100vw;
+    max-width: 100%;
+    position: relative; /* Allows absolutely positioned children */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-box img{
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    cursor: pointer;
+}
+
+.img-box-text{
+    position: absolute; /* Positions the text box on top of the image */
+    top: 0%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+}
