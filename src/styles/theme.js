@@ -32,22 +32,22 @@ const theme = createTheme({
         color: '#0C2862',
       },
       h1: {
-        color: '#0C2862'
+        color: '#0C2862',
       },
       h2: {
-        color: '#0C2862'
+        color: '#0C2862',
       },
       h3: {
-        color: '#0C2862'
+        color: '#0C2862',
       },
       h4: {
-        color: '#0C2862'
+        color: '#0C2862',
       },
       h5: {
-        color: '#0C2862'
+        color: '#0C2862',
       },
       h6: {
-        color: '#0C2862'
+        color: '#0C2862',
       },
     },
 

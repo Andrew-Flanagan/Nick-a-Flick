@@ -1,10 +1,8 @@
 # TODO List
 
-- Make gradient for staff pick and new release carousel
 - Make website more responsive/dynamic -- (e.g. decrease width of browser, text should break)
 - Improve mobile experience
 - Newsletter 
-- Separate Movies and Television? or just make genre tag "television"
 - Gallery of the store
 - Find movies from the same collection from the movie modal page or something
 - Add link to trailer or embedded youtube player
@@ -16,6 +14,8 @@
     - "Seen"
     - my list
     - favourites
+- ~~Separate Movies and Television? or just make genre tag "television"~~
+- ~~Make gradient for staff pick and new release carousel~~
 - ~~use star ratings~~
 - ~~Improve search (e.g. search "mission impossible")~~ might need more testing
 - ~~Improve Movie Modal, more like Netflix~~

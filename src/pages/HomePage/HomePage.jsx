@@ -10,17 +10,23 @@ const HomePage = () => {
   return (
     <Box sx={{paddingBottom: "4rem"}}>
       <Container disableGutters maxWidth={false}>
-      <Typography
-        variant="h2"
-        align="center"
-        fontSize="6rem"
-        sx={{ paddingTop: "8rem" }}
-      >
-        <span style={{ fontFamily: "Press Start 2P", fontWeight: "bold"}}>WELCOME TO </span>
-        <br />
-        <span style={{ fontFamily: "MovieTimes" }}>.NICK.A.FLICK.</span>
+      <Typography align="center" variant="h2" fontSize="6vmax" fontWeight="bold" sx={{paddingTop: "8rem"}}>
+        WELCOME TO
       </Typography>
-
+      <Box sx={{ width: "100%", textAlign: "center" }}>
+        <Typography
+          align="center"
+          variant="h2"
+          fontSize={"clamp(4.09rem, 7.9vmax, 7.2rem)"}
+          fontFamily="MovieTimes"
+          sx={{
+            wordWrap: "break-word",
+            display: "block",
+          }}
+        >
+          .NICK.A.FLICK.
+        </Typography>
+      </Box>
         {/* Press Start 2P */}
         <Typography variant="h5" align="center" fontFamily={"cursive"} fontWeight={"bold"} fontStyle={"italic"}>
           The best movie rental store in town.
