@@ -7,7 +7,7 @@ import "./MovieBackdrop.css";
 
 const MovieBackdrop = ({media, handleOpen, subTitle, gradient}) => {
       return (
-        <Box className="img-box">
+        <Box className="img-box" color={gradient}>
           <img
             src={`https://image.tmdb.org/t/p/original${media.backdrop_path}`}
             alt={`${media.title} Poster`}
@@ -26,7 +26,7 @@ const MovieBackdrop = ({media, handleOpen, subTitle, gradient}) => {
               {getReleaseDate(media)}
             </Typography>
           </Box>
-          {gradient && <Box className="img-box-gradient" />}
+          { <Box className="img-box-gradient" />}
         </Box>
       );
     };

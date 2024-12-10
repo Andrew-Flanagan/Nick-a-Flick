@@ -1,6 +1,6 @@
 import { Box, Button, Container, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
-import MovieScroller from '../../components/MovieScroller/MovieScroller';
+import MovieCarousel from '../../components/MovieCarousel/MovieCarousel';
 import new_releases from "../../data/new_releases.json";
 import '../../styles/fonts.css'
 
@@ -30,7 +30,7 @@ const HomePage = () => {
             Browse Movies
           </Button>
         </Box>
-      <MovieScroller title="New Releases"  data={new_releases} subTitle="New Release"/>
+      <MovieCarousel title="New Releases"  data={new_releases} subTitle="New Release"/>
       </Container>
     </Box>
   );

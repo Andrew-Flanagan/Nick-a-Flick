@@ -16,7 +16,7 @@ import Grid from '@mui/material/Grid2';
 import placeholder_poster from "../../assets/images/Nick_a_flick.jpeg";
 import genres from "../../data/genres.json";
 import staff_picks from "../../data/staff_picks.json";
-import MovieScroller from "../../components/MovieScroller/MovieScroller";
+import MovieCarousel from "../../components/MovieCarousel/MovieCarousel";
 
   
   const SearchPage = () => {
@@ -86,7 +86,7 @@ import MovieScroller from "../../components/MovieScroller/MovieScroller";
           minHeight: "100vh",
         }}
       >
-        <MovieScroller title="" data={staff_picks} subTitle="Staff Pick"/>
+        <MovieCarousel title="" data={staff_picks} subTitle="Staff Pick"/>
         <Container maxWidth="lg">
           <Typography
             variant="h3"

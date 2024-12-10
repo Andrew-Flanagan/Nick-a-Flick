@@ -4,11 +4,12 @@ import { Box, Typography } from "@mui/material";
 import Carousel from 'react-material-ui-carousel'
 import MovieModal from "../MovieModal/MovieModal";
 import MovieBackdrop from "../MovieBackdrop/MovieBackdrop";
-import "./MovieScroller.css";
+import "./MovieCarousel.css";
+import theme from "../../styles/theme";
 
 
 
-const MovieScroller = ({title, data, subTitle}) => {
+const MovieCarousel = ({title, data, subTitle}) => {
     const [currMovie, setCurrMovie] = useState(data[0]);
     const [open, setOpen] = useState(false);
 
@@ -29,12 +30,14 @@ const MovieScroller = ({title, data, subTitle}) => {
                     height: "100%",
                     width: "100%",
                     top: 'unset',
+                    backgroundColor: "none",
                     padding: 0,
                 }}}
                 navButtonsWrapperProps={{   // Move the buttons to the bottom. Unsetting top here to override default style.
                     style: {
                         bottom: "50%",
                         width: "10%",
+                        opacity: 0,
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -44,7 +47,7 @@ const MovieScroller = ({title, data, subTitle}) => {
                     }
                 }}        >
                 { 
-                  data.map((movie, i) => <MovieBackdrop key={i} media={movie} handleOpen={handleOpen} subTitle={subTitle} />)
+                  data.map((movie, i) => <MovieBackdrop key={i} media={movie} handleOpen={handleOpen} subTitle={subTitle} gradient={theme.palette.secondary.main}/>)
                 }
             </Carousel>
             <MovieModal movie={currMovie} open={open} onClose={() => setOpen(false)} />
@@ -52,4 +55,4 @@ const MovieScroller = ({title, data, subTitle}) => {
     );
 };
 
-export default MovieScroller;
+export default MovieCarousel;

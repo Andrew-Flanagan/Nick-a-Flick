@@ -7,14 +7,16 @@
 - Separate Movies and Television? or just make genre tag "television"
 - Gallery of the store
 - Find movies from the same collection from the movie modal page or something
+- Add link to trailer or embedded youtube player
 - standardize naming conventions, and remove reference of "movie" since inclusion of television -- "media"? -- possibly include video games at some point
 - not sure correct language to use, but use history (URL bar) to make more user friendly (use case: request rental then go back, should put you back in modal with your filters)
 - standardize styling
-- use star ratings
+- email verification/general form verification
 - Accounts
     - "Seen"
     - my list
     - favourites
+- ~~use star ratings~~
 - ~~Improve search (e.g. search "mission impossible")~~ might need more testing
 - ~~Improve Movie Modal, more like Netflix~~
 - ~~Improve display page - just show the posters? Netflix type display that shows genres with scroll left/right buttons. Large banner with staff recommendations or something~~

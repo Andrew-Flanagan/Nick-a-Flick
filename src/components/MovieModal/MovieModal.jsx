@@ -8,6 +8,7 @@ import IMDB_logo from "../../assets/images/IMDB_Logo_2016.svg";
 // import TMDB_logo from "../../assets/images/Tmdb_logo.svg";
 import MovieBackdrop from "../MovieBackdrop/MovieBackdrop";
 import StarIcon from '@mui/icons-material/Star';
+import theme from "../../styles/theme";
 
 const MovieModal = ({ movie, open, onClose }) => {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ const MovieModal = ({ movie, open, onClose }) => {
     <Modal open={open} onClose={onClose}>
       <Box className="movie-modal">
         <Box sx={{background: "linear-gradient(0deg,#181818,transparent 50%)" }}>
-        <MovieBackdrop media={movie} handleOpen={() => {}} gradient={true}/>
+        <MovieBackdrop media={movie} handleOpen={() => {}} gradient={theme.palette.primary.secondary}/>
         </Box>
         <Box sx={{ position: 'absolute', top: 10, right: 10, cursor: 'pointer' }} onClick={onClose}>
             <CloseIcon className="close-button" />
