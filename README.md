@@ -4,23 +4,24 @@
 - Make website more responsive/dynamic -- (e.g. decrease width of browser, text should break)
 - Improve mobile experience
 - Newsletter 
-- ~~Improve search (e.g. search "mission impossible")~~ might need more testing
 - Separate Movies and Television? or just make genre tag "television"
 - Gallery of the store
-- ~~Improve Movie Modal, more like Netflix~~
-- ~~Improve display page - just show the posters? Netflix type display that shows genres with scroll left/right buttons. Large banner with staff recommendations or something~~
-- ~~maybe add a staff pick banner - or some way to display staff picks~~
 - Find movies from the same collection from the movie modal page or something
-- ~~mobile~~
-- ~~improve pagination - jump to pages, jump to end and beginning, copy letterboxd~~ 
 - standardize naming conventions, and remove reference of "movie" since inclusion of television -- "media"? -- possibly include video games at some point
 - not sure correct language to use, but use history (URL bar) to make more user friendly (use case: request rental then go back, should put you back in modal with your filters)
 - standardize styling
-- ~~make font cooler~~
+- use star ratings
 - Accounts
     - "Seen"
     - my list
     - favourites
+- ~~Improve search (e.g. search "mission impossible")~~ might need more testing
+- ~~Improve Movie Modal, more like Netflix~~
+- ~~Improve display page - just show the posters? Netflix type display that shows genres with scroll left/right buttons. Large banner with staff recommendations or something~~
+- ~~maybe add a staff pick banner - or some way to display staff picks~~
+- ~~mobile~~
+- ~~improve pagination - jump to pages, jump to end and beginning, copy letterboxd~~ 
+- ~~make font cooler~~
 
 
 # Getting Started with Create React App

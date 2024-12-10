@@ -4,8 +4,10 @@ import CloseIcon from '@mui/icons-material/Close';
 import { getTitle, getGenres, getReleaseDate, getRuntime } from "../../helpers/movieHelpers";
 import { useNavigate } from "react-router-dom";
 import "./MovieModal.css";
-import IMDB_img from "../../assets/images/IMDB_Logo_2016.svg";
+import IMDB_logo from "../../assets/images/IMDB_Logo_2016.svg";
+// import TMDB_logo from "../../assets/images/Tmdb_logo.svg";
 import MovieBackdrop from "../MovieBackdrop/MovieBackdrop";
+import StarIcon from '@mui/icons-material/Star';
 
 const MovieModal = ({ movie, open, onClose }) => {
   const navigate = useNavigate();
@@ -35,32 +37,45 @@ const MovieModal = ({ movie, open, onClose }) => {
             <Button color="secondary" variant="contained" className="rent-button" onClick={() => {routeChange(getTitle(movie))}}>Request Rental</Button>
         </Box>
         <Box className="modal-content">
-        <Typography variant="body1" mt={2}>
-          <strong>Overview:</strong> {movie.overview}
-        </Typography>
-        <Typography variant="body1" mt={1}>
-          <strong>Release Date:</strong> {getReleaseDate(movie)}
-        </Typography>
-        <Typography variant="body1" mt={1}>
-          <strong>Genres:</strong>{" "}
-          {formatGenres(getGenres(movie), movie)}
-        </Typography>
-        {}
-        <Typography variant="body1" mt={1}>
-          <strong>Runtime:</strong>{" "}
-          {getRuntime(movie) + " minutes"}
-        </Typography>
-        <Typography variant="body1" mt={1}>
-          <strong>Rating:</strong> {movie.vote_average} / 10
-        </Typography>
-
-        <Box
-          component="img"
-          src={IMDB_img}
-          alt={"IMDB Logo"}
-          className="imdb-logo"
-          onClick = {() => window.open(`https://www.imdb.com/title/${movie.imdb_id}`, "_blank")}
-          />
+          <Typography>
+            <span className="content-title">Overview:</span> {movie.overview}
+          </Typography>
+          <Box className="inner-modal-content">
+            <Typography>
+              <span className="content-title">Release Date:</span> {getReleaseDate(movie)}
+            </Typography>
+            <Typography>
+              <span className="content-title">Genres:</span>{" "}
+              {formatGenres(getGenres(movie), movie)}
+            </Typography>
+            <Typography>
+              <span className="content-title">Runtime:</span>{" "}
+              {getRuntime(movie) + " minutes"}
+            </Typography>
+            <Typography>
+              <span style={{display: "flex"}}>
+                <span className="content-title">Rating:</span>
+                <StarIcon color="secondary" />
+                {movie.vote_average.toFixed(1)}
+              </span>
+            </Typography>
+            <Box display="flex">
+              <Box
+                component="img"
+                src={IMDB_logo}
+                alt={"IMDB Logo"}
+                className="imdb-logo"
+                onClick = {() => window.open(`https://www.imdb.com/title/${movie.imdb_id}`, "_blank")}
+              />
+              {/* <Box
+                component="img"
+                src={TMDB_logo}
+                alt={"TMDB Logo"}
+                className="imdb-logo"
+                onClick = {() => window.open(`https://www.themoviedb.org/${movie.title ? "movie" : "tv"}/${movie.id}`, "_blank")}
+              /> */}
+            </Box>
+          </Box>
       </Box>
       </Box>
     </Modal>

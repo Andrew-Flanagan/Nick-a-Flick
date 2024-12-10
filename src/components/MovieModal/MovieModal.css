@@ -7,12 +7,14 @@
     transform: translate(-50%, -50%);
     width: 60vw;
     max-width: 75%;
+    min-width: 400px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* softer shadow */
     border-radius: 18px;
     outline: none;
     background-color: #0C2862;
     color: #CBD0DA;
     animation: fadeIn 0.3s ease-in-out;
+    overflow-x: hidden;
 }
 
 .movie-modal-h1 {
@@ -35,17 +37,24 @@ button.rent-button{
 .imdb-logo {
     width: 15%;
     min-width: 80px;
-    border-radius: 1;
-    align-content: center;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 1rem;
     cursor: pointer;
 }
 
 .modal-content {
     padding: 2rem;
+    display: grid;
+    column-gap: 2em;
+    grid-template-columns: minmax(0,2fr) minmax(0,1fr);
+
+}
+
+.inner-modal-content{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .close-button{
@@ -55,4 +64,13 @@ button.rent-button{
     background-color: #181818;
     border-radius: 50%;
     opacity: 0.8;
+}
+
+.close-button:hover{
+    opacity: 1;
+}
+
+.content-title{
+    font-weight: bold;
+    color: #949698;
 }
