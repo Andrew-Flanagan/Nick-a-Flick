@@ -1,19 +1,19 @@
 .carousel-nav-buttons {
-    border-radius: 0;
-    height: 100%;
-    width: 100%;
-    top: unset;
-    padding: 0;
-  }
+  border-radius: 0 !important;
+  height: 100% !important;
+  width: 100% !important;
+  top: unset !important;
+  padding: 0 !important;
+};
   
-  .carousel-nav-buttons-wrapper {
-    bottom: 50%;
-    width: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: calc(100% - 20px);
-    top: unset;
-    padding: 0;
-  }
+.carousel-nav-buttons-wrapper {
+  bottom: 50% !important;
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - 20px) !important;
+  top: unset !important;
+  padding: 0 !important;
+};
   

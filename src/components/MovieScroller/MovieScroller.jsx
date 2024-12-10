@@ -23,12 +23,26 @@ const MovieScroller = ({title, data, subTitle}) => {
                 {title}
             </Typography>}
             <Carousel
-              navButtonsProps={{
-                className: 'carousel-nav-buttons'
-              }}
-              navButtonsWrapperProps={{
-                className: 'carousel-nav-buttons-wrapper'
-              }}>
+              navButtonsProps={{          // Change the colors and radius of the actual buttons. THIS STYLES BOTH BUTTONS
+                style: {
+                    borderRadius: 0,
+                    height: "100%",
+                    width: "100%",
+                    top: 'unset',
+                    padding: 0,
+                }}}
+                navButtonsWrapperProps={{   // Move the buttons to the bottom. Unsetting top here to override default style.
+                    style: {
+                        bottom: "50%",
+                        width: "10%",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        height: "calc(100% - 20px)",
+                        top: 'unset',
+                        padding: 0,
+                    }
+                }}        >
                 { 
                   data.map((movie, i) => <MovieBackdrop key={i} media={movie} handleOpen={handleOpen} subTitle={subTitle} />)
                 }

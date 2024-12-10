@@ -6,6 +6,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 1;
+
 }
 
 .img-box img{
@@ -13,7 +15,7 @@
     height: 100%;
     object-fit: cover;
     object-position: top center;
-    cursor: pointer;
+
 }
 
 .img-box-text{
@@ -25,4 +27,12 @@
     border-radius: 8px;
     text-align: center;
     cursor: pointer;
+}
+
+.img-box-gradient{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg,#0C2862,transparent 50%)
 }

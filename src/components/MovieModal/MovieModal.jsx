@@ -5,6 +5,7 @@ import { getTitle, getGenres, getReleaseDate, getRuntime } from "../../helpers/m
 import { useNavigate } from "react-router-dom";
 import "./MovieModal.css";
 import IMDB_img from "../../assets/images/IMDB_Logo_2016.svg";
+import MovieBackdrop from "../MovieBackdrop/MovieBackdrop";
 
 const MovieModal = ({ movie, open, onClose }) => {
   const navigate = useNavigate();
@@ -24,21 +25,16 @@ const MovieModal = ({ movie, open, onClose }) => {
   return (
     <Modal open={open} onClose={onClose}>
       <Box className="movie-modal">
-        <Typography variant="h4" gutterBottom className="movie-modal-h1" >
-          {getTitle(movie)}
-        </Typography>
-        <Box
-          component="img"
-          src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-          alt={`${getTitle(movie)} Poster`}
-          sx={{ width: "50%", borderRadius: 1, alignContent: "center", display: "block", marginLeft: "auto", marginRight: "auto" }}
-        />
+        <Box sx={{background: "linear-gradient(0deg,#181818,transparent 50%)" }}>
+        <MovieBackdrop media={movie} handleOpen={() => {}} gradient={true}/>
+        </Box>
         <Box sx={{ position: 'absolute', top: 10, right: 10, cursor: 'pointer' }} onClick={onClose}>
-            <CloseIcon sx={{ fontSize: 28, color: '#333' }} />
+            <CloseIcon className="close-button" />
         </Box>
         <Box sx={{display: "flex", flexDirection: "column"}}>
             <Button className="rent-button" onClick={() => {routeChange(getTitle(movie))}}>Request Rental</Button>
         </Box>
+        <Box className="modal-content">
         <Typography variant="body1" mt={2}>
           <strong>Overview:</strong> {movie.overview}
         </Typography>
@@ -62,10 +58,10 @@ const MovieModal = ({ movie, open, onClose }) => {
           component="img"
           src={IMDB_img}
           alt={"IMDB Logo"}
-          sx={{ mt: 2, width: "50%", borderRadius: 1, alignContent: "center", display: "block", marginLeft: "auto", marginRight: "auto", cursor: "pointer" }}
+          className="imdb-logo"
           onClick = {() => window.open(`https://www.imdb.com/title/${movie.imdb_id}`, "_blank")}
           />
-        
+      </Box>
       </Box>
     </Modal>
   );

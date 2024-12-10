@@ -5,12 +5,12 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
+    width: 60vw;
     max-width: 75%;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* softer shadow */
-    padding: 16px; /* equivalent to p: 4 */
     border-radius: 18px;
-    background-color: #1976d2;
+    background-color: #0C2862;
+    color: #CBD0DA;
     animation: fadeIn 0.3s ease-in-out;
 }
 
@@ -30,5 +30,30 @@ button.rent-button{
     display: block;
     margin: auto;
     font-weight: bold;
-    margin-top: 8px;
+    margin-top: 2rem;
+}
+
+.imdb-logo {
+    width: 15%;
+    min-width: 80px;
+    border-radius: 1;
+    align-content: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.modal-content {
+    padding: 2rem;
+}
+
+.close-button{
+    transform: scale(1.5);
+    margin: 0.5rem;
+    color: rgb(191, 184, 184)e;
+    background-color: #181818;
+    border-radius: 50%;
+    opacity: 0.8;
 }
