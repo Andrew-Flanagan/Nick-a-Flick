@@ -1,5 +1,8 @@
 # TODO List
 
+- Make gradient for staff pick and new release carousel
+- Make website more responsive/dynamic -- (e.g. decrease width of browser, text should break)
+- Improve mobile experience
 - Newsletter 
 - ~~Improve search (e.g. search "mission impossible")~~ might need more testing
 - Separate Movies and Television? or just make genre tag "television"
@@ -13,7 +16,7 @@
 - standardize naming conventions, and remove reference of "movie" since inclusion of television -- "media"? -- possibly include video games at some point
 - not sure correct language to use, but use history (URL bar) to make more user friendly (use case: request rental then go back, should put you back in modal with your filters)
 - standardize styling
-- make font cooler
+- ~~make font cooler~~
 - Accounts
     - "Seen"
     - my list
