@@ -1,0 +1,19 @@
+.carousel-nav-buttons {
+    border-radius: 0;
+    height: 100%;
+    width: 100%;
+    top: unset;
+    padding: 0;
+  }
+  
+  .carousel-nav-buttons-wrapper {
+    bottom: 50%;
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - 20px);
+    top: unset;
+    padding: 0;
+  }
+  
