@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage/HomePage.jsx';
 import SearchPage from './pages/SearchPage/SearchPage.jsx';
 import ContactPage from './pages/ContactPage/ContactPage.jsx';
 import theme from './styles/theme.js';
+import './App.css';
 
 function App() {
   return (
@@ -11,15 +12,15 @@ function App() {
       <Router>
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: theme.palette.background.default}}>
           {/* Navbar */}
-          <AppBar position="static">
+          <AppBar position="static" sx={{height: "64px"}}>
             <Toolbar>
-              <Button component={Link} to="/" color="inherit">
+              <Button component={Link} to="/" color="inherit" className="Button">
                 Home
               </Button>
-              <Button component={Link} to="/search" color="inherit">
+              <Button component={Link} to="/search" color="inherit" className="Button">
                 Search
               </Button>
-              <Button component={Link} to="/contact" color="inherit">
+              <Button component={Link} to="/contact" color="inherit" className="Button">
                 Contact
               </Button>
             </Toolbar>
