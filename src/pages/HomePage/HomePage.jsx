@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import MovieCarousel from '../../components/MovieCarousel/MovieCarousel';
 import new_releases from "../../data/new_releases.json";
 import '../../styles/fonts.css'
+import { ModalProvider } from '../../hooks/useModal';
 
 
 const HomePage = () => {
 
   return (
+    <ModalProvider>
     <Box sx={{paddingBottom: "4rem"}}>
       <Container disableGutters maxWidth={false}>
       <Typography align="center" variant="h2" fontSize="6vmax" fontWeight="bold" sx={{paddingTop: "8rem"}}>
@@ -39,6 +41,8 @@ const HomePage = () => {
       <MovieCarousel title="New Releases"  data={new_releases} subTitle="New Release"/>
       </Container>
     </Box>
+    </ModalProvider>
+
   );
 };
 

@@ -12,7 +12,8 @@
 - standardize naming conventions, and remove reference of "movie" since inclusion of television -- "media"? -- possibly include video games at some point
 - not sure correct language to use, but use history (URL bar) to make more user friendly (use case: request rental then go back, should put you back in modal with your filters)
 - standardize styling
-- email verification/general form verification
+- email verification/general form verification + snackbars for contact page
+- put table into own file
 - Accounts
     - "Seen"
     - my list

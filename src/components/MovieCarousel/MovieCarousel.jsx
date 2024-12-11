@@ -1,8 +1,6 @@
 import React from "react";
-import { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import Carousel from 'react-material-ui-carousel'
-import MovieModal from "../MovieModal/MovieModal";
 import MovieBackdrop from "../MovieBackdrop/MovieBackdrop";
 import "./MovieCarousel.css";
 import theme from "../../styles/theme";
@@ -11,13 +9,6 @@ import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutl
 
 
 const MovieCarousel = ({title, data, subTitle}) => {
-    const [currMovie, setCurrMovie] = useState(data[0]);
-    const [open, setOpen] = useState(false);
-
-    const handleOpen = (movie) => {
-        setOpen(true);
-        setCurrMovie(movie);
-    };      
 
     return (
         <Box>
@@ -52,10 +43,9 @@ const MovieCarousel = ({title, data, subTitle}) => {
                 PrevIcon={<ArrowBackIosNewOutlinedIcon sx={{fontSize: "3rem", color: "white"}} />}
                 >
                 { 
-                  data.map((movie, i) => <MovieBackdrop key={i} media={movie} handleOpen={handleOpen} subTitle={subTitle} gradient={theme.palette.secondary.main}/>)
+                  data.map((movie, i) => <MovieBackdrop key={i} media={movie} subTitle={subTitle} gradient={theme.palette.secondary.main}/>)
                 }
             </Carousel>
-            <MovieModal movie={currMovie} open={open} onClose={() => setOpen(false)} />
         </Box>
     );
 };

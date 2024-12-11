@@ -1,11 +1,9 @@
-import { useState } from "react";
 import {
     Box,
     Container,
     Typography,
   } from "@mui/material";
 import PaginationControls from "../../components/PaginationControls/PaginationControls.jsx"; // Adjust path as needed
-import MovieModal from "../../components/MovieModal/MovieModal.jsx";
 import SearchParams from "../../components/SearchParams/SearchParams.jsx";
 import { useMovies } from "../../hooks/useMovies"; // Assuming you separated the hook and reducer
 import { getTitle, getGenres, getReleaseDate } from "../../helpers/movieHelpers";
@@ -15,6 +13,8 @@ import genres from "../../data/genres.json";
 import staff_picks from "../../data/staff_picks.json";
 import MovieCarousel from "../../components/MovieCarousel/MovieCarousel";
 import MovieGrid from "../../components/MovieGrid/MovieGrid.jsx";
+import { useModal } from "../../hooks/useModal.jsx";
+import { ModalProvider } from "../../hooks/useModal.jsx";
 
   
   const SearchPage = () => {
@@ -25,8 +25,7 @@ import MovieGrid from "../../components/MovieGrid/MovieGrid.jsx";
       totalResults,
     } = useMovies(movieList);
   
-    const [open, setOpen] = useState(false);
-    const [selectedMovie, setSelectedMovie] = useState(null);
+    const { openModal } = useModal();
   
     const handleSearchChange = (event) => {
       dispatch({ type: "SET_SEARCH_TERM", payload: event.target.value });
@@ -54,16 +53,6 @@ import MovieGrid from "../../components/MovieGrid/MovieGrid.jsx";
       dispatch({ type: "TOGGLE_DISPLAY", payload: e.currentTarget.value });
     };
 
-    const handleOpen = (movie) => {
-      setOpen(true);
-      setSelectedMovie(movie);
-    };
-  
-    const handleClose = () => {
-      setOpen(false);
-      setSelectedMovie(null);
-    };
-
     const handleResetFilters = () => {
       dispatch({ type: "SET_SEARCH_TERM", payload: "" });
       dispatch({ type: "SET_GENRE", payload: "All" });
@@ -78,6 +67,7 @@ import MovieGrid from "../../components/MovieGrid/MovieGrid.jsx";
 
   
     return (
+      <ModalProvider>
       <Box
         sx={{
           overflowY: "scroll",
@@ -141,7 +131,7 @@ import MovieGrid from "../../components/MovieGrid/MovieGrid.jsx";
                       <td>
                         <span
                           className="movie-link"
-                          onClick={() => handleOpen(result)}
+                          onClick={() => openModal(result)}
                         >
                           {getTitle(result)}
                         </span>
@@ -164,7 +154,7 @@ import MovieGrid from "../../components/MovieGrid/MovieGrid.jsx";
             </Box>
           ) : (
             <Box>
-              <MovieGrid media={paginatedMovies} handleOpen={handleOpen} />
+              <MovieGrid media={paginatedMovies} handleOpen={openModal} />
               {paginatedMovies.length === 0 && (
                 <Typography variant="h6" align="center" gutterBottom>
                   No results found.
@@ -179,9 +169,9 @@ import MovieGrid from "../../components/MovieGrid/MovieGrid.jsx";
               />
             </Box>
           )}
-          <MovieModal movie={selectedMovie} open={open} onClose={handleClose} handleOpen={handleOpen}/>
         </Container>
       </Box>
+      </ModalProvider>
     );
   };
   

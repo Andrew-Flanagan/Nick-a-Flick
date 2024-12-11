@@ -1,11 +1,14 @@
-import React from 'react';
+import {React} from 'react';
 import { Typography, Tooltip } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import { getTitle } from '../../helpers/movieHelpers';
 import placeholder_poster from '../../assets/images/Nick_a_flick.jpeg';
 import './MovieGrid.css';
+import { useModal } from '../../hooks/useModal';
 
-const MovieGrid = ({ media, handleOpen }) => {
+const MovieGrid = ({ media }) => {
+    const { openModal } = useModal();
+
     return(
         <Grid container spacing={1.5} justifyContent="center">
             {media.map((result) => (
@@ -36,7 +39,7 @@ const MovieGrid = ({ media, handleOpen }) => {
                         src={`https://image.tmdb.org/t/p/w200${result.poster_path}`}
                         alt={getTitle(result) + "poster"}
                         onError={(e) => { e.target.src = placeholder_poster }}
-                        onClick={() => handleOpen(result)}
+                        onClick={() => openModal(result)}
                     />
                 </Tooltip>
             </Grid>

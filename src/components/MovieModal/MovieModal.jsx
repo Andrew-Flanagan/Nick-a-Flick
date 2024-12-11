@@ -15,7 +15,7 @@ import MovieGrid from "../MovieGrid/MovieGrid";
 import Fade from '@mui/material/Fade';
 
 
-const MovieModal = ({ movie, open, onClose, handleOpen }) => {
+const MovieModal = ({ movie, open, onClose }) => {
   const navigate = useNavigate();
 
   if (!movie) return null;
@@ -32,14 +32,16 @@ const MovieModal = ({ movie, open, onClose, handleOpen }) => {
 
 
   return (
-    <Modal open={open} onClose={onClose}
-    closeAfterTransition
->
-  <Fade in={open} timeout={500}>
+    <Modal
+      open={open} 
+      onClose={onClose}
+      closeAfterTransition
+     
+       // Ensure onClose is only called after the fade is complete
+      >
+    <Fade in={open} timeout={500} onExited={onClose}>
       <Box className="movie-modal">
-        <Box sx={{background: "linear-gradient(0deg,#181818,transparent 50%)" }}>
-        <MovieBackdrop media={movie} handleOpen={() => {}} gradient={theme.palette.primary.secondary}/>
-        </Box>
+        <MovieBackdrop media={movie} gradient={theme.palette.primary.secondary}/>
         <Box sx={{ position: 'absolute', top: 10, right: 10, cursor: 'pointer' }} onClick={onClose}>
             <CloseIcon className="close-button" />
         </Box>
@@ -96,10 +98,7 @@ const MovieModal = ({ movie, open, onClose, handleOpen }) => {
                 media={
                   data
                   .filter((m) => m.belongs_to_collection && m.belongs_to_collection.id === movie.belongs_to_collection.id)
-                  .sort((a, b) => new Date(a.release_date) - new Date(b.release_date))
-                                }
-                handleOpen={(newMovie) => {handleOpen(newMovie);
-                }}
+                  .sort((a, b) => new Date(a.release_date) - new Date(b.release_date))}
               />
             </Box>
           )}

@@ -5,10 +5,13 @@ import SearchPage from './pages/SearchPage/SearchPage.jsx';
 import ContactPage from './pages/ContactPage/ContactPage.jsx';
 import theme from './styles/theme.js';
 import './App.css';
+import { ModalProvider } from './hooks/useModal.jsx';
 
 function App() {
   return (
+
     <ThemeProvider theme={theme}>
+      <ModalProvider>
       <Router>
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: theme.palette.background.default}}>
           {/* Navbar */}
@@ -36,6 +39,8 @@ function App() {
           </Box>
         </Box>
       </Router>
+      </ModalProvider>
+
     </ThemeProvider>
   );
 }

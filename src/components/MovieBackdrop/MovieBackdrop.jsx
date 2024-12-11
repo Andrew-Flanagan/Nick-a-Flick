@@ -2,20 +2,22 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import { getGenres, getTitle, getRuntime, getReleaseDate } from "../../helpers/movieHelpers";
 import "./MovieBackdrop.css";
+import { useModal } from "../../hooks/useModal";
 
 
 
-const MovieBackdrop = ({media, handleOpen, subTitle, gradient}) => {
+const MovieBackdrop = ({media, subTitle, gradient}) => {
+      const { openModal } = useModal();
       return (
         <Box className="img-box" color={gradient}>
           <img
             src={`https://image.tmdb.org/t/p/original${media.backdrop_path}`}
             alt={`${media.title} Poster`}
-            onClick={() => handleOpen(media)}
+            onClick={() => openModal(media)}
             style={subTitle && {cursor: 'pointer'}}
           />
           <Box
-              onClick={() => handleOpen(media)}
+              onClick={() => openModal(media)}
               className="img-box-text"
           >
             <Typography variant="h4" component="h1" color="white">
