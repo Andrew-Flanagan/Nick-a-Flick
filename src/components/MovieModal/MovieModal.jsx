@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useMemo} from "react";
 import { Modal, Box, Typography, Button } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import { getTitle, getGenres, getReleaseDate, getRuntime, getTrailers } from "../../helpers/movieHelpers";
@@ -8,7 +8,7 @@ import IMDB_logo from "../../assets/images/IMDB_Logo_2016.svg";
 import MovieBackdrop from "../MovieBackdrop/MovieBackdrop";
 import StarIcon from '@mui/icons-material/Star';
 import theme from "../../styles/theme";
-import data from "../../data/all_data.json";
+import data from "../../data/updated_data.json";
 import MovieGrid from "../MovieGrid/MovieGrid";
 import { useSpring, animated } from '@react-spring/web';
 import PropTypes from 'prop-types';
@@ -16,11 +16,20 @@ import youtube_logo from "../../assets/images/youtube_logo.svg";
 
 
 const MovieModal = ({ movie, open, handleClose }) => {
-  const trailers = getTrailers(movie);
-
   const navigate = useNavigate();
-
-  if (!movie) return null;
+  
+  const collection_movies = useMemo(() => {
+    if (!movie || !movie.belongs_to_collection) return []; 
+    return data
+      .filter(
+        (m) =>
+          m.belongs_to_collection &&
+          m.belongs_to_collection.id === movie.belongs_to_collection.id
+      )
+      .sort((a, b) => new Date(a.release_date) - new Date(b.release_date));
+  }, [movie]); 
+  
+  const trailers = getTrailers(movie);
 
   const routeChange = (movieTitle) =>{
     let path = `/contact`;
@@ -101,13 +110,13 @@ const MovieModal = ({ movie, open, handleClose }) => {
               className="imdb-logo"
               onClick = {() => window.open(`https://www.imdb.com/title/${movie.imdb_id}`, "_blank")}
               />
-            <Box
+            {trailers.length > 0 && <Box
               component="img"
               src={youtube_logo}
               alt={"Youtube Logo"}
               className="imdb-logo"
               onClick = {() => handleYoutubeClick(trailers[0])}
-            />
+            />}
           </Box>
           <Typography sx={{marginTop: "0.5rem"}}>
             <span className="content-title">Overview:</span> {movie.overview}
@@ -133,16 +142,13 @@ const MovieModal = ({ movie, open, handleClose }) => {
             </Typography>
           </Box>
         </Box>
-          {movie.belongs_to_collection && (
+          {movie.belongs_to_collection && collection_movies.length > 1 &&(
             <Box sx={{paddingBottom: 4, paddingRight: 4, paddingLeft: 4}}>
               <Typography align="center">
                 Nick A Flick films in the {movie.belongs_to_collection.name}
               </Typography> 
               <MovieGrid
-                media={
-                  data
-                  .filter((m) => m.belongs_to_collection && m.belongs_to_collection.id === movie.belongs_to_collection.id)
-                  .sort((a, b) => new Date(a.release_date) - new Date(b.release_date))}
+                media={collection_movies}
               />
             </Box>
           )}
