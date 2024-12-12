@@ -1,7 +1,7 @@
 import React, {useMemo} from "react";
 import { Modal, Box, Typography, Button } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
-import { getTitle, getGenres, getReleaseDate, getRuntime, getTrailers } from "../../helpers/movieHelpers";
+import { getTitle, getGenres, getReleaseDate, getRuntime, getTrailers, getKeywords, getCast, getCrew } from "../../helpers/movieHelpers";
 import { useNavigate } from "react-router-dom";
 import "./MovieModal.css";
 import IMDB_logo from "../../assets/images/IMDB_Logo_2016.svg";
@@ -139,6 +139,21 @@ const MovieModal = ({ movie, open, handleClose }) => {
                 <StarIcon color="secondary" />
                 {movie.vote_average.toFixed(1)}
               </span>
+            </Typography>
+            {/* <Typography>
+              <span className="content-title">Keywords:</span>{" "}
+              {getKeywords(movie)}
+            </Typography> */}
+            <Typography>
+              <span className="content-title">Cast:</span>{" "}
+              {getCast(movie, 5)}
+            </Typography>
+            <Typography>
+              <span className="content-title">Director:</span>{" "}
+              {getCrew(movie, "Director")}
+              <br/>
+              <span className="content-title">Writer:</span>{" "}
+              {getCrew(movie, "Writer")}
             </Typography>
           </Box>
         </Box>

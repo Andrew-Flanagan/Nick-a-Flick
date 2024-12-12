@@ -26,3 +26,17 @@ export const getRuntime = (movie) => {
 export const getTrailers = (media) => {
   return media.videos.results.filter((video) => video.type === "Trailer" && video.site === "YouTube");
 }
+
+export const getKeywords = (media) => {
+  return media.keywords.keywords.map((keyword) => keyword.name).join(", ");
+}
+
+export const getCast = (media, num) => {
+  return media.credits.cast.slice(0, num).map((actor) => actor.name).join(", ");
+}
+
+export const getCrew = (media, job) => {
+  console.log(media.credits.crew);
+  return media.credits.crew.filter((crew) => crew.job === job).map((crew) => crew.name).join(", ");
+  // return media.credits.crew.slice(0, num).map((crew) => crew.name).join(", ");
+}
