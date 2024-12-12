@@ -5,6 +5,7 @@ import new_releases from "../../data/new_releases.json";
 import '../../styles/fonts.css'
 import { ModalProvider } from '../../hooks/useModal';
 import { useSpring, animated } from '@react-spring/web';
+import nickaflick_logo from "../../assets/images/nickaflick_logo.PNG";
 
 
 const HomePage = () => {
@@ -12,16 +13,21 @@ const HomePage = () => {
   const springs = useSpring({
     from: {x: -1500},
     to: {x: 0},
-    config: {duration: 4000},
+    config: {duration: 1500},
   });
 
   return (
     <ModalProvider>
     <Box sx={{paddingBottom: "4rem"}}>
       <Container disableGutters maxWidth={false}>
-      <Typography align="center" variant="h2" fontSize="6vmax" fontWeight="bold" sx={{paddingTop: "8rem"}}>
+      <Typography align="center" variant="h2" fontSize="6vmax" fontWeight="bold" sx={{paddingTop: "2rem"}}>
         WELCOME TO
       </Typography>
+      <img 
+          src={nickaflick_logo}
+          alt="Nickaflick Logo"
+          style={{display: "block", margin: "auto", width: "30%"}}
+        />
       <Box sx={{ width: "100%", textAlign: "center" }}>
         <animated.div
                 style={{

@@ -4,18 +4,18 @@
 - improve grid layout (e.g. if there are 6 items then it should be evenly split instead of 5 on line 1 and 1 on line 2)
 - Newsletter 
 - Gallery of the store
-- Find movies from the same collection from the movie modal page or something
 - Add link to trailer or embedded youtube player
 - standardize naming conventions, and remove reference of "movie" since inclusion of television -- "media"? -- possibly include video games at some point
 - not sure correct language to use, but use history (URL bar) to make more user friendly (use case: request rental then go back, should put you back in modal with your filters)
 - standardize styling
 - email verification/general form verification + snackbars for contact page
-- put table into own file
-- maybe animate nick a flick text
 - Accounts
     - "Seen"
     - my list
     - favourites
+- ~~put table into own file~~
+- ~~maybe animate nick a flick text~~
+- ~~Find movies from the same collection from the movie modal page or something~~
 - ~~improve ux of clicking on franchise title from modal~~
 - ~~fix bug, click godzilla, then franchise film~~
 - ~~fix fade out of modal~~ not doing this 

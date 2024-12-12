@@ -6,16 +6,14 @@ import {
 import PaginationControls from "../../components/PaginationControls/PaginationControls.jsx"; // Adjust path as needed
 import SearchParams from "../../components/SearchParams/SearchParams.jsx";
 import { useMovies } from "../../hooks/useMovies"; // Assuming you separated the hook and reducer
-import { getTitle, getGenres, getReleaseDate } from "../../helpers/movieHelpers";
 import movieList from "../../data/all_data.json";
 import "./SearchPage.css";
 import genres from "../../data/genres.json";
 import staff_picks from "../../data/staff_picks.json";
 import MovieCarousel from "../../components/MovieCarousel/MovieCarousel";
 import MovieGrid from "../../components/MovieGrid/MovieGrid.jsx";
-import { useModal } from "../../hooks/useModal.jsx";
 import { ModalProvider } from "../../hooks/useModal.jsx";
-
+import MediaTable from "../../components/MediaTable/MediaTable.jsx";
   
   const SearchPage = () => {
     const {
@@ -24,8 +22,6 @@ import { ModalProvider } from "../../hooks/useModal.jsx";
       paginatedMovies,
       totalResults,
     } = useMovies(movieList);
-  
-    const { openModal } = useModal();
   
     const handleSearchChange = (event) => {
       dispatch({ type: "SET_SEARCH_TERM", payload: event.target.value });
@@ -65,7 +61,6 @@ import { ModalProvider } from "../../hooks/useModal.jsx";
       return genre ? genre.name : "";
     }
 
-  
     return (
       <ModalProvider>
       <Box
@@ -101,74 +96,26 @@ import { ModalProvider } from "../../hooks/useModal.jsx";
             onPageChange={handlePageChange}
           />
           {state.displayAsTable ? (
-            <Box
-              sx={{
-                alignItems: "center",
-                gap: 1,
-                marginTop: "15px",
-                overflow: "scroll",
-                justifyContent: "center",
-                flexDirection: "column",
-              }}
-            >
-              <table
-                sx={{
-                  margin: "auto",
-                  width: "100%",
-                  tableLayout: "fixed",
-                }}
-              >
-                <thead>
-                  <tr>
-                    <th style={{ textAlign: "left", width: "50%" }}>Name</th>
-                    <th style={{ textAlign: "left", width: "50%" }}>Genre</th>
-                    <th style={{ textAlign: "left" }}>Year</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {paginatedMovies.map((result) => (
-                    <tr key={result.id}>
-                      <td>
-                        <span
-                          className="movie-link"
-                          onClick={() => openModal(result)}
-                        >
-                          {getTitle(result)}
-                        </span>
-                      </td>
-                      <td>
-                        {getGenres(result)}
-                      </td>
-                      <td>{getReleaseDate(result)}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-              <PaginationControls
-                page={state.page}
-                totalResults={totalResults}
-                numResults={state.numResults}
-                onPageChange={handlePageChange}
-                style={{ marginTop: "15px" }}
-              />
+            <Box>
+            <MediaTable media={paginatedMovies} />
             </Box>
           ) : (
             <Box>
-              <MovieGrid media={paginatedMovies} handleOpen={openModal} />
+              <MovieGrid media={paginatedMovies} />
               {paginatedMovies.length === 0 && (
                 <Typography variant="h6" align="center" gutterBottom>
                   No results found.
                 </Typography>
               )}
-              <PaginationControls
-                page={state.page}
-                totalResults={totalResults}
-                numResults={state.numResults}
-                onPageChange={handlePageChange}
-                style={{ marginTop: "15px" }}
-              />
             </Box>
           )}
+          <PaginationControls
+            page={state.page}
+            totalResults={totalResults}
+            numResults={state.numResults}
+            onPageChange={handlePageChange}
+            style={{ marginTop: "15px" }}
+          />
         </Container>
       </Box>
       </ModalProvider>
