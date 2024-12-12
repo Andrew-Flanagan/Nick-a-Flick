@@ -1,12 +1,19 @@
 # TODO List
+- Movie modal
+    - Add better handling of missing data in the movie modal
+        - default backdrop
+        - hide missing genres, etc. 
+    - keywords
+    - cast/crew
+
 - improve grid layout (e.g. if there are 6 items then it should be evenly split instead of 5 on line 1 and 1 on line 2)
     - this was challenging to try
-- Newsletter 
+- Newsletter
 - Gallery of the store
 - standardize naming conventions, and remove reference of "movie" since inclusion of television -- "media"? -- possibly include video games at some point
 - not sure correct language to use, but use history (URL bar) to make more user friendly (use case: request rental then go back, should put you back in modal with your filters)
 - standardize styling
-- email verification/general form verification + snackbars for contact page
+- ~~email verification/general form verification + snackbars for contact page~~
 - Accounts?
     - "Seen"
     - my list

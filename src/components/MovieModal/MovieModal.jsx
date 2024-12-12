@@ -103,13 +103,13 @@ const MovieModal = ({ movie, open, handleClose }) => {
         <Box className="modal-content">
           <Button color="secondary" variant="contained" className="rent-button" onClick={() => {routeChange(getTitle(movie))}}>Request Rental</Button>
           <Box className="link-buttons">
-            <Box
+            {movie.imdb_id && <Box
               component="img"
               src={IMDB_logo}
               alt={"IMDB Logo"}
               className="imdb-logo"
               onClick = {() => window.open(`https://www.imdb.com/title/${movie.imdb_id}`, "_blank")}
-              />
+              />}
             {trailers.length > 0 && <Box
               component="img"
               src={youtube_logo}
