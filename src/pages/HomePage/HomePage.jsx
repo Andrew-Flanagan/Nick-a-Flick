@@ -5,7 +5,7 @@ import new_releases from "../../data/new_releases.json";
 import '../../styles/fonts.css'
 import { ModalProvider } from '../../hooks/useModal';
 import { useSpring, animated } from '@react-spring/web';
-import nickaflick_logo from "../../assets/images/nickaflick_logo.PNG";
+import nickaflick_logo from "../../assets/images/nickaflick_logo2.PNG";
 
 
 const HomePage = () => {

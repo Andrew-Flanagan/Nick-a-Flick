@@ -5,18 +5,14 @@ import { getTitle, getGenres, getReleaseDate, getRuntime, getTrailers } from "..
 import { useNavigate } from "react-router-dom";
 import "./MovieModal.css";
 import IMDB_logo from "../../assets/images/IMDB_Logo_2016.svg";
-// import TMDB_logo from "../../assets/images/Tmdb_logo.svg";
 import MovieBackdrop from "../MovieBackdrop/MovieBackdrop";
 import StarIcon from '@mui/icons-material/Star';
 import theme from "../../styles/theme";
 import data from "../../data/all_data.json";
 import MovieGrid from "../MovieGrid/MovieGrid";
-// import { useMemo } from "react";
-// import Fade from '@mui/material/Fade';
-// import { useSpring, animated } from '@react-spring/web';
 import { useSpring, animated } from '@react-spring/web';
 import PropTypes from 'prop-types';
-import Youtube from "react-youtube";
+import youtube_logo from "../../assets/images/youtube_logo.svg";
 
 
 const MovieModal = ({ movie, open, handleClose }) => {
@@ -34,6 +30,10 @@ const MovieModal = ({ movie, open, handleClose }) => {
   const formatGenres = (genres, media) => {
     const appendTV = media.name ? ", TV Series" : ""
     return genres + appendTV;
+  }
+
+  const handleYoutubeClick = (video) => {
+    return window.open(`https://www.youtube.com/watch?v=${video.key}`, "_blank");
   }
 
   const Fade = React.forwardRef(function Fade(props, ref) {
@@ -91,11 +91,25 @@ const MovieModal = ({ movie, open, handleClose }) => {
         <Box sx={{ position: 'absolute', top: 10, right: 10, cursor: 'pointer' }} onClick={handleClose}>
             <CloseIcon className="close-button" />
         </Box>
-        <Box sx={{display: "flex", flexDirection: "column"}}>
-            <Button color="secondary" variant="contained" className="rent-button" onClick={() => {routeChange(getTitle(movie))}}>Request Rental</Button>
-        </Box>
         <Box className="modal-content">
-          <Typography>
+          <Button color="secondary" variant="contained" className="rent-button" onClick={() => {routeChange(getTitle(movie))}}>Request Rental</Button>
+          <Box className="link-buttons">
+            <Box
+              component="img"
+              src={IMDB_logo}
+              alt={"IMDB Logo"}
+              className="imdb-logo"
+              onClick = {() => window.open(`https://www.imdb.com/title/${movie.imdb_id}`, "_blank")}
+              />
+            <Box
+              component="img"
+              src={youtube_logo}
+              alt={"Youtube Logo"}
+              className="imdb-logo"
+              onClick = {() => handleYoutubeClick(trailers[0])}
+            />
+          </Box>
+          <Typography sx={{marginTop: "0.5rem"}}>
             <span className="content-title">Overview:</span> {movie.overview}
           </Typography>
           <Box className="inner-modal-content">
@@ -117,24 +131,8 @@ const MovieModal = ({ movie, open, handleClose }) => {
                 {movie.vote_average.toFixed(1)}
               </span>
             </Typography>
-            <Box display="flex">
-              <Box
-                component="img"
-                src={IMDB_logo}
-                alt={"IMDB Logo"}
-                className="imdb-logo"
-                onClick = {() => window.open(`https://www.imdb.com/title/${movie.imdb_id}`, "_blank")}
-              />
-              {/* <Box
-                component="img"
-                src={TMDB_logo}
-                alt={"TMDB Logo"}
-                className="imdb-logo"
-                onClick = {() => window.open(`https://www.themoviedb.org/${movie.title ? "movie" : "tv"}/${movie.id}`, "_blank")}
-              /> */}
-            </Box>
           </Box>
-      </Box>
+        </Box>
           {movie.belongs_to_collection && (
             <Box sx={{paddingBottom: 4, paddingRight: 4, paddingLeft: 4}}>
               <Typography align="center">
@@ -148,12 +146,6 @@ const MovieModal = ({ movie, open, handleClose }) => {
               />
             </Box>
           )}
-
-          {trailers.length > 1 && ( 
-            <Box sx={{display: "flex"}}>
-              <Youtube videoId={trailers[0].key} sx={{paddingLeft: "100px"}}/> 
-            </Box>
-           )}
       </Box>
       </Fade>
     </Modal>

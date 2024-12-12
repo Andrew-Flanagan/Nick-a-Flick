@@ -13,7 +13,6 @@
     outline: none;
     background-color: #0C2862;
     color: #CBD0DA;
-    animation: fadeIn 0.3s ease-in-out;
     overflow-x: hidden;
 }
 
@@ -27,20 +26,34 @@
 }
 
 button.rent-button{
-    width: 30%;
+    min-width: 150px;
+    width: 50%;
     display: block;
-    margin: auto;
     font-weight: bold;
+}
+
+.box-bar{
+    display: flex;
+    flex-direction: row;
     margin-top: 2rem;
+    align-items: center;
+    /* padding-right: 2rem; */
+    justify-content: center;
+}
+
+.link-buttons{
+    display: flex;
+    align-items: center;
 }
 
 .imdb-logo {
-    width: 15%;
-    min-width: 80px;
-    display: block;
-    margin-right: auto;
+    height: 30px;
+    display: flex;
+    margin-right: 1rem;
     cursor: pointer;
+    /* flex-wrap: wrap; */
 }
+
 
 .modal-content {
     padding: 2rem;
@@ -51,6 +64,7 @@ button.rent-button{
 }
 
 .inner-modal-content{
+    margin-top: 0.5rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
