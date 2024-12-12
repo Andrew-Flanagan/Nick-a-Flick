@@ -6,8 +6,10 @@ const ModalContext = createContext();
 export const ModalProvider = ({ children }) => {
   const [modalData, setModalData] = useState({ open: false, movie: null });
 
-  const openModal = (movie) => setModalData({ open: true, movie });
-  const closeModal = () => {setModalData({ open: false, movie: null })};
+  const openModal = (movie) => {
+    setModalData({ open: true, movie })};
+  const closeModal = () => {
+    setModalData({ open: false, movie: null })};
 
   return (
     <ModalContext.Provider value={{ modalData, openModal, closeModal }}>
@@ -16,7 +18,7 @@ export const ModalProvider = ({ children }) => {
         <MovieModal
           movie={modalData.movie}
           open={modalData.open}
-          onClose={closeModal}
+          handleClose={closeModal}
         />
       )}
     </ModalContext.Provider>

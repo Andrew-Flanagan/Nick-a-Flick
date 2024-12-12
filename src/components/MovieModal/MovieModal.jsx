@@ -12,10 +12,14 @@ import theme from "../../styles/theme";
 import data from "../../data/all_data.json";
 import MovieGrid from "../MovieGrid/MovieGrid";
 // import { useMemo } from "react";
-import Fade from '@mui/material/Fade';
+// import Fade from '@mui/material/Fade';
+// import { useSpring, animated } from '@react-spring/web';
+import { useSpring, animated } from '@react-spring/web';
+import PropTypes from 'prop-types';
 
 
-const MovieModal = ({ movie, open, onClose }) => {
+const MovieModal = ({ movie, open, handleClose }) => {
+
   const navigate = useNavigate();
 
   if (!movie) return null;
@@ -30,19 +34,59 @@ const MovieModal = ({ movie, open, onClose }) => {
     return genres + appendTV;
   }
 
+  const Fade = React.forwardRef(function Fade(props, ref) {
+    const {
+      children,
+      in: open,
+      onClick,
+      onEnter,
+      onExited,
+      ownerState,
+      ...other
+    } = props;
+    const style = useSpring({
+      from: { opacity: 0 },
+      to: { opacity: open ? 1 : 0 },
+      onStart: () => {
+        if (open && onEnter) {
+          onEnter(null, true);
+        }
+      },
+      onRest: () => {
+        if (!open && onExited) {
+          onExited(null, true);
+        }
+      },
+    });
+  
+    return (
+      <animated.div ref={ref} style={style} {...other}>
+        {React.cloneElement(children, { onClick })}
+      </animated.div>
+    );
+  });
+  
+  Fade.propTypes = {
+    children: PropTypes.element.isRequired,
+    in: PropTypes.bool,
+    onClick: PropTypes.any,
+    onEnter: PropTypes.func,
+    onExited: PropTypes.func,
+    ownerState: PropTypes.any,
+  };
 
   return (
+    <div>
     <Modal
       open={open} 
-      onClose={onClose}
+      onClose={handleClose}
       closeAfterTransition
-     
-       // Ensure onClose is only called after the fade is complete
+
       >
-    <Fade in={open} timeout={500} onExited={onClose}>
+    <Fade in={open} onExited={console.log('here')}>
       <Box className="movie-modal">
         <MovieBackdrop media={movie} gradient={theme.palette.primary.secondary}/>
-        <Box sx={{ position: 'absolute', top: 10, right: 10, cursor: 'pointer' }} onClick={onClose}>
+        <Box sx={{ position: 'absolute', top: 10, right: 10, cursor: 'pointer' }} onClick={handleClose}>
             <CloseIcon className="close-button" />
         </Box>
         <Box sx={{display: "flex", flexDirection: "column"}}>
@@ -105,6 +149,7 @@ const MovieModal = ({ movie, open, onClose }) => {
       </Box>
       </Fade>
     </Modal>
+    </div>
   );
 };
 

@@ -1,8 +1,5 @@
 # TODO List
 
-- fix bug, click godzilla, then franchise film
-- fix fade out of modal
-- improve ux of clicking on franchise title from modal
 - memoize collection stuff?
 - improve grid layout (e.g. if there are 6 items then it should be evenly split instead of 5 on line 1 and 1 on line 2)
 - Newsletter 
@@ -14,10 +11,14 @@
 - standardize styling
 - email verification/general form verification + snackbars for contact page
 - put table into own file
+- maybe animate nick a flick text
 - Accounts
     - "Seen"
     - my list
     - favourites
+- ~~improve ux of clicking on franchise title from modal~~
+- ~~fix bug, click godzilla, then franchise film~~
+- ~~fix fade out of modal~~ not doing this 
 - ~~Make website more responsive/dynamic -- (e.g. decrease width of browser, text should break)~~
 - ~~Improve mobile experience~~
 - ~~Separate Movies and Television? or just make genre tag "television"~~

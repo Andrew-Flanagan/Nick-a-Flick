@@ -4,9 +4,16 @@ import MovieCarousel from '../../components/MovieCarousel/MovieCarousel';
 import new_releases from "../../data/new_releases.json";
 import '../../styles/fonts.css'
 import { ModalProvider } from '../../hooks/useModal';
+import { useSpring, animated } from '@react-spring/web';
 
 
 const HomePage = () => {
+
+  const springs = useSpring({
+    from: {x: -1500},
+    to: {x: 0},
+    config: {duration: 4000},
+  });
 
   return (
     <ModalProvider>
@@ -16,6 +23,14 @@ const HomePage = () => {
         WELCOME TO
       </Typography>
       <Box sx={{ width: "100%", textAlign: "center" }}>
+        <animated.div
+                style={{
+                  // width: 80,
+                  // height: 80,
+                  // background: '#ff6d6d',
+                  borderRadius: 8,
+                  ...springs,
+                }}>
         <Typography
           align="center"
           variant="h2"
@@ -28,6 +43,7 @@ const HomePage = () => {
         >
           .NICK.A.FLICK.
         </Typography>
+        </animated.div>
       </Box>
         {/* Press Start 2P */}
         <Typography variant="h5" align="center" fontFamily={"cursive"} fontWeight={"bold"} fontStyle={"italic"}>
