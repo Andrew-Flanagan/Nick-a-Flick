@@ -1,7 +1,7 @@
 import React from "react";
 import { Modal, Box, Typography, Button } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
-import { getTitle, getGenres, getReleaseDate, getRuntime } from "../../helpers/movieHelpers";
+import { getTitle, getGenres, getReleaseDate, getRuntime, getTrailers } from "../../helpers/movieHelpers";
 import { useNavigate } from "react-router-dom";
 import "./MovieModal.css";
 import IMDB_logo from "../../assets/images/IMDB_Logo_2016.svg";
@@ -16,9 +16,11 @@ import MovieGrid from "../MovieGrid/MovieGrid";
 // import { useSpring, animated } from '@react-spring/web';
 import { useSpring, animated } from '@react-spring/web';
 import PropTypes from 'prop-types';
+import Youtube from "react-youtube";
 
 
 const MovieModal = ({ movie, open, handleClose }) => {
+  const trailers = getTrailers(movie);
 
   const navigate = useNavigate();
 
@@ -83,7 +85,7 @@ const MovieModal = ({ movie, open, handleClose }) => {
       closeAfterTransition
 
       >
-    <Fade in={open} onExited={console.log('here')}>
+    <Fade in={open} >
       <Box className="movie-modal">
         <MovieBackdrop media={movie} gradient={theme.palette.primary.secondary}/>
         <Box sx={{ position: 'absolute', top: 10, right: 10, cursor: 'pointer' }} onClick={handleClose}>
@@ -146,6 +148,12 @@ const MovieModal = ({ movie, open, handleClose }) => {
               />
             </Box>
           )}
+
+          {trailers.length > 1 && ( 
+            <Box sx={{display: "flex"}}>
+              <Youtube videoId={trailers[0].key} sx={{paddingLeft: "100px"}}/> 
+            </Box>
+           )}
       </Box>
       </Fade>
     </Modal>

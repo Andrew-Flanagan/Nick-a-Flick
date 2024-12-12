@@ -22,3 +22,7 @@ export const getRuntime = (movie) => {
   }
   return movie.runtime;
 }
+
+export const getTrailers = (media) => {
+  return media.videos.results.filter((video) => video.type === "Trailer" && video.site === "YouTube");
+}

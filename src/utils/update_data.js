@@ -7,7 +7,7 @@ const TMDB_API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
 
 const fetchData = async () => {
-  const input_file = "../data/test.json";
+  const input_file = "../data/all_data.json";
   const output_file = "../data/updated_data.json";
   const movie_req = "https://api.themoviedb.org/3/movie/";
   const tv_req = "https://api.themoviedb.org/3/tv/";
