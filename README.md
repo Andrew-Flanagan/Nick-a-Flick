@@ -1,18 +1,19 @@
 # TODO List
-
-- memoize collection stuff?
 - improve grid layout (e.g. if there are 6 items then it should be evenly split instead of 5 on line 1 and 1 on line 2)
+    - this was challenging to try
 - Newsletter 
 - Gallery of the store
-- Add link to trailer or embedded youtube player
 - standardize naming conventions, and remove reference of "movie" since inclusion of television -- "media"? -- possibly include video games at some point
 - not sure correct language to use, but use history (URL bar) to make more user friendly (use case: request rental then go back, should put you back in modal with your filters)
 - standardize styling
 - email verification/general form verification + snackbars for contact page
-- Accounts
+- Accounts?
     - "Seen"
     - my list
     - favourites
+- write function to automatically update staff picks and new releases from IDs or title
+- ~~Add link to trailer or embedded youtube player~~
+- ~~memoize collection stuff?~~
 - ~~put table into own file~~
 - ~~maybe animate nick a flick text~~
 - ~~Find movies from the same collection from the movie modal page or something~~

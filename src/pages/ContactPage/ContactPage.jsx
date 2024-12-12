@@ -1,39 +1,63 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Typography, Button, Container, TextField } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import '../../styles/global.css';
 import emailjs from '@emailjs/browser';
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
 
 const ContactPage = () => {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [message, setMessage] = useState("");
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        message: "",
+    });
+    const [open, setOpen] = useState(false);
     const [submitted, setSubmitted] = useState(false);
-    // const [request, setRequest] = React.useState("General Inquiry");
 
-    
+    const verifyEmail = (email) => {
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return emailRegex.test(email);
+    };
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setOpen(false);
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+    };
 
     const location = useLocation();
 
     useEffect(() => {
         if (location.state && location.state.movie) {
-            setMessage(`Hi Chad, I would like to rent ${location.state.movie}.`);
+            setFormData((prev) => ({ ...prev, message: `Hi Chad, I would like to rent ${location.state.movie}.` }));
         }
     }, [location.state]); // Only run when location.state changes
 
-
     const handleSubmit = (event) => {
         event.preventDefault();
+        if (formData.name.length === 0 || formData.email.length === 0 || formData.message.length === 0 || !verifyEmail(formData.email)) {
+            setSubmitted(true);
+            return;
+        }
+
 
         emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATE_ID, event.target, {
             publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY,
         }).then(
             (result) => {
                 console.log("Email sent successfully:", result.text);
-                alert("Your message has been sent!");
-                setName("");
-                setEmail("");
-                setMessage("");
+                setOpen(true);
+                setFormData({ name: "", email: "", message: "" });
                 setSubmitted(false);
             },
             (error) => {
@@ -41,13 +65,11 @@ const ContactPage = () => {
                 alert("Failed to send your message. Please try again later.");
             }
         );
-    
         setSubmitted(true);
-    }
-
+    };
 
     return (
-        <Box sx={{py: 4}}>
+        <Box sx={{ py: 4 }}>
             <Container>
                 <Typography variant="h2" align="center" gutterBottom fontWeight="bold" fontFamily="Press Start 2P">
                     Contact Us
@@ -57,65 +79,58 @@ const ContactPage = () => {
                 </Typography>
                 <form onSubmit={handleSubmit}>
                     <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
-                        {/* <FormControl sx={{display: "inline-block", marginRight: "16px"}} fullWidth>
-                            <InputLabel>Request</InputLabel>
-                            <Select
-                              label="Request"
-                              value={request}
-                              fullWidth
-                              onChange={(event) => { setRequest(event.target.value)}}
-                            >
-                              <MenuItem value={"General Request"}>General Inquiry</MenuItem>
-                              <MenuItem value={"Rental Request"}>Rental Request</MenuItem>
-                            </Select>
-                        </FormControl> */}
                         <TextField 
                             fullWidth 
                             label="Name"
-                            name="user_name"
+                            name="name"
                             required
-                            sx={{display: "inline-block", marginRight: "16px"}}
-                            onChange={(event) => setName(event.target.value)}
-                            value={name}
-                            error={name.length === 0 && submitted}
-                        >
-                        </TextField>
+                            sx={{ display: "inline-block", marginRight: "16px" }}
+                            onChange={handleChange}
+                            value={formData.name}
+                            error={formData.name.length === 0 && submitted}
+                        />
                         <TextField 
                             fullWidth
                             label="Email"
-                            name="user_email"
+                            name="email"
                             required
-                            sx={{display: "inline-block"}}
-                            onChange={(event) => setEmail(event.target.value)}
-                            value={email}
-                            error={email.length === 0 && submitted}
-                        >
-                        </TextField>
+                            sx={{ display: "inline-block" }}
+                            onChange={handleChange}
+                            value={formData.email}
+                            error={!verifyEmail(formData.email) && submitted}
+                            helperText={!verifyEmail(formData.email)  && submitted ? "Please enter a valid email address." : ""}
+                        />
                     </Box>
                     <TextField 
                         fullWidth
                         label="Message"
-                        name="user_message"
+                        name="message"
                         multiline
                         slotProps={{ htmlInput: { maxLength: 850 } }}
-                        sx={{margin: "auto", mt: 1, '& .MuiInputBase-root': {
-                            height: "30vh", alignItems: "flex-start", textOverflow: "ellipsis", overflow: 'scroll', flexGrow: 1}}}
+                        sx={{ margin: "auto", mt: 1, '& .MuiInputBase-root': {
+                            height: "30vh", alignItems: "flex-start", textOverflow: "ellipsis", overflow: 'scroll', flexGrow: 1 }}}
                         required
-                        onChange={(event) => setMessage(event.target.value)}
-                        value={message}
-                        error={message.length === 0 && submitted}
-                    >
-                    </TextField>
-                    <Box sx={{display: "flex"}}>
-                        <Button variant="contained" type="submit" size="large" sx={{marginLeft: "auto", mt: 1}}>Send</Button>
+                        onChange={handleChange}
+                        value={formData.message}
+                        error={formData.message.length === 0 && submitted}
+                    />
+                    <Box sx={{ display: "flex" }}>
+                        <Button variant="contained" type="submit" size="large" sx={{ marginLeft: "auto", mt: 1 }}>Send</Button>
                     </Box>
                 </form>
             </Container>
+            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                <Alert
+                    onClose={handleClose}
+                    severity="success"
+                    variant="filled"
+                    sx={{ width: '100%' }}
+                >
+                    Email sent successfully!
+                </Alert>
+            </Snackbar>
         </Box>
-
     );
-}
-
-
+};
 
 export default ContactPage;
