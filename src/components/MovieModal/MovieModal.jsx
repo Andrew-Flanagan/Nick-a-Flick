@@ -16,7 +16,6 @@ import youtube_logo from "../../assets/images/youtube_logo.svg";
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 
-
 const MovieModal = ({ movie, open, handleClose }) => {
   const navigate = useNavigate();
   const [infoOpen, setInfoOpen] = useState(false);
@@ -161,7 +160,7 @@ const MovieModal = ({ movie, open, handleClose }) => {
               <span className="content-title">Runtime:</span>{" "}
               {runtime !== undefined ? getRuntime(movie) + " minutes" : "No runtime available."}
             </Typography>
-            {movie.vote_average && <Typography>
+            {movie.vote_average !== 0 && <Typography>
               <span style={{display: "flex"}}>
                 <span className="content-title">Rating:</span>
                 <StarIcon color="secondary" />
