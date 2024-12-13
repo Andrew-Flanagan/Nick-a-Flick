@@ -151,7 +151,6 @@ const MovieModal = ({ movie, open, handleClose }) => {
   };
 
   return (
-    <>
     <Modal
       open={open} 
       onClose={handleClose}
@@ -220,7 +219,6 @@ const MovieModal = ({ movie, open, handleClose }) => {
       </Box>
       </Fade>
     </Modal>
-    </>
   );
 };
 
