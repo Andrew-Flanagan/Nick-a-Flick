@@ -15,9 +15,7 @@ import PropTypes from 'prop-types';
 import youtube_logo from "../../assets/images/youtube_logo.svg";
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
-
-const MovieModal = ({ movie, open, handleClose }) => {
-  const navigate = useNavigate();
+function InfoModal(movie) {
   const [infoOpen, setInfoOpen] = useState(false);
   const handleInfoOpen = () => setInfoOpen(true);
   const handleInfoClose = () => setInfoOpen(false);
@@ -33,17 +31,56 @@ const MovieModal = ({ movie, open, handleClose }) => {
   const cast = getCast(movie, 5);
   const keywords = getKeywords(movie);
 
+  
+  const isMoreInfo = cast.length > 0 || crewData.length > 0 || keywords.length > 0;
+
+  return (
+  <React.Fragment>
+    {(isMoreInfo) && <Typography >
+              <span style={{display: "flex", }}>
+                <span style={{cursor: "pointer", color: "#7584a2", display: "flex",}} onClick={handleInfoOpen}> More Info
+                  <InfoOutlinedIcon sx={{scale: "0.80"}} />
+                </span>
+              </span>
+            </Typography>}
+  <Modal 
+      open={infoOpen}
+      onClose={handleInfoClose}
+    >
+      <Box className="info-modal">
+        <Box sx={{ position: 'absolute', top: 10, right: 10, cursor: 'pointer' }} onClick={handleInfoClose}>
+          <CloseIcon className="close-button" />
+        </Box>
+        <Box className="info-content">
+        {crewData.map(({ job, names }) => (
+          <Typography key={job}>
+            <span className="content-title">{job}: </span>
+            {names}
+          </Typography>
+        ))}
+          {cast.length > 1 && <Typography>
+            <span className="content-title">Cast:</span>{" "}
+            {cast}
+          </Typography>}
+          {keywords.length > 1 && <Typography>
+            <span className="content-title">Keywords:</span>{" "}
+            {keywords}
+          </Typography>}
+        </Box>
+      </Box>
+    </Modal>
+    </React.Fragment>
+    )
+}
+
+
+const MovieModal = ({ movie, open, handleClose }) => {
+  const navigate = useNavigate();
+
   const genres = getGenres(movie);
   const release_date = getReleaseDate(movie);
   const runtime = getRuntime(movie);
   const trailers = getTrailers(movie);
-  console.log(cast.length)
-  console.log(crewData.length)
-  console.log(keywords.length)
-  const isMoreInfo = cast.length > 0 || crewData.length > 0 || keywords.length > 0;
-
-
-
   
   const collection_movies = useMemo(() => {
     if (!movie || !movie.belongs_to_collection) return []; 
@@ -114,7 +151,7 @@ const MovieModal = ({ movie, open, handleClose }) => {
   };
 
   return (
-    <div>
+    <>
     <Modal
       open={open} 
       onClose={handleClose}
@@ -167,13 +204,7 @@ const MovieModal = ({ movie, open, handleClose }) => {
                 {movie.vote_average.toFixed(1)}
               </span>
             </Typography>}
-            {(isMoreInfo) && <Typography >
-              <span style={{display: "flex", }}>
-                <span style={{cursor: "pointer", color: "#7584a2", display: "flex",}} onClick={handleInfoOpen}> More Info
-                  <InfoOutlinedIcon sx={{scale: "0.80"}} />
-                </span>
-              </span>
-            </Typography>}
+            <InfoModal {...movie} />
           </Box>
         </Box>
           {movie.belongs_to_collection && collection_movies.length > 1 &&(
@@ -183,40 +214,13 @@ const MovieModal = ({ movie, open, handleClose }) => {
               </Typography> 
               <MovieGrid
                 media={collection_movies}
-                open={infoOpen}
               />
             </Box>
           )}
       </Box>
       </Fade>
     </Modal>
-    <Modal 
-      open={infoOpen}
-      onClose={handleInfoClose}
-    >
-      <Box className="info-modal">
-        <Box sx={{ position: 'absolute', top: 10, right: 10, cursor: 'pointer' }} onClick={handleInfoClose}>
-          <CloseIcon className="close-button" />
-        </Box>
-        <Box className="info-content">
-        {crewData.map(({ job, names }) => (
-          <Typography key={job}>
-            <span className="content-title">{job}: </span>
-            {names}
-          </Typography>
-        ))}
-          {cast.length > 1 && <Typography>
-            <span className="content-title">Cast:</span>{" "}
-            {cast}
-          </Typography>}
-          {keywords.length > 1 && <Typography>
-            <span className="content-title">Keywords:</span>{" "}
-            {keywords}
-          </Typography>}
-        </Box>
-      </Box>
-    </Modal>
-    </div>
+    </>
   );
 };
 
