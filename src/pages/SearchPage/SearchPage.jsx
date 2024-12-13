@@ -96,26 +96,22 @@ import MediaTable from "../../components/MediaTable/MediaTable.jsx";
             onPageChange={handlePageChange}
           />
           {state.displayAsTable ? (
-            <Box>
             <MediaTable media={paginatedMovies} />
-            </Box>
           ) : (
-            <Box>
               <MovieGrid media={paginatedMovies} />
-              {paginatedMovies.length === 0 && (
-                <Typography variant="h6" align="center" gutterBottom>
-                  No results found.
-                </Typography>
-              )}
-            </Box>
           )}
+            {paginatedMovies.length === 0 && (
+              <Typography variant="h6" align="center" gutterBottom>
+                No results found.
+              </Typography>
+            )}
           <PaginationControls
             page={state.page}
             totalResults={totalResults}
             numResults={state.numResults}
             onPageChange={handlePageChange}
             style={{ marginTop: "15px" }}
-          />
+            />
         </Container>
       </Box>
       </ModalProvider>

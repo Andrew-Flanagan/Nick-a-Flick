@@ -13,6 +13,7 @@ import MovieGrid from "../MovieGrid/MovieGrid";
 import { useSpring, animated } from '@react-spring/web';
 import PropTypes from 'prop-types';
 import youtube_logo from "../../assets/images/youtube_logo.svg";
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 
 const MovieModal = ({ movie, open, handleClose }) => {
@@ -144,17 +145,10 @@ const MovieModal = ({ movie, open, handleClose }) => {
               <span className="content-title">Keywords:</span>{" "}
               {getKeywords(movie)}
             </Typography> */}
-            <Typography>
-              <span className="content-title">Cast:</span>{" "}
-              {getCast(movie, 5)}
-            </Typography>
-            <Typography>
-              <span className="content-title">Director:</span>{" "}
-              {getCrew(movie, "Director")}
-              <br/>
-              <span className="content-title">Writer:</span>{" "}
-              {getCrew(movie, "Writer")}
-            </Typography>
+            <div style={{display: "flex", cursor: "pointer"}}>
+              <span>More Info</span>
+                <InfoOutlinedIcon sx={{fontSize: 20, marginLeft: "0.25rem"}}/>
+            </div>
           </Box>
         </Box>
           {movie.belongs_to_collection && collection_movies.length > 1 &&(

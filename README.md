@@ -4,7 +4,7 @@
         - default backdrop
         - hide missing genres, etc. 
     - keywords
-    - cast/crew
+    - cast/crew ("More info" button to show keywords, cast, crew)
 
 - improve grid layout (e.g. if there are 6 items then it should be evenly split instead of 5 on line 1 and 1 on line 2)
     - this was challenging to try
