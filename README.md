@@ -1,7 +1,10 @@
 # TODO List
-- Newsletter
-- Testimonials
-- Gallery of the store
+- Improve home page
+    - Testimonials
+    - Gallery of the store
+    - spacing
+- Contact Page
+    - Newsletter
 - standardize naming conventions, and remove reference of "movie" since inclusion of television -- "media"? -- possibly include video games at some point
 - not sure correct language to use, but use history (URL bar) to make more user friendly (use case: request rental then go back, should put you back in modal with your filters)
 - standardize styling
