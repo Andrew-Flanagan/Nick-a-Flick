@@ -36,7 +36,5 @@ export const getCast = (media, num) => {
 }
 
 export const getCrew = (media, job) => {
-  console.log(media.credits.crew);
   return media.credits.crew.filter((crew) => crew.job === job).map((crew) => crew.name).join(", ");
-  // return media.credits.crew.slice(0, num).map((crew) => crew.name).join(", ");
 }

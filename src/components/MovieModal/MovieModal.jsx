@@ -1,4 +1,4 @@
-import React, {useMemo} from "react";
+import React, {useMemo, useState} from "react";
 import { Modal, Box, Typography, Button } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import { getTitle, getGenres, getReleaseDate, getRuntime, getTrailers, getKeywords, getCast, getCrew } from "../../helpers/movieHelpers";
@@ -16,8 +16,22 @@ import youtube_logo from "../../assets/images/youtube_logo.svg";
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 
+
 const MovieModal = ({ movie, open, handleClose }) => {
   const navigate = useNavigate();
+  const [infoOpen, setInfoOpen] = useState(false);
+  const handleInfoOpen = () => setInfoOpen(true);
+  const handleInfoClose = () => setInfoOpen(false);
+
+  const crew_jobs = ["Director", "Screenplay"];
+  const crewData = crew_jobs
+  .map((job) => ({
+    job,
+    names: getCrew(movie, job),
+  }))
+  .filter((entry) => entry.names.length > 0);
+
+
   
   const collection_movies = useMemo(() => {
     if (!movie || !movie.belongs_to_collection) return []; 
@@ -93,7 +107,6 @@ const MovieModal = ({ movie, open, handleClose }) => {
       open={open} 
       onClose={handleClose}
       closeAfterTransition
-
       >
     <Fade in={open} >
       <Box className="movie-modal">
@@ -141,14 +154,13 @@ const MovieModal = ({ movie, open, handleClose }) => {
                 {movie.vote_average.toFixed(1)}
               </span>
             </Typography>
-            {/* <Typography>
-              <span className="content-title">Keywords:</span>{" "}
-              {getKeywords(movie)}
-            </Typography> */}
-            <div style={{display: "flex", cursor: "pointer"}}>
-              <span>More Info</span>
-                <InfoOutlinedIcon sx={{fontSize: 20, marginLeft: "0.25rem"}}/>
-            </div>
+            <Typography >
+              <span style={{display: "flex", }}>
+                <span style={{cursor: "pointer", color: "#7584a2", display: "flex",}} onClick={handleInfoOpen}> More Info
+                  <InfoOutlinedIcon sx={{scale: "0.80"}} />
+                </span>
+              </span>
+            </Typography>
           </Box>
         </Box>
           {movie.belongs_to_collection && collection_movies.length > 1 &&(
@@ -158,14 +170,43 @@ const MovieModal = ({ movie, open, handleClose }) => {
               </Typography> 
               <MovieGrid
                 media={collection_movies}
+                open={infoOpen}
               />
             </Box>
           )}
+          <Modal 
+            open={infoOpen}
+            onClose={handleInfoClose}
+          >
+            <Box className="info-modal">
+              <Box sx={{ position: 'absolute', top: 10, right: 10, cursor: 'pointer' }} onClick={handleInfoClose}>
+                <CloseIcon className="close-button" />
+              </Box>
+              <Box className="info-content">
+              {crewData.map(({ job, names }) => (
+                <Typography key={job}>
+                  <span className="content-title">{job}: </span>
+                  {names}
+                </Typography>
+              ))}
+                <Typography>
+                  <span className="content-title">Cast:</span>{" "}
+                  {getCast(movie, 5)}
+                </Typography>
+                <Typography>
+                  <span className="content-title">Keywords:</span>{" "}
+                  {getKeywords(movie)}
+                </Typography>
+              </Box>
+            </Box>
+          </Modal>
       </Box>
       </Fade>
     </Modal>
+
     </div>
   );
 };
+
 
 export default MovieModal;
