@@ -31,6 +31,19 @@ const MovieModal = ({ movie, open, handleClose }) => {
   }))
   .filter((entry) => entry.names.length > 0);
 
+  const cast = getCast(movie, 5);
+  const keywords = getKeywords(movie);
+
+  const genres = getGenres(movie);
+  const release_date = getReleaseDate(movie);
+  const runtime = getRuntime(movie);
+  const trailers = getTrailers(movie);
+  console.log(cast.length)
+  console.log(crewData.length)
+  console.log(keywords.length)
+  const isMoreInfo = cast.length > 0 || crewData.length > 0 || keywords.length > 0;
+
+
 
   
   const collection_movies = useMemo(() => {
@@ -44,7 +57,6 @@ const MovieModal = ({ movie, open, handleClose }) => {
       .sort((a, b) => new Date(a.release_date) - new Date(b.release_date));
   }, [movie]); 
   
-  const trailers = getTrailers(movie);
 
   const routeChange = (movieTitle) =>{
     let path = `/contact`;
@@ -59,6 +71,7 @@ const MovieModal = ({ movie, open, handleClose }) => {
   const handleYoutubeClick = (video) => {
     return window.open(`https://www.youtube.com/watch?v=${video.key}`, "_blank");
   }
+
 
   const Fade = React.forwardRef(function Fade(props, ref) {
     const {
@@ -132,35 +145,36 @@ const MovieModal = ({ movie, open, handleClose }) => {
               onClick = {() => handleYoutubeClick(trailers[0])}
             />}
           </Box>
+          {/* Maybe turn this into a map function to reduce code*/}
           <Typography sx={{marginTop: "0.5rem"}}>
-            <span className="content-title">Overview:</span> {movie.overview}
+            <span className="content-title">Overview:</span> {movie.overview ? movie.overview : "No overview available for this title."}
           </Typography>
           <Box className="inner-modal-content">
             <Typography>
-              <span className="content-title">Release Date:</span> {getReleaseDate(movie)}
+              <span className="content-title">Release Date:</span> {movie.release_date ? release_date : "No release date available."}
             </Typography>
             <Typography>
               <span className="content-title">Genres:</span>{" "}
-              {formatGenres(getGenres(movie), movie)}
+              {(genres.length > 1 || movie?.name) ? formatGenres(genres, movie) : "No genres available."}
             </Typography>
             <Typography>
               <span className="content-title">Runtime:</span>{" "}
-              {getRuntime(movie) + " minutes"}
+              {runtime !== undefined ? getRuntime(movie) + " minutes" : "No runtime available."}
             </Typography>
-            <Typography>
+            {movie.vote_average && <Typography>
               <span style={{display: "flex"}}>
                 <span className="content-title">Rating:</span>
                 <StarIcon color="secondary" />
                 {movie.vote_average.toFixed(1)}
               </span>
-            </Typography>
-            <Typography >
+            </Typography>}
+            {(isMoreInfo) && <Typography >
               <span style={{display: "flex", }}>
                 <span style={{cursor: "pointer", color: "#7584a2", display: "flex",}} onClick={handleInfoOpen}> More Info
                   <InfoOutlinedIcon sx={{scale: "0.80"}} />
                 </span>
               </span>
-            </Typography>
+            </Typography>}
           </Box>
         </Box>
           {movie.belongs_to_collection && collection_movies.length > 1 &&(
@@ -174,36 +188,35 @@ const MovieModal = ({ movie, open, handleClose }) => {
               />
             </Box>
           )}
-          <Modal 
-            open={infoOpen}
-            onClose={handleInfoClose}
-          >
-            <Box className="info-modal">
-              <Box sx={{ position: 'absolute', top: 10, right: 10, cursor: 'pointer' }} onClick={handleInfoClose}>
-                <CloseIcon className="close-button" />
-              </Box>
-              <Box className="info-content">
-              {crewData.map(({ job, names }) => (
-                <Typography key={job}>
-                  <span className="content-title">{job}: </span>
-                  {names}
-                </Typography>
-              ))}
-                <Typography>
-                  <span className="content-title">Cast:</span>{" "}
-                  {getCast(movie, 5)}
-                </Typography>
-                <Typography>
-                  <span className="content-title">Keywords:</span>{" "}
-                  {getKeywords(movie)}
-                </Typography>
-              </Box>
-            </Box>
-          </Modal>
       </Box>
       </Fade>
     </Modal>
-
+    <Modal 
+      open={infoOpen}
+      onClose={handleInfoClose}
+    >
+      <Box className="info-modal">
+        <Box sx={{ position: 'absolute', top: 10, right: 10, cursor: 'pointer' }} onClick={handleInfoClose}>
+          <CloseIcon className="close-button" />
+        </Box>
+        <Box className="info-content">
+        {crewData.map(({ job, names }) => (
+          <Typography key={job}>
+            <span className="content-title">{job}: </span>
+            {names}
+          </Typography>
+        ))}
+          {cast.length > 1 && <Typography>
+            <span className="content-title">Cast:</span>{" "}
+            {cast}
+          </Typography>}
+          {keywords.length > 1 && <Typography>
+            <span className="content-title">Keywords:</span>{" "}
+            {keywords}
+          </Typography>}
+        </Box>
+      </Box>
+    </Modal>
     </div>
   );
 };
