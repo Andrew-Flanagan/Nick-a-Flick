@@ -208,7 +208,7 @@ const MovieModal = ({ movie, open, handleClose }) => {
         </Box>
           {movie.belongs_to_collection && collection_movies.length > 1 &&(
             <Box sx={{paddingBottom: 4, paddingRight: 4, paddingLeft: 4}}>
-              <Typography align="center">
+              <Typography align="center" className="content-title" style={{marginBottom: "0.5rem"}}>
                 Nick A Flick films in the {movie.belongs_to_collection.name}
               </Typography> 
               <MovieGrid

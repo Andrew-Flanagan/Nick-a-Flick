@@ -5,17 +5,15 @@
     - spacing
 - Contact Page
     - Newsletter
-- Movie Modal
-    - don't really want to do this but click crew/cast member to see other movies they're in
 - standardize naming conventions, and remove reference of "movie" since inclusion of television -- "media"? -- possibly include video games at some point
 - not sure correct language to use, but use history (URL bar) to make more user friendly (use case: request rental then go back, should put you back in modal with your filters)
 - standardize styling
 - write function to automatically update staff picks and new releases from IDs or title
-- ~~email verification/general form verification + snackbars for contact page~~
 - Accounts -- maybe much later
     - "Seen"
     - my list
     - favourites
+- ~~email verification/general form verification + snackbars for contact page~~
 - ~~Movie modal~~
     - ~~Add better handling of missing data in the movie modal~~
         - ~~default backdrop~~
