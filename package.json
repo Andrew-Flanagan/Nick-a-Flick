@@ -9,6 +9,7 @@
     "@emotion/styled": "^11.10.6",
     "@mui/icons-material": "^6.1.8",
     "@mui/material": "^6.1.8",
+    "@react-spring/parallax": "^9.7.5",
     "@react-spring/web": "^9.7.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

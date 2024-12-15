@@ -1,0 +1,37 @@
+.test{
+    color: rgb(5, 38, 143);
+    font-size: 12rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    animation: flicker 4s linear infinite;
+}
+
+.logo{
+  padding-bottom: 2rem;
+  display: block;
+  margin: auto;
+  width: 50vmax;
+}
+
+@keyframes flicker {
+    0%, 19.9%, 22%, 62.9%, 64%, 64.9%, 70%, 100% {
+      opacity: 0.99;
+      text-shadow: 
+        -1px -1px 0 rgba(255,255,255, 0.4), 
+        1px -1px 0 rgba(255,255,255, 0.4), 
+        -1px 1px 0 rgba(255,255,255, 0.4), 
+        1px 1px 0 rgba(255,255,255, 0.4), 
+        0 -2px 8px, 
+        0 0 2px, 
+        0 0 5px #fbff00, 
+        0 0 15px #fff344, 
+        0 0 2px #f7f8f2, 
+        0 2px 3px #fafafa;
+    }
+    20%, 21.9%, 63%, 63.9%, 65%, 69.9% {
+      opacity: 0.4;
+      text-shadow: none;
+    }
+  }
+  

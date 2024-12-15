@@ -9,6 +9,7 @@
 - not sure correct language to use, but use history (URL bar) to make more user friendly (use case: request rental then go back, should put you back in modal with your filters)
 - standardize styling
 - write function to automatically update staff picks and new releases from IDs or title
+- remove react-spring and react spring parallax?
 - Accounts -- maybe much later
     - "Seen"
     - my list

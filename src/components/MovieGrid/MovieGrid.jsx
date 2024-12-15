@@ -2,9 +2,9 @@ import {React} from 'react';
 import { Typography, Tooltip } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import { getTitle } from '../../helpers/movieHelpers';
-import placeholder_poster from '../../assets/images/Nick_a_flick.jpeg';
 import './MovieGrid.css';
 import { useModal } from '../../hooks/useModal';
+import nf_poster from '../../assets/images/nickaflick-poster.png';
 
 const MovieGrid = ({ media }) => {
     const { openModal } = useModal();
@@ -38,7 +38,7 @@ const MovieGrid = ({ media }) => {
                         className="movie-poster"
                         src={`https://image.tmdb.org/t/p/w200${result.poster_path}`}
                         alt={getTitle(result) + "poster"}
-                        onError={(e) => { e.target.src = placeholder_poster }}
+                        onError={(e) => { e.target.src = nf_poster }}
                         onClick={() => openModal(result)}
                     />
                 </Tooltip>
