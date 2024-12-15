@@ -7,12 +7,76 @@
     animation: flicker 4s linear infinite;
 }
 
+.logo-container{
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
 .logo{
   padding-bottom: 2rem;
   display: block;
   margin: auto;
   width: 50vmax;
 }
+
+.tv-container{
+  padding-bottom: 2rem;
+  position: absolute;
+  width: 50vmax;
+  height: 100%;
+  /* border: 5px solid red; */
+}
+
+.tv-buttons{
+  display: block;
+  margin: auto;
+  width: 10%;
+  min-width: 40px;
+  height: 28%;
+  cursor: pointer;
+  position: absolute;
+  bottom: 56.5%;
+  left: 59.5%;
+  /* background-color: white; */
+}
+
+.tv-screen{
+  display: block;
+  margin: auto;
+  width: 37.7%;
+  height: 40.5%;
+  /* border: 5px solid black; */
+  border-radius: 15px;
+  position: absolute;
+  left: 16%;
+  top: 18.5%;
+  background: 
+  repeating-radial-gradient(#000 0 0.0001%,#fff 0 0.0002%) 50% 0/2500px 2500px,
+  repeating-conic-gradient(#000 0 0.0001%,#fff 0 0.0002%) 60% 60%/2500px 2500px;
+background-blend-mode: difference;
+
+  animation: b .2s infinite alternate;
+}
+
+.tv-image{
+  display: block;
+  margin: auto;
+  width: 37.7%;
+  height: 40.5%;
+  position: absolute;
+  left: 16%;
+  top: 18.5%;
+  border-radius: 15px;
+  animation: b .2s infinite alternate;
+}
+
+
+@keyframes b{
+  100% {background-position: 50% 0, 60% 50%}
+}
+
 
 @keyframes flicker {
     0%, 19.9%, 22%, 62.9%, 64%, 64.9%, 70%, 100% {
