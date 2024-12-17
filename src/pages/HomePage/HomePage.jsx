@@ -69,22 +69,29 @@ const HomePage = () => {
               alt="Nickaflick Logo"
             />
             <div className="tv-container">
-              <div
-                className={`tv-buttons ${!state.isClickable ? "disabled" : ""}`}
-                onClick={toggleVisibility}
-                style={{
-                  cursor: state.isClickable ? "pointer" : "not-allowed",
-                  opacity: state.isClickable ? 1 : 0.5,
-                }}
-              />
-              {state.visible && <div className="tv-screen" />} {/* Static Effect */}
-              {state.showImage && state.currentImage < staff_pick_images.length && (
-                <img
-                  className="tv-image"
-                  src={staff_pick_images[state.currentImage]}
-                  alt={`Display ${state.currentImage + 1}`}
+              <div className="tv-frame" >
+                <div
+                  className={`tv-buttons ${!state.isClickable ? "disabled" : ""}`}
+                  onClick={toggleVisibility}
+                  style={{
+                    cursor: state.isClickable ? "pointer" : "not-allowed",
+                    opacity: state.isClickable ? 1 : 0.5,
+                  }}
                 />
-              )}
+                <div className="screen-frame">
+                {state.visible && <div className="tv-screen" />} {/* Static Effect */}
+                {state.showImage && state.currentImage < staff_pick_images.length && (
+                  <>
+                    <img
+                      className="tv-image wobblex scanlines"
+                      src={staff_pick_images[state.currentImage]}
+                      alt={`Display ${state.currentImage + 1}`}
+                    />
+                    <div className="tv-effect"/>
+                    </>
+                )}
+                  </div>
+            </div>
             </div>
           </div>
 

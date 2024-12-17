@@ -1,3 +1,4 @@
+/* src for vhs effect https://codepen.io/Mobius1/embed/ZNgwbr/?theme-id=modal */
 .test{
     color: rgb(5, 38, 143);
     font-size: 12rem;
@@ -29,29 +30,51 @@
   /* border: 5px solid red; */
 }
 
+.tv-frame{
+  display: block;
+  margin: auto;
+  width: 62%;
+  height: 55%;
+  /* border: 5px solid black; */
+  border-radius: 18px;
+  position: absolute;
+  left: 10.2%;
+  top: 10%;
+}
 .tv-buttons{
   display: block;
   margin: auto;
-  width: 10%;
+  width: 18%;
   min-width: 40px;
-  height: 28%;
+  height: 53%;
   cursor: pointer;
   position: absolute;
-  bottom: 56.5%;
-  left: 59.5%;
+  bottom: 40%;
+  left: 77.5%;
   /* background-color: white; */
 }
 
+.screen-frame{
+  /* border: 5px solid red; */
+  border-radius: 18px;
+  position: absolute;
+  left: 9%;
+  top: 14%;
+  width: 61.5%;
+  height: 75%;
+  box-shadow: 0px 0px 30px 2px black;
+
+}
+
+
 .tv-screen{
   display: block;
-  margin: auto;
-  width: 37.7%;
-  height: 40.5%;
+  /* margin: auto; */
+  width: 100%;
+  height: 100%;
   /* border: 5px solid black; */
-  border-radius: 15px;
+  border-radius: 18px;
   position: absolute;
-  left: 16%;
-  top: 18.5%;
   background: 
   repeating-radial-gradient(#000 0 0.0001%,#fff 0 0.0002%) 50% 0/2500px 2500px,
   repeating-conic-gradient(#000 0 0.0001%,#fff 0 0.0002%) 60% 60%/2500px 2500px;
@@ -63,14 +86,36 @@ background-blend-mode: difference;
 .tv-image{
   display: block;
   margin: auto;
-  width: 37.7%;
-  height: 40.5%;
+  width: 100%;
+  height: 100%;
   position: absolute;
-  left: 16%;
-  top: 18.5%;
-  border-radius: 15px;
+  /* left: 16%; */
+  /* top: 18.4%;   */
+  border-radius: 18px;
+  /* box-shadow: 0px 0px 30px 2px black; */
   animation: b .2s infinite alternate;
 }
+
+.tv-effect{
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  opacity: 0.20;
+  
+  animation: wobblex .1s infinite alternate, wobbley 1s infinite alternate;
+  animation: b .2s infinite alternate;
+  background: 
+  repeating-radial-gradient(#000 0 0.0001%,#fff 0 0.0002%) 50% 0/2500px 2500px,
+  repeating-conic-gradient(#000 0 0.0001%,#fff 0 0.0002%) 60% 60%/2500px 2500px;
+background-blend-mode: difference;
+
+}
+
 
 
 @keyframes b{
@@ -96,6 +141,31 @@ background-blend-mode: difference;
     20%, 21.9%, 63%, 63.9%, 65%, 69.9% {
       opacity: 0.4;
       text-shadow: none;
+    }
+  }
+  .wobblex {
+    animation: wobblex 200ms infinite;
+  }
+  
+  .wobbley {
+    animation: wobbley 200ms infinite;
+  }
+  
+  
+  @keyframes wobblex {
+    50% {
+      transform: translateX(0.5px);
+    }
+    51% {
+      transform: translateX(0);
+    }
+  }
+  @keyframes wobbley {
+    0% {
+      transform: translateY(0.5px);
+    }
+    100% {
+      transform: translateY(0);
     }
   }
   
