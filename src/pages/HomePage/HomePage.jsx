@@ -147,7 +147,7 @@ const HomePage = () => {
               </div>
             </div>
           </Box>
-          <MovieCarousel title="New Releases" data={new_releases} subTitle="New Release" />
+          <MovieCarousel data={new_releases} subTitle="New Release" />
           <Button component={Link} to="/search" variant="contained" size="large" sx={{display: "flex", margin: "auto", width: "30%", marginTop: "2rem"}}>
               Browse Selection
           </Button>
