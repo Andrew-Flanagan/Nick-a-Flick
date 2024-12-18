@@ -8,6 +8,11 @@ import './HomePage.css';
 import { ModalProvider } from '../../hooks/useModal';
 import nickaflick_logo from "../../assets/images/nickaflick_logo2.PNG";
 import staff_picks from "../../data/staff_picks.json";
+import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
+// import GroupsIcon from '@mui/icons-material/Groups';
+import FastfoodIcon from '@mui/icons-material/Fastfood';
+import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
+import theme from '../../styles/theme';
 
 const staff_pick_images = staff_picks.map((movie) => {
   movie.image = `https://image.tmdb.org/t/p/w200${movie.backdrop_path}`;
@@ -108,10 +113,44 @@ const HomePage = () => {
             sx={{ display: 'flex', justifyContent: 'center', mt: 1, paddingBottom: "0rem" }}
           >
             <Button component={Link} to="/search" variant="contained" size="large">
-              Browse Movies
+              Browse Selection
             </Button>
           </Box>
+          <Box className="features-box">
+            <div className="features">
+              <div className="icon-box">
+                <MeetingRoomIcon sx={{ fontSize: 125, color: theme.palette.secondary.main }} />
+                <Typography variant="h4" align="center" fontWeight="bold" sx={{display: "flex"}}>
+                  Open 24/7
+                </Typography>
+                <Typography variant="body" align="center" fontWeight="bold" sx={{display: "flex", color: "#8f8f8f"}}>
+                  Stop by any time of the day! The door is always open!
+                </Typography>
+              </div>
+              <div className="icon-box">
+                <LocalMoviesIcon sx={{ fontSize: 125, color: theme.palette.secondary.main }} />
+                <Typography variant="h4" align="center" fontWeight="bold" sx={{display: "flex"}}>
+                  1100+ Titles
+                </Typography>
+                <Typography variant="body" align="center" fontWeight="bold" sx={{display: "flex", color: "#8f8f8f"}}>
+                  We have a wide selection of new releases and old classics!
+                </Typography>
+              </div>
+              <div className="icon-box">
+                <FastfoodIcon sx={{ fontSize: 125, color: theme.palette.secondary.main }} />
+                <Typography variant="h4" align="center" fontWeight="bold" sx={{display: "flex"}}>
+                  Snacks
+                </Typography>
+                <Typography variant="body" align="center" fontWeight="bold" sx={{display: "flex", color: "#8f8f8f"}}>
+                  Enjoy some popcorn and soda while watching your movie!
+                </Typography>
+              </div>
+            </div>
+          </Box>
           <MovieCarousel title="New Releases" data={new_releases} subTitle="New Release" />
+          <Button component={Link} to="/search" variant="contained" size="large" sx={{display: "flex", margin: "auto", width: "30%", marginTop: "2rem"}}>
+              Browse Selection
+          </Button>
         </Container>
       </Box>
     </ModalProvider>
