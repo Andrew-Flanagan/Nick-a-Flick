@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { Box, Typography, Button, Container, TextField } from "@mui/material";
+import { Box, Typography, Button, Container, TextField, FormControlLabel } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import '../../styles/global.css';
 import emailjs from '@emailjs/browser';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
+import Checkbox from '@mui/material/Checkbox';
+
+
 
 const ContactPage = () => {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
         message: "",
+        subscribe: false,
     });
+
     const [open, setOpen] = useState(false);
     const [submitted, setSubmitted] = useState(false);
 
@@ -28,6 +33,13 @@ const ContactPage = () => {
     };
 
     const handleChange = (e) => {
+        if (e.target.name === "subscribe") {
+            setFormData((prev) => ({
+                ...prev,
+                subscribe: !formData.subscribe,
+            }));
+            return;
+        }
         const { name, value } = e.target;
         setFormData((prev) => ({
             ...prev,
@@ -49,7 +61,7 @@ const ContactPage = () => {
             setSubmitted(true);
             return;
         }
-
+        console.log(event.target);
 
         emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATE_ID, event.target, {
             publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY,
@@ -57,7 +69,7 @@ const ContactPage = () => {
             (result) => {
                 console.log("Email sent successfully:", result.text);
                 setOpen(true);
-                setFormData({ name: "", email: "", message: "" });
+                setFormData({ name: "", email: "", message: "", subscribe: false });
                 setSubmitted(false);
             },
             (error) => {
@@ -114,6 +126,16 @@ const ContactPage = () => {
                         value={formData.message}
                         error={formData.message.length === 0 && submitted}
                     />
+                    <FormControlLabel
+                        label="Subscribe to Nick-A-Flick Newsletter"
+                        control={
+                            <Checkbox
+                                name="subscribe"
+                                color="primary"
+                                checked={formData.subscribe}
+                                onChange={handleChange}
+                            />
+                        }/>
                     <Box sx={{ display: "flex" }}>
                         <Button variant="contained" type="submit" size="large" sx={{ marginLeft: "auto", mt: 1 }}>Send</Button>
                     </Box>
