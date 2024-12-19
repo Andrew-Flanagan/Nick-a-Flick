@@ -53,7 +53,7 @@ const ContactPage = () => {
         if (location.state && location.state.movie) {
             setFormData((prev) => ({ ...prev, message: `Hi Chad, I would like to rent ${location.state.movie}.` }));
         }
-    }, [location.state]); // Only run when location.state changes
+    }, [location.state]);
 
     const handleSubmit = (event) => {
         event.preventDefault();

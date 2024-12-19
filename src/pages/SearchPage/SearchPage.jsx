@@ -14,7 +14,8 @@ import MovieCarousel from "../../components/MovieCarousel/MovieCarousel";
 import MovieGrid from "../../components/MovieGrid/MovieGrid.jsx";
 import { ModalProvider } from "../../hooks/useModal.jsx";
 import MediaTable from "../../components/MediaTable/MediaTable.jsx";
-  
+import React, { useEffect } from "react";
+
   const SearchPage = () => {
     const {
       state,
@@ -22,6 +23,10 @@ import MediaTable from "../../components/MediaTable/MediaTable.jsx";
       paginatedMovies,
       totalResults,
     } = useMovies(movieList);
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
   
     const handleSearchChange = (event) => {
       dispatch({ type: "SET_SEARCH_TERM", payload: event.target.value });
@@ -67,6 +72,7 @@ import MediaTable from "../../components/MediaTable/MediaTable.jsx";
         sx={{
           overflowY: "scroll",
           minHeight: "100vh",
+          marginBottom: "4rem",
         }}
       >
         <MovieCarousel title="" data={staff_picks} subTitle="Staff Pick"/>
