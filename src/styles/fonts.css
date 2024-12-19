@@ -1,27 +1,6 @@
 @font-face {
-    font-family: 'MovieTimes';
-    src: url('/src/assets/fonts/MovieTimes-pg61.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'Showtime';
-    src: url('/src/assets/fonts/Showtime-R9Ke.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'Codystar';
-    src: url('/src/assets/fonts/Codystar-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'Marquee-Moon';
-    src: url('/src/assets/fonts/Marquee-Moon.otf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
+  font-family: 'Marquee-Moon';
+  src: url('/src/assets/fonts/Marquee-Moon.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

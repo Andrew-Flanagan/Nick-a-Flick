@@ -1,3 +1,23 @@
+/* .table-container{
+    align-items: center;
+    gap: 1;
+    margin-top: 15px;
+    overflow: scroll;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.media-table{
+    margin: auto;
+    width: 100%;
+    table-layout: fixed;
+} */
+
+.cols {
+    text-align: left;
+    width: 50%;
+}
+
 .movie-link {
     color: blue;
     text-decoration: underline;
