@@ -1,22 +1,22 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import Carousel from 'react-material-ui-carousel'
-import MovieBackdrop from "../MovieBackdrop/MovieBackdrop";
-import "./MovieCarousel.css";
-import theme from "../../styles/theme";
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
+import MovieBackdrop from "../MovieBackdrop/MovieBackdrop";
+import theme from "../../styles/theme";
+import "./MovieCarousel.css";
 
 
 const MovieCarousel = ({title, data, subTitle}) => {
 
     return (
         <Box>
-            {title && <Typography variant="h3" align="center" sx={{paddingTop: "2rem", paddingBottom: "2rem"}}>
+            {title && <Typography variant="h3" align="center" className="optional-title">
                 {title}
             </Typography>}
             <Carousel
-              navButtonsProps={{          // Change the colors and radius of the actual buttons. THIS STYLES BOTH BUTTONS
+              navButtonsProps={{
                 disableRipple: true,
                 style: {
                     borderRadius: 0,
@@ -26,7 +26,7 @@ const MovieCarousel = ({title, data, subTitle}) => {
                     padding: 0,
                     backgroundColor: "transparent",
                 }}}
-                navButtonsWrapperProps={{   // Move the buttons to the bottom. Unsetting top here to override default style.
+                navButtonsWrapperProps={{
                     style: {
                         bottom: "50%",
                         backgroundColor: "transparent",
@@ -39,9 +39,9 @@ const MovieCarousel = ({title, data, subTitle}) => {
                         padding: 0,
                     }
                 }}
-                NextIcon={<ArrowForwardIosOutlinedIcon sx={{fontSize: "3rem", color: "white"}} />}
-                PrevIcon={<ArrowBackIosNewOutlinedIcon sx={{fontSize: "3rem", color: "white"}} />}
-                >
+                NextIcon={<ArrowForwardIosOutlinedIcon className="nav-icon"/>}
+                PrevIcon={<ArrowBackIosNewOutlinedIcon className="nav-icon"/>}
+            >
                 { 
                   data.map((movie, i) => <MovieBackdrop key={i} media={movie} subTitle={subTitle} gradient={theme.palette.secondary.main}/>)
                 }

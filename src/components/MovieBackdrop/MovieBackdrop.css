@@ -1,41 +1,41 @@
 .img-box{
+    display: flex;
+    position: relative;
     height: 60vh;
     width: 100vw;
     max-width: 100%;
-    position: relative; /* Allows absolutely positioned children */
-    display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 1;
     pointer-events: none;
+    opacity: 1;
 }
 
 .img-box img{
-    width: 100vw;
     height: 100%;
+    width: 100vw;
     object-fit: cover;
     object-position: top center;
     pointer-events: auto;
 }
 
 .img-box-text{
-    position: absolute; /* Positions the text box on top of the image */
-    top: 0%;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 1rem 2rem;
-    border-radius: 8px;
+    position: absolute; 
     text-align: center;
-    cursor: pointer;
-    margin-top: 1rem;
     max-width: 80%;
+    top: 0%;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
 }
 
 .img-box-gradient{
     position: absolute;
-    top: 0;
     width: 100%;
     height: 100%;
+    top: 0;
     background: linear-gradient(0deg,currentColor,transparent 30%);
 }
 

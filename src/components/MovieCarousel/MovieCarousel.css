@@ -1,24 +1,10 @@
-.carousel-nav-buttons {
-  border-radius: 0 !important;
-  height: 100% !important;
-  width: 100% !important;
-  top: unset !important;
-  padding: 0 !important;
-};
-  
-.carousel-nav-buttons-wrapper {
-  bottom: 50% !important;
-  width: 10%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: calc(100% - 20px) !important;
-  top: unset !important;
-  padding: 0 !important;
-};
+.optional-title{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
   
 .nav-icon {
-  font-size: 2rem;
+  font-size: 3rem;
   color: white;
   cursor: pointer;
 };
