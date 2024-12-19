@@ -8,7 +8,6 @@
     align-items: center;
     opacity: 1;
     pointer-events: none;
-
 }
 
 .img-box img{
@@ -17,7 +16,6 @@
     object-fit: cover;
     object-position: top center;
     pointer-events: auto;
-
 }
 
 .img-box-text{
@@ -39,4 +37,8 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(0deg,currentColor,transparent 30%);
+}
+
+.media-title{
+    font-style: italic;
 }
