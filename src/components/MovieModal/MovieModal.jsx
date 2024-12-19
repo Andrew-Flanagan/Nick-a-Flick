@@ -1,27 +1,29 @@
 import React, {useMemo, useState} from "react";
-import { Modal, Box, Typography, Button } from "@mui/material";
-import CloseIcon from '@mui/icons-material/Close';
-import { getTitle, getGenres, getReleaseDate, getRuntime, getTrailers, getKeywords, getCast, getCrew } from "../../helpers/movieHelpers";
-import { useNavigate } from "react-router-dom";
-import "./MovieModal.css";
-import IMDB_logo from "../../assets/images/IMDB_Logo_2016.svg";
-import MovieBackdrop from "../MovieBackdrop/MovieBackdrop";
-import StarIcon from '@mui/icons-material/Star';
-import theme from "../../styles/theme";
-import data from "../../data/updated_data.json";
-import MovieGrid from "../MovieGrid/MovieGrid";
 import { useSpring, animated } from '@react-spring/web';
+import { useNavigate } from "react-router-dom";
 import PropTypes from 'prop-types';
-import youtube_logo from "../../assets/images/youtube_logo.svg";
+import { Modal, Box, Typography, Button } from "@mui/material";
+
+import CloseIcon from '@mui/icons-material/Close';
+import StarIcon from '@mui/icons-material/Star';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+
+import { getTitle, getGenres, getReleaseDate, getRuntime, getTrailers, getKeywords, getCast, getCrew } from "../../helpers/movieHelpers";
+import MovieGrid from "../MovieGrid/MovieGrid";
+import MovieBackdrop from "../MovieBackdrop/MovieBackdrop";
+import data from "../../data/updated_data.json";
+import IMDB_logo from "../../assets/images/IMDB_Logo_2016.svg";
+import youtube_logo from "../../assets/images/youtube_logo.svg";
+import theme from "../../styles/theme";
+import "./MovieModal.css";
 
 function InfoModal(movie) {
   const [infoOpen, setInfoOpen] = useState(false);
   const handleInfoOpen = () => setInfoOpen(true);
   const handleInfoClose = () => setInfoOpen(false);
 
-  const crew_jobs = ["Director", "Screenplay"];
-  const crewData = crew_jobs
+  const crewJobs = ["Director", "Screenplay"];
+  const crewData = crewJobs
   .map((job) => ({
     job,
     names: getCrew(movie, job),
@@ -30,48 +32,45 @@ function InfoModal(movie) {
 
   const cast = getCast(movie, 5);
   const keywords = getKeywords(movie);
-
   
   const isMoreInfo = cast.length > 0 || crewData.length > 0 || keywords.length > 0;
 
   return (
-  <React.Fragment>
-    {(isMoreInfo) && <Typography >
-              <span style={{display: "flex", }}>
-                <span style={{cursor: "pointer", color: "#7584a2", display: "flex",}} onClick={handleInfoOpen}> More Info
-                  <InfoOutlinedIcon sx={{scale: "0.80"}} />
-                </span>
-              </span>
+    <React.Fragment>
+      {(isMoreInfo) && <Typography>
+        <span className="info-modal-button" onClick={handleInfoOpen}>
+          More Info <InfoOutlinedIcon sx={{scale: "0.80"}} />
+        </span>
+      </Typography>}
+      <Modal
+          open={infoOpen}
+          onClose={handleInfoClose}
+      >
+        <Box className="info-modal">
+          <Box className="close-icon" onClick={handleInfoClose}>
+            <CloseIcon className="close-button" />
+          </Box>
+          <Box className="info-content">
+            {crewData.map(({ job, names }) => (
+              <Typography key={job}>
+                <span className="content-title">{job}: </span>
+                  {names}
+              </Typography>
+            ))}
+            {cast.length > 1 && <Typography>
+              <span className="content-title">Cast:</span>{" "}
+                {cast}
             </Typography>}
-  <Modal 
-      open={infoOpen}
-      onClose={handleInfoClose}
-    >
-      <Box className="info-modal">
-        <Box sx={{ position: 'absolute', top: 10, right: 10, cursor: 'pointer' }} onClick={handleInfoClose}>
-          <CloseIcon className="close-button" />
+            {keywords.length > 1 && <Typography>
+              <span className="content-title">Keywords:</span>{" "}
+                {keywords}
+            </Typography>}
+          </Box>
         </Box>
-        <Box className="info-content">
-        {crewData.map(({ job, names }) => (
-          <Typography key={job}>
-            <span className="content-title">{job}: </span>
-            {names}
-          </Typography>
-        ))}
-          {cast.length > 1 && <Typography>
-            <span className="content-title">Cast:</span>{" "}
-            {cast}
-          </Typography>}
-          {keywords.length > 1 && <Typography>
-            <span className="content-title">Keywords:</span>{" "}
-            {keywords}
-          </Typography>}
-        </Box>
-      </Box>
-    </Modal>
+      </Modal>
     </React.Fragment>
-    )
-}
+  );
+};
 
 
 const MovieModal = ({ movie, open, handleClose }) => {
@@ -155,24 +154,26 @@ const MovieModal = ({ movie, open, handleClose }) => {
       open={open} 
       onClose={handleClose}
       closeAfterTransition
-      >
-    <Fade in={open} >
+    >
+    <Fade in={open}>
       <Box className="movie-modal">
         <MovieBackdrop media={movie} gradient={theme.palette.primary.secondary}/>
-        <Box sx={{ position: 'absolute', top: 10, right: 10, cursor: 'pointer' }} onClick={handleClose}>
+        <Box className="close-icon" onClick={handleClose}>
             <CloseIcon className="close-button" />
         </Box>
         <Box className="modal-content">
           <Button color="secondary" variant="contained" className="rent-button" onClick={() => {routeChange(getTitle(movie))}}>Request Rental</Button>
           <Box className="link-buttons">
-            {movie.imdb_id && <Box
+            {movie.imdb_id &&
+            <Box
               component="img"
               src={IMDB_logo}
               alt={"IMDB Logo"}
               className="imdb-logo"
               onClick = {() => window.open(`https://www.imdb.com/title/${movie.imdb_id}`, "_blank")}
               />}
-            {trailers.length > 0 && <Box
+            {trailers.length > 0 &&
+            <Box
               component="img"
               src={youtube_logo}
               alt={"Youtube Logo"}
@@ -180,6 +181,7 @@ const MovieModal = ({ movie, open, handleClose }) => {
               onClick = {() => handleYoutubeClick(trailers[0])}
             />}
           </Box>
+
           {/* Maybe turn this into a map function to reduce code*/}
           <Typography sx={{marginTop: "0.5rem"}}>
             <span className="content-title">Overview:</span> {movie.overview ? movie.overview : "No overview available for this title."}
@@ -203,12 +205,14 @@ const MovieModal = ({ movie, open, handleClose }) => {
                 {movie.vote_average.toFixed(1)}
               </span>
             </Typography>}
+
             <InfoModal {...movie} />
           </Box>
         </Box>
-          {movie.belongs_to_collection && collection_movies.length > 1 &&(
-            <Box sx={{paddingBottom: 4, paddingRight: 4, paddingLeft: 4}}>
-              <Typography align="center" className="content-title" style={{marginBottom: "0.5rem"}}>
+
+          {movie.belongs_to_collection && collection_movies.length > 1 && (
+            <Box className="collection-container">
+              <Typography align="center" className="content-title">
                 Nick A Flick films in the {movie.belongs_to_collection.name}
               </Typography> 
               <MovieGrid
@@ -216,7 +220,8 @@ const MovieModal = ({ movie, open, handleClose }) => {
               />
             </Box>
           )}
-      </Box>
+          
+        </Box>
       </Fade>
     </Modal>
   );
