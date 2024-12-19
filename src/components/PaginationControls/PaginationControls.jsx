@@ -1,6 +1,7 @@
 import { Box, ButtonGroup, Button } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import "./PaginationControls.css";
 
 const PaginationControls = ({ page, totalResults, numResults, onPageChange }) => {
   const totalPages = Math.ceil(totalResults / numResults);
@@ -25,24 +26,24 @@ const PaginationControls = ({ page, totalResults, numResults, onPageChange }) =>
       return [];
     }
 
-
     if (pageArray.length <= 5) {
       return pageArray;
     }
 
     const curr_array = pageArray.slice(Math.max(page - 3, 0), Math.min(page + 2, totalPages));
-    // Add ellipsis to the left
+
     if (curr_array[0] > 1) {
       curr_array.unshift("...");
     }
-    // Add ellipsis to the right
+
     if (curr_array[curr_array.length - 1] < totalPages) {
       curr_array.push("...");
     }
-    // add first and last page
+
     if (page >= 4) {
       curr_array.unshift(1);
     }
+
     if (page <= totalPages - 3) {
       curr_array.push(totalPages);
     }
@@ -58,8 +59,8 @@ const PaginationControls = ({ page, totalResults, numResults, onPageChange }) =>
   };
 
   return (
-    <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "1rem", margin: "15px 0px 15px 0px" }}>
-      <Button onClick={handlePrevPage} startIcon={<ArrowBackIosIcon />} variant="contained" disabled={page === 1} sx={{float: "left"}}>
+    <Box className="page-num-container">
+      <Button onClick={handlePrevPage} startIcon={<ArrowBackIosIcon />} variant="contained" disabled={page === 1}>
           Prev
         </Button>
       <ButtonGroup>

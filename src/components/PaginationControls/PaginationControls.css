@@ -1,0 +1,7 @@
+.page-num-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin: 15px 0px 15px 0px;
+}
