@@ -1,0 +1,7 @@
+.search-box{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin-bottom: 15px;
+    gap: 1rem;
+}

@@ -5,6 +5,7 @@ import ViewCompactIcon from '@mui/icons-material/ViewCompact';
 import genres from "../../data/genres.json";
 import { styled } from '@mui/system';
 import theme from "../../styles/theme";
+import "./SearchParams.css";
 
 
 const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, onSortChange, onResetFilters }) => {
@@ -39,15 +40,7 @@ const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, o
         }}
         >Remove Filters/Sorting
       </Button>
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "right",
-          marginBottom: "15px",
-          gap: "1rem",
-        }}
-      >
+      <Box className="search-box">
         <FormControl sx={{ width: "auto" }}>
           <Select
             labelId="genre-select-label"
