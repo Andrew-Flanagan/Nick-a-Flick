@@ -59,6 +59,7 @@ const HomePage = () => {
     <ModalProvider>
       <Box sx={{ paddingBottom: "4rem" }}>
         <Container disableGutters maxWidth={false}>
+          <Box sx={{height: "100vh", alignItems: "center"}}>
           <Typography
             align="center"
             variant="h2"
@@ -118,6 +119,7 @@ const HomePage = () => {
             <Button component={Link} to="/search" variant="contained" size="large">
               Browse Selection
             </Button>
+          </Box>
           </Box>
           <Box className="features-box">
             <div className="features">
