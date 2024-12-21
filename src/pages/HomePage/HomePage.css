@@ -155,6 +155,10 @@ background-blend-mode: difference;
 
 }
 
+.feature-title{
+  display: flex;
+}
+
 
 
 @keyframes b{

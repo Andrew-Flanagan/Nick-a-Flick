@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Box, Typography, Button, Container, TextField, FormControlLabel } from "@mui/material";
 import { useLocation } from "react-router-dom";
+import { Box, Typography, Button, Container, TextField, FormControlLabel, Snackbar, Alert, Checkbox } from "@mui/material";
 import emailjs from '@emailjs/browser';
-import Snackbar from '@mui/material/Snackbar';
-import Alert from '@mui/material/Alert';
-import Checkbox from '@mui/material/Checkbox';
 
 
 

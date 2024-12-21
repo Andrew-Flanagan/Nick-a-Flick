@@ -1,20 +1,20 @@
-import {
-    Box,
-    Container,
-    Typography,
-  } from "@mui/material";
-import PaginationControls from "../../components/PaginationControls/PaginationControls.jsx"; // Adjust path as needed
-import SearchParams from "../../components/SearchParams/SearchParams.jsx";
+import React, { useEffect } from "react";
+import { Box, Container, Typography } from "@mui/material";
+
 import { useMovies } from "../../hooks/useMovies"; // Assuming you separated the hook and reducer
-import movieList from "../../data/updated_data.json";
-import "./SearchPage.css";
-import genres from "../../data/genres.json";
-import staff_picks from "../../data/staff_picks.json";
+import { ModalProvider } from "../../hooks/useModal.jsx";
+
 import MovieCarousel from "../../components/MovieCarousel/MovieCarousel";
 import MovieGrid from "../../components/MovieGrid/MovieGrid.jsx";
-import { ModalProvider } from "../../hooks/useModal.jsx";
 import MediaTable from "../../components/MediaTable/MediaTable.jsx";
-import React, { useEffect } from "react";
+import PaginationControls from "../../components/PaginationControls/PaginationControls.jsx"; // Adjust path as needed
+import SearchParams from "../../components/SearchParams/SearchParams.jsx";
+
+import movieList from "../../data/updated_data.json";
+import genres from "../../data/genres.json";
+import staff_picks from "../../data/staff_picks.json";
+
+import "./SearchPage.css";
 
   const SearchPage = () => {
     const {

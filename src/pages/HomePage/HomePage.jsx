@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import { Box, Button, Container, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
-import MovieCarousel from '../../components/MovieCarousel/MovieCarousel';
-import new_releases from "../../data/new_releases.json";
-import '../../styles/fonts.css';
-import './HomePage.css';
+
 import { ModalProvider } from '../../hooks/useModal';
-import nickaflick_logo from "../../assets/images/nickaflick_logo2.PNG";
+import MovieCarousel from '../../components/MovieCarousel/MovieCarousel';
+
+import new_releases from "../../data/new_releases.json";
 import staff_picks from "../../data/staff_picks.json";
+
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
-// import GroupsIcon from '@mui/icons-material/Groups';
 import FastfoodIcon from '@mui/icons-material/Fastfood';
 import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
+import nickaflick_logo from "../../assets/images/nickaflick_logo2.PNG";
+
 import theme from '../../styles/theme';
+import './HomePage.css';
+import '../../styles/fonts.css';
 
 const staff_pick_images = staff_picks.map((movie) => {
   movie.image = `https://image.tmdb.org/t/p/w200${movie.backdrop_path}`;
@@ -84,7 +87,7 @@ const HomePage = () => {
                   }}
                 />
                 <div className="screen-frame">
-                {state.visible && <div className="tv-screen" />} {/* Static Effect */}
+                {state.visible && <div className="tv-screen" />}
                 {state.showImage && state.currentImage < staff_pick_images.length && (
                   <>
                     <img
@@ -120,7 +123,7 @@ const HomePage = () => {
             <div className="features">
               <div className="icon-box">
                 <MeetingRoomIcon sx={{ fontSize: 125, color: theme.palette.secondary.main }} />
-                <Typography variant="h4" align="center" fontWeight="bold" sx={{display: "flex"}}>
+                <Typography variant="h4" align="center" fontWeight="bold" className="feature-title">
                   Open 24/7
                 </Typography>
                 <Typography variant="body" align="center" fontWeight="bold" sx={{display: "flex", color: "#8f8f8f"}}>
@@ -129,7 +132,7 @@ const HomePage = () => {
               </div>
               <div className="icon-box">
                 <LocalMoviesIcon sx={{ fontSize: 125, color: theme.palette.secondary.main }} />
-                <Typography variant="h4" align="center" fontWeight="bold" sx={{display: "flex"}}>
+                <Typography variant="h4" align="center" fontWeight="bold" className="feature-title">
                   1100+ Titles
                 </Typography>
                 <Typography variant="body" align="center" fontWeight="bold" sx={{display: "flex", color: "#8f8f8f"}}>
@@ -138,7 +141,7 @@ const HomePage = () => {
               </div>
               <div className="icon-box">
                 <FastfoodIcon sx={{ fontSize: 125, color: theme.palette.secondary.main }} />
-                <Typography variant="h4" align="center" fontWeight="bold" sx={{display: "flex"}}>
+                <Typography variant="h4" align="center" fontWeight="bold" className="feature-title">
                   Snacks
                 </Typography>
                 <Typography variant="body" align="center" fontWeight="bold" sx={{display: "flex", color: "#8f8f8f"}}>
