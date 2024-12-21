@@ -8,6 +8,20 @@
     animation: flicker 4s linear infinite;
 }
 
+.landing-items{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.button-box{
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
 .logo-container{
   display: flex;
   position: relative;

@@ -59,67 +59,66 @@ const HomePage = () => {
     <ModalProvider>
       <Box sx={{ paddingBottom: "4rem" }}>
         <Container disableGutters maxWidth={false}>
-          <Box sx={{height: "100vh", alignItems: "center"}}>
-          <Typography
-            align="center"
-            variant="h2"
-            fontSize="12vmax"
-            fontWeight="bold"
-            fontFamily="Marquee-Moon"
-            className="test"
-          >
-            WELCOME TO
-          </Typography>
+          <Box className="landing-items">
+            <Typography
+              align="center"
+              variant="h2"
+              fontSize="13vmax"
+              fontWeight="bold"
+              fontFamily="Marquee-Moon"
+              className="test"
+            >
+              WELCOME TO
+            </Typography>
 
-          <div className="logo-container">
-            <img
-              className="logo"
-              src={nickaflick_logo}
-              alt="Nickaflick Logo"
-            />
-            <div className="tv-container">
-              <div className="tv-frame" >
-                <div
-                  className={`tv-buttons ${!state.isClickable ? "disabled" : ""}`}
-                  onClick={toggleVisibility}
-                  style={{
-                    cursor: state.isClickable ? "pointer" : "not-allowed",
-                    opacity: state.isClickable ? 1 : 0.5,
-                  }}
-                />
-                <div className="screen-frame">
-                {state.visible && <div className="tv-screen" />}
-                {state.showImage && state.currentImage < staff_pick_images.length && (
-                  <>
-                    <img
-                      className="tv-image wobblex scanlines"
-                      src={staff_pick_images[state.currentImage]}
-                      alt={`Display ${state.currentImage + 1}`}
-                    />
-                    <div className="tv-effect"/>
-                    </>
-                )}
-                  </div>
+            <div className="logo-container">
+              <img
+                className="logo"
+                src={nickaflick_logo}
+                alt="Nickaflick Logo"
+              />
+              <div className="tv-container">
+                <div className="tv-frame" >
+                  <div
+                    className={`tv-buttons ${!state.isClickable ? "disabled" : ""}`}
+                    onClick={toggleVisibility}
+                    style={{
+                      cursor: state.isClickable ? "pointer" : "not-allowed",
+                      opacity: state.isClickable ? 1 : 0.5,
+                    }}
+                  />
+                  <div className="screen-frame">
+                  {state.visible && <div className="tv-screen" />}
+                  {state.showImage && state.currentImage < staff_pick_images.length && (
+                    <>
+                      <img
+                        className="tv-image wobblex scanlines"
+                        src={staff_pick_images[state.currentImage]}
+                        alt={`Display ${state.currentImage + 1}`}
+                      />
+                      <div className="tv-effect"/>
+                      </>
+                  )}
+                    </div>
+              </div>
+              </div>
             </div>
-            </div>
-          </div>
 
-          <Typography
-            variant="h5"
-            align="center"
-            fontFamily={"cursive"}
-            fontWeight={"bold"}
-            fontStyle={"italic"}
-          >
-            The best movie rental store in town.
-          </Typography>
-          <Box
-            sx={{ display: 'flex', justifyContent: 'center', mt: 1, paddingBottom: "0rem" }}
-          >
-            <Button component={Link} to="/search" variant="contained" size="large">
-              Browse Selection
-            </Button>
-          </Box>
+            <Typography
+              variant="h5"
+              align="center"
+              fontFamily={"cursive"}
+              fontWeight={"bold"}
+              fontStyle={"italic"}
+              sx={{size: "2rem"}}
+            >
+              The best movie rental store in town.
+            </Typography>
+            <Box className="button-box">
+              <Button component={Link} to="/search" variant="contained" size="large">
+                Browse Selection
+              </Button>
+            </Box>
           </Box>
           <Box className="features-box">
             <div className="features">
@@ -153,9 +152,11 @@ const HomePage = () => {
             </div>
           </Box>
           <MovieCarousel data={new_releases} subTitle="New Release" />
-          <Button component={Link} to="/search" variant="contained" size="large" sx={{display: "flex", margin: "auto", width: "30%", marginTop: "2rem"}}>
+          <Box className="button-box">
+            <Button component={Link} to="/search" variant="contained" size="large">
               Browse Selection
-          </Button>
+            </Button>
+          </Box>
         </Container>
       </Box>
     </ModalProvider>
