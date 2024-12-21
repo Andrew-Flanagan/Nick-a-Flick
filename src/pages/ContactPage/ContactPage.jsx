@@ -57,13 +57,12 @@ const ContactPage = () => {
             setSubmitted(true);
             return;
         }
-        console.log(event.target);
 
         emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATE_ID, event.target, {
             publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY,
         }).then(
             (result) => {
-                console.log("Email sent successfully:", result.text);
+                // console.log("Email sent successfully:", result.text);
                 setOpen(true);
                 setFormData({ name: "", email: "", message: "", subscribe: false });
                 setSubmitted(false);
