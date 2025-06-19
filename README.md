@@ -1,3 +1,19 @@
+# Nick a Flick
+Movie rental site for friends and family to view physical collection.
+
+- ReactJS
+- MaterialUI
+- EmailJS
+- TMDB API for film data
+- data stored in static JSON file
+
+Deployed with Vercel.
+
+
+
+
+
+
 # TODO List
 - standardize naming conventions, and remove reference of "movie" since inclusion of television -- "media"? -- possibly include video games at some point
 - use history (URL bar) to make more user friendly (use case: request rental then go back, should put you back in modal with your filters)
