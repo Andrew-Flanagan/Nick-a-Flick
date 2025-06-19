@@ -1,6 +1,6 @@
 # TODO List
 - standardize naming conventions, and remove reference of "movie" since inclusion of television -- "media"? -- possibly include video games at some point
-- not sure correct language to use, but use history (URL bar) to make more user friendly (use case: request rental then go back, should put you back in modal with your filters)
+- use history (URL bar) to make more user friendly (use case: request rental then go back, should put you back in modal with your filters)
 - standardize styling
 - write function to automatically update staff picks and new releases from IDs or title
 - remove react-spring and react spring parallax?
@@ -23,8 +23,6 @@
     - ~~cast/crew ("More info" button to show keywords, cast, crew)~~
     - ~~Fix refresh on child modal open/close~~
 
-- ~~improve grid layout (e.g. if there are 6 items then it should be evenly split instead of 5 on line 1 and 1 on line 2)~~
-    - this was challenging to try
 - ~~Add link to trailer or embedded youtube player~~
 - ~~memoize collection stuff?~~
 - ~~put table into own file~~
