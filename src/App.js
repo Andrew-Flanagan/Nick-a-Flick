@@ -17,13 +17,13 @@ function App() {
           {/* Navbar */}
           <AppBar position="static" sx={{height: "64px"}}>
             <Toolbar>
-              <Button component={Link} to="/" color="inherit" className="Button">
+              <Button id="home-button" component={Link} to="/" color="inherit" className="Button">
                 Home
               </Button>
-              <Button component={Link} to="/search" color="inherit" className="Button">
+              <Button id="search-button" component={Link} to="/search" color="inherit" className="Button">
                 Search
               </Button>
-              <Button component={Link} to="/contact" color="inherit" className="Button">
+              <Button id="contact-button" component={Link} to="/contact" color="inherit" className="Button">
                 Contact
               </Button>
             </Toolbar>

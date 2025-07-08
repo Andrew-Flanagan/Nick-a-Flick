@@ -12,6 +12,7 @@ const MovieBackdrop = ({media, subTitle, gradient}) => {
       return (
         <Box className="img-box" color={gradient}>
           <img
+            id="movie-poster"
             src={`https://image.tmdb.org/t/p/original${media.backdrop_path}`}
             alt={`${media.title} Poster`}
             onClick={!modalData.open ? () => openModal(media) : null}

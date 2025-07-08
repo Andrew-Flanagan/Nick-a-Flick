@@ -25,12 +25,27 @@ const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, o
     }
     return true;
   };
+
+  const sortOptions = [
+    { value: "Name Ascending", label: "Name A-Z" },
+    { value: "Name Descending", label: "Name Z-A" },
+    { value: "Year Ascending", label: "Oldest First" },
+    { value: "Year Descending", label: "Newest First" },
+    { value: "Popularity Descending", label: "Popularity High-Low" },
+    { value: "Popularity Ascending", label: "Popularity Low-High" },
+    { value: "Runtime Descending", label: "Longest First" },
+    { value: "Runtime Ascending", label: "Shortest First" },
+    { value: "Rating Descending", label: "Rating High-Low" },
+    { value: "Rating Ascending", label: "Rating Low-High" },
+  ];
+
   
 
     return (
     <Box>
       <Button
         onClick={onResetFilters}
+        id="remove-filters"
         sx={{
           display: checkFilters() ? "block" : "none",
           marginLeft: "auto",
@@ -54,7 +69,7 @@ const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, o
           >
             <MenuItem value={"All"}>Any Genre</MenuItem>
             {genres.map((genre) => (
-              <MenuItem key={genre.id} value={genre.id}>
+              <MenuItem id={genre.name} key={genre.id} value={genre.id}>
                 {genre.name}
               </MenuItem>
             ))}
@@ -70,16 +85,11 @@ const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, o
                 onChange={onSortChange}
                 variant="standard"
               >
-                <MenuItem value={"Name Ascending"}>Name A-Z</MenuItem>
-                <MenuItem value={"Name Descending"}>Name Z-A</MenuItem>
-                <MenuItem value={"Year Ascending"}>Oldest First</MenuItem>
-                <MenuItem value={"Year Descending"}>Newest First</MenuItem>
-                <MenuItem value={"Popularity Descending"}>Popularity High-Low</MenuItem>
-                <MenuItem value={"Popularity Ascending"}>Popularity Low-High</MenuItem>
-                <MenuItem value={"Runtime Descending"}>Longest First</MenuItem>
-                <MenuItem value={"Runtime Ascending"}>Shortest First</MenuItem>
-                <MenuItem value={"Rating Descending"}>Rating High-Low</MenuItem>
-                <MenuItem value={"Rating Ascending"}>Rating Low-High</MenuItem>
+                {sortOptions.map(option => (
+                  <MenuItem id={option.label} key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
               </Select>
             </FormControl>
               <ButtonGroup
