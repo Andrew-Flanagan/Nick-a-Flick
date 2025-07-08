@@ -64,7 +64,7 @@ const HomePage = () => {
               align="center"
               variant="h2"
               fontSize="13vmax"
-              fontWeight="bold"
+              // fontWeight="bold"
               fontFamily="Marquee-Moon"
               className="test"
             >
@@ -115,7 +115,7 @@ const HomePage = () => {
               The best movie rental store in town.
             </Typography>
             <Box className="button-box">
-              <Button component={Link} to="/search" variant="contained" size="large">
+              <Button component={Link} to="/search" variant="contained" size="large" id="browse-button-top">
                 Browse Selection
               </Button>
             </Box>
@@ -153,7 +153,7 @@ const HomePage = () => {
           </Box>
           <MovieCarousel data={new_releases} subTitle="New Release" />
           <Box className="button-box">
-            <Button component={Link} to="/search" variant="contained" size="large">
+            <Button component={Link} to="/search" variant="contained" size="large" id="browse-button-bottom">
               Browse Selection
             </Button>
           </Box>

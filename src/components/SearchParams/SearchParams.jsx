@@ -88,6 +88,7 @@ const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, o
               >
                 <CustomButton
                     value="grid"
+                    id="grid-button"
                     onClick={onDisplayChange}
                     startIcon={<ViewCompactIcon sx={{marginRight: "-8px"}} />}
                     variant={state.displayAsTable ? "outlined" : "contained"}
@@ -97,6 +98,7 @@ const SearchParams = ({ state, onDisplayChange, onGenreChange, onSearchChange, o
                 </CustomButton>
                 <CustomButton
                     value="table"
+                    id="table-button"
                     onClick={onDisplayChange}
                     startIcon={<TableRowsRoundedIcon sx={{marginRight: "-8px"}}/>}
                     variant={state.displayAsTable ? "contained" : "outlined"}

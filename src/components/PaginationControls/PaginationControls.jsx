@@ -60,17 +60,17 @@ const PaginationControls = ({ page, totalResults, numResults, onPageChange }) =>
 
   return (
     <Box className="page-num-container">
-      <Button onClick={handlePrevPage} startIcon={<ArrowBackIosIcon />} variant="contained" disabled={page === 1}>
+      <Button id="prev-button" onClick={handlePrevPage} startIcon={<ArrowBackIosIcon />} variant="contained" disabled={page === 1}>
           Prev
         </Button>
-      <ButtonGroup>
+      <ButtonGroup id="button-group">
         {getPageButtons(pageArray).map((p) => (
-          <Button key={p} disabled={!Number.isInteger(p)} variant={getVariant(p)} onClick={() => onPageChange(p)}>
+          <Button id={"page-" + p} key={p} disabled={!Number.isInteger(p)} variant={getVariant(p)} onClick={() => onPageChange(p)}>
             {p}
           </Button>
         ))}
       </ButtonGroup>        
-        <Button onClick={handleNextPage} endIcon={<ArrowForwardIosIcon />} variant="contained" disabled={page === totalPages}>
+        <Button id="next-button" onClick={handleNextPage} endIcon={<ArrowForwardIosIcon />} variant="contained" disabled={page === totalPages}>
           Next
         </Button>
     </Box>

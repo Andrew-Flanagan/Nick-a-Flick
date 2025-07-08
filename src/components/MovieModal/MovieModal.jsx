@@ -38,7 +38,7 @@ function InfoModal(movie) {
   return (
     <React.Fragment>
       {(isMoreInfo) && <Typography>
-        <span className="info-modal-button" onClick={handleInfoOpen}>
+        <span className="info-modal-button" id="more-info" onClick={handleInfoOpen}>
           More Info <InfoOutlinedIcon sx={{scale: "0.80"}} />
         </span>
       </Typography>}
@@ -47,7 +47,7 @@ function InfoModal(movie) {
           onClose={handleInfoClose}
       >
         <Box className="info-modal">
-          <Box className="close-icon" onClick={handleInfoClose}>
+          <Box className="close-icon" id="close-icon" onClick={handleInfoClose}>
             <CloseIcon className="close-button" />
           </Box>
           <Box className="info-content">
@@ -162,7 +162,7 @@ const MovieModal = ({ movie, open, handleClose }) => {
             <CloseIcon className="close-button" />
         </Box>
         <Box className="modal-content">
-          <Button color="secondary" variant="contained" className="rent-button" onClick={() => {routeChange(getTitle(movie))}}>Request Rental</Button>
+          <Button color="secondary" variant="contained" id="rent-button" className="rent-button" onClick={() => {routeChange(getTitle(movie))}}>Request Rental</Button>
           <Box className="link-buttons">
             {movie.imdb_id &&
             <Box
@@ -170,6 +170,7 @@ const MovieModal = ({ movie, open, handleClose }) => {
               src={IMDB_logo}
               alt={"IMDB Logo"}
               className="imdb-logo"
+              id="imdb-logo"
               onClick = {() => window.open(`https://www.imdb.com/title/${movie.imdb_id}`, "_blank")}
               />}
             {trailers.length > 0 &&
@@ -179,6 +180,7 @@ const MovieModal = ({ movie, open, handleClose }) => {
               alt={"Youtube Logo"}
               className="imdb-logo"
               onClick = {() => handleYoutubeClick(trailers[0])}
+              id="youtube-logo"
             />}
           </Box>
 

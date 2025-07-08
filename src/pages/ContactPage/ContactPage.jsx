@@ -90,6 +90,7 @@ const ContactPage = () => {
                             fullWidth 
                             label="Name"
                             name="name"
+                            id="name"
                             required
                             sx={{ display: "inline-block", marginRight: "16px" }}
                             onChange={handleChange}
@@ -100,6 +101,7 @@ const ContactPage = () => {
                             fullWidth
                             label="Email"
                             name="email"
+                            id="email"
                             required
                             sx={{ display: "inline-block" }}
                             onChange={handleChange}
@@ -112,6 +114,7 @@ const ContactPage = () => {
                         fullWidth
                         label="Message"
                         name="message"
+                        id="message"
                         multiline
                         slotProps={{ htmlInput: { maxLength: 850 } }}
                         sx={{ margin: "auto", mt: 1, '& .MuiInputBase-root': {
@@ -126,13 +129,14 @@ const ContactPage = () => {
                         control={
                             <Checkbox
                                 name="subscribe"
+                                id="checkbox"
                                 color="primary"
                                 checked={formData.subscribe}
                                 onChange={handleChange}
                             />
                         }/>
                     <Box sx={{ display: "flex" }}>
-                        <Button variant="contained" type="submit" size="large" sx={{ marginLeft: "auto", mt: 1 }}>Send</Button>
+                        <Button id="send-button" variant="contained" type="submit" size="large" sx={{ marginLeft: "auto", mt: 1 }}>Send</Button>
                     </Box>
                 </form>
             </Container>
