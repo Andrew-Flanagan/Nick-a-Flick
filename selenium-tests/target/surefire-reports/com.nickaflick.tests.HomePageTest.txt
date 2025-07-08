@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: com.nickaflick.app.AppTest
+Test set: com.nickaflick.tests.HomePageTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.030 s -- in com.nickaflick.app.AppTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.99 s -- in com.nickaflick.tests.HomePageTest
