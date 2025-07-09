@@ -19,11 +19,11 @@ public class NavBarPage {
     }
 
     public void clickSearch() {
-        driver.findElement(searchButton);
+        driver.findElement(searchButton).click();
     }
 
     public void clickContact() {
-        driver.findElement(contactButton);
+        driver.findElement(contactButton).click();
     }
     
 }

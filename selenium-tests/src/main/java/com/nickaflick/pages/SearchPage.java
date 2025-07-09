@@ -16,8 +16,6 @@ public class SearchPage {
     private final By prevButton = By.id("prev-button");
     private final By pageGroup = By.id("button-group");
     private final By gridPoster = By.className("movie-poster");
-
-
     
 
     public SearchPage(WebDriver driver) {
